@@ -1,0 +1,19 @@
+# Sources, original work and model boundaries
+
+Source access date: 2026-09-06. PLEGA uses original parameterized designs, explanatory text and geometry. No source figure, printable template or third-party artwork is reproduced. The source catalog contains six original starters and two intentional repair cases in English and Spanish. Repository licensing applies to the original implementation and catalog; the linked research remains under its publishers' terms.
+
+| Primary source | What it supports | What PLEGA does with it |
+| --- | --- | --- |
+| [Winder, Magleby and Howell, 2009](https://fab.cba.mit.edu/classes/865.18/discrete/folding/KinematicPaperMechanisms.pdf), DOI 10.1115/1.3046128 | Rigid-link representations of paper mechanisms, including planar and spherical families and endpoint behavior | Background for distinguishing a permitted kinematic motion from material mechanics. The restricted formulas are independently derived in the geometry guide. |
+| [Li, Ju, Gu and Hu, 2011](https://cg.cs.tsinghua.edu.cn/people/~xianying/Papers/V-Popup/index.html), [author-hosted paper](https://cg.cs.tsinghua.edu.cn/people/~xianying/Papers/V-Popup/vpopup%281.8M%29.pdf) | A broader geometric class of V-style pop-ups and sufficient construction conditions | Context and limitations. PLEGA does not claim to implement the paper's complete theorem or arbitrary pop-up topology. |
+| [Glassner, Pop-Up Cards, part 2](https://www.glassner.com/wp-content/uploads/2014/04/CG-CGA-PDF-02-03-Pop-Up-Cards-2-Mar02.pdf) | Interactive paper design and numerical collision sampling | A distinction between finding a collision witness at a pose and certifying the whole continuous motion. PLEGA uses separated swept-y slabs for its supported composition rule. |
+| [Warwick paper engineering resources](https://warwick.ac.uk/fac/sci/wmg/about/outreach/resources/paperengineering/) | Practical folding and assembly education | Context for clear cut/score/tab instructions. No physical success is inferred from these resources for a PLEGA output. |
+| [Official FOLD 1.2 specification](https://github.com/edemaine/fold/blob/main/doc/spec.md) | Crease-pattern fields, assignments, units, independent frames and optional cut support | Separate piece graphs with B/C/M/V assignments, millimetre units and explicit compatibility notes. No invented material-face, layer-order or glued-assembly guarantees. |
+
+The model assumes perfectly rigid panels and zero-thickness straight hinges. It does not calculate force, paper stiffness, gravity, glue curing, fatigue or manufacturing tolerance. Exactly closed and flat endpoints can contain expected contact and change points. Instructions select the intended folding branch.
+
+Closed fit is checked from physical panel/tab extents. Continuous inter-module separation is established only for the documented ordered, disjoint motion lanes, including glue footprints. Overlapping conservative lanes mean the rule does not certify the arrangement; this alone is not proof that a physical collision must occur. Arbitrary artwork silhouettes, riders, nesting and imported geometry are outside this certificate.
+
+Software fixtures verify finite coordinates, rigid distances, common-frame attachments, area conservation, print dimensions, data integrity and repair behavior. They are falsifiable software checks, not photographs or evidence of completed physical builds. Print at actual size, measure the calibration ruler, score the correct material face and check the assembled result separately. Tiled pages are transfer patterns for one continuous material piece.
+
+The contribution is a complete bounded design, diagnosis, repair and fabrication workflow. Parallel steps, V-folds, fold viewers and template exporters are established ideas. PLEGA makes no claim of unprecedented paper mathematics or proven product uniqueness.

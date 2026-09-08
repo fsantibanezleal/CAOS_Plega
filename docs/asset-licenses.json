@@ -1,0 +1,59 @@
+{
+  "schema": "plega-asset-licenses/v1",
+  "codeLicense": "Apache-2.0",
+  "originalDesignDataLicense": "MIT",
+  "fontProvenance": "frontend/src/export/assets/provenance.json",
+  "researchBoundary": "Referenced research is linked only; no third-party source figures, artwork, scans or printable templates are redistributed.",
+  "systemFonts": "Local system font lookup only; no proprietary font binary is redistributed.",
+  "assets": [
+    {
+      "path": "frontend/src/export/assets/NotoSans-Regular.ttf",
+      "bytes": 569208,
+      "sha256": "b85c38ecea8a7cfb39c24e395a4007474fa5a4fc864f6ee33309eb4948d232d5",
+      "license": "OFL-1.1",
+      "origin": "Third-party Noto font; pinned source and complete license in adjacent provenance/OFL files."
+    },
+    {
+      "path": "frontend/public/favicon.svg",
+      "bytes": 253,
+      "sha256": "a8f3e3b9e02cafd459d8f238da33bbf03366ba7b4d98291b4f592faaf71621c1",
+      "license": "Apache-2.0",
+      "origin": "Original PLEGA vector mark authored for this project."
+    },
+    {
+      "path": "data/sources/fixtures.json",
+      "bytes": 1849,
+      "sha256": "0d4cadb1b5d45b5a514c2e855b5339886ca61e122b87cf0bf98863c87f6b9292",
+      "license": "MIT",
+      "origin": "Original parameterized PLEGA starters and repair fixtures."
+    },
+    {
+      "path": "data/sources/projects.json",
+      "bytes": 12174,
+      "sha256": "68c4c3af14b3b4e49d152a9b8e5e5aeac5acb40ef24c8b78f1b75833da3bacd7",
+      "license": "MIT",
+      "origin": "Original parameterized PLEGA starters and repair fixtures."
+    },
+    {
+      "path": "data/artifacts/fixtures.json",
+      "bytes": 1849,
+      "sha256": "0d4cadb1b5d45b5a514c2e855b5339886ca61e122b87cf0bf98863c87f6b9292",
+      "license": "MIT",
+      "origin": "Deterministic derivatives and integrity index of original PLEGA data."
+    },
+    {
+      "path": "data/artifacts/integrity.json",
+      "bytes": 1231,
+      "sha256": "0c3bbcf67c7121f8b4fc4c5d45e933734c2594da8a21159c29b4881e79fd824e",
+      "license": "MIT",
+      "origin": "Deterministic derivatives and integrity index of original PLEGA data."
+    },
+    {
+      "path": "data/artifacts/projects.json",
+      "bytes": 12174,
+      "sha256": "68c4c3af14b3b4e49d152a9b8e5e5aeac5acb40ef24c8b78f1b75833da3bacd7",
+      "license": "MIT",
+      "origin": "Deterministic derivatives and integrity index of original PLEGA data."
+    }
+  ]
+}
