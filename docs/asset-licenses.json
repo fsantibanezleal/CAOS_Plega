@@ -4,7 +4,7 @@
   "originalDesignDataLicense": "MIT",
   "fontProvenance": "frontend/src/export/assets/provenance.json",
   "researchBoundary": "Referenced research is linked only; no third-party source figures, artwork, scans or printable templates are redistributed.",
-  "systemFonts": "Local system font lookup only; no proprietary font binary is redistributed.",
+  "systemFonts": "Self-hosted unmodified OFL UI fonts; system fonts are fallback lookups only. The original Noto Sans print font remains bundled separately.",
   "assets": [
     {
       "path": "frontend/src/export/assets/NotoSans-Regular.ttf",
@@ -16,7 +16,7 @@
     {
       "path": "frontend/public/favicon.svg",
       "bytes": 253,
-      "sha256": "a8f3e3b9e02cafd459d8f238da33bbf03366ba7b4d98291b4f592faaf71621c1",
+      "sha256": "c78b2d1fa36d0c97a5b362ad634e6b0100feeaee3895244a92c0edfcdc6b8b9d",
       "license": "Apache-2.0",
       "origin": "Original PLEGA vector mark authored for this project."
     },
@@ -29,8 +29,8 @@
     },
     {
       "path": "data/sources/projects.json",
-      "bytes": 12174,
-      "sha256": "68c4c3af14b3b4e49d152a9b8e5e5aeac5acb40ef24c8b78f1b75833da3bacd7",
+      "bytes": 36965,
+      "sha256": "4957329bbfa947d85302fe4a655acdc229b27884b0d167de100cf5c324b3256a",
       "license": "MIT",
       "origin": "Original parameterized PLEGA starters and repair fixtures."
     },
@@ -43,17 +43,53 @@
     },
     {
       "path": "data/artifacts/integrity.json",
-      "bytes": 1231,
-      "sha256": "0c3bbcf67c7121f8b4fc4c5d45e933734c2594da8a21159c29b4881e79fd824e",
+      "bytes": 1232,
+      "sha256": "df7327fcd41cccbe3743d9df62a721025b1a6e78345209f9ed3dd7a7709cbb4d",
       "license": "MIT",
       "origin": "Deterministic derivatives and integrity index of original PLEGA data."
     },
     {
       "path": "data/artifacts/projects.json",
-      "bytes": 12174,
-      "sha256": "68c4c3af14b3b4e49d152a9b8e5e5aeac5acb40ef24c8b78f1b75833da3bacd7",
+      "bytes": 36965,
+      "sha256": "4957329bbfa947d85302fe4a655acdc229b27884b0d167de100cf5c324b3256a",
       "license": "MIT",
       "origin": "Deterministic derivatives and integrity index of original PLEGA data."
+    },
+    {
+      "path": "frontend/public/fonts/IBMPlexSans-OFL.txt",
+      "license": "OFL-1.1",
+      "origin": "Unmodified Google Fonts source, complete upstream license and pinned provenance distributed together.",
+      "bytes": 4456,
+      "sha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da"
+    },
+    {
+      "path": "frontend/public/fonts/IBMPlexSans.ttf",
+      "license": "OFL-1.1",
+      "origin": "Unmodified Google Fonts source, complete upstream license and pinned provenance distributed together.",
+      "bytes": 537244,
+      "sha256": "3b031aa4216174205bd8471f88a49b91f093169e9e87bd5262242bc5967fe2e3"
+    },
+    {
+      "path": "frontend/public/fonts/provenance.json",
+      "license": "Apache-2.0",
+      "origin": "Unmodified Google Fonts source, complete upstream license and pinned provenance distributed together.",
+      "bytes": 1323,
+      "sha256": "c8844d7eb5c4c70e93a8e3679c8fac7da573e860a38b77553ad52ad55a29b32d"
+    },
+    {
+      "path": "frontend/public/fonts/SpaceGrotesk-OFL.txt",
+      "license": "OFL-1.1",
+      "origin": "Unmodified Google Fonts source, complete upstream license and pinned provenance distributed together.",
+      "bytes": 4495,
+      "sha256": "564ce565c371c5e5bbf286006565a7c9aa55a9f56e7ca58d56e05d649dd61a72"
+    },
+    {
+      "path": "frontend/public/fonts/SpaceGrotesk.ttf",
+      "license": "OFL-1.1",
+      "origin": "Unmodified Google Fonts source, complete upstream license and pinned provenance distributed together.",
+      "bytes": 136676,
+      "sha256": "acad6de1fc93436f5c0f1f4137751ef04f1aea3063e7036535970ffcfbd79f72"
     }
-  ]
+  ],
+  "uiFontProvenance": "frontend/public/fonts/provenance.json"
 }

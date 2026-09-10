@@ -38,13 +38,19 @@ export function MiniPaper({ scene }: { scene: Scene | null }) {
               b.vertices.length,
         )
         .map((panel) => (
-          <polygon
+          <path
             key={panel.id}
-            points={panel.vertices.map((p) => project(p).join(",")).join(" ")}
+            d={panel.triangles
+              .map(
+                (tri) =>
+                  "M" +
+                  tri
+                    .map((i) => project(panel.vertices[i]).join(","))
+                    .join("L") +
+                  "Z",
+              )
+              .join(" ")}
             fill={panel.color}
-            stroke="#72687a"
-            strokeWidth=".65"
-            strokeLinejoin="round"
           />
         ))}
     </svg>
@@ -142,12 +148,18 @@ export function PrintViewer({
               )}
               <g clipPath={clip ? `url(#${id})` : undefined}>
                 {piece.faces.map((face) => (
-                  <polygon
+                  <path
                     key={face.id}
                     data-face-id={face.id}
-                    points={face.polygon
-                      .map((p) => point(p).join(","))
+                    d={[face.polygon, ...(face.holes ?? [])]
+                      .map(
+                        (poly) =>
+                          "M" +
+                          poly.map((p) => point(p).join(",")).join("L") +
+                          "Z",
+                      )
                       .join(" ")}
+                    fillRule="evenodd"
                     fill={face.fill}
                     fillOpacity={face.moduleId === selected ? 0.75 : 0.33}
                     stroke={face.moduleId === selected ? "#664790" : "none"}

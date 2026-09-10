@@ -26,6 +26,13 @@ function splitCrossings(segments: Segment[]) {
         s = sub(b.b, b.a),
         den = cross(r, s),
         q = sub(b.a, a.a);
+      if (
+        Math.max(a.a[0], a.b[0]) < Math.min(b.a[0], b.b[0]) - EPS ||
+        Math.max(b.a[0], b.b[0]) < Math.min(a.a[0], a.b[0]) - EPS ||
+        Math.max(a.a[1], a.b[1]) < Math.min(b.a[1], b.b[1]) - EPS ||
+        Math.max(b.a[1], b.b[1]) < Math.min(a.a[1], a.b[1]) - EPS
+      )
+        continue;
       if (Math.abs(den) > EPS) {
         const t = cross(q, s) / den,
           u = cross(q, r) / den;
@@ -57,6 +64,16 @@ export function makeFoldDocuments(
   const pieces = makePieces(project),
     docs: FoldDocument[] = [],
     frames: Record<string, unknown>[] = [];
+  if (
+    pieces.some((p) => p.lines.length > 5000) ||
+    pieces.reduce((n, p) => n + p.lines.length, 0) > 12000
+  )
+    return {
+      ok: false,
+      diagnostics: [
+        diag("FOLD_DENSITY", [], {}, ["fold-export"], "cut-graph-budget"),
+      ],
+    };
   for (const p of pieces) {
     const segments: Segment[] = p.lines.map((l) => ({
       a: l.points[0],

@@ -1,39 +1,52 @@
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/fonts/SpaceGrotesk.ttf") format("truetype");
+  font-weight: 300 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("/fonts/IBMPlexSans.ttf") format("truetype");
+  font-weight: 100 700;
+  font-stretch: 75% 100%;
+  font-display: swap;
+}
 :root {
-  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  color: #303044;
-  background: #f4f2ee;
+  font-family: "IBM Plex Sans", Arial, sans-serif;
+  color: #242729;
+  background: #f3eee4;
   font-synthesis: weight;
-  --ink: #303044;
-  --muted: #777381;
-  --soft: #a59ead;
-  --line: #dedbe4;
-  --surface: #fffdf9;
-  --canvas: #eeeaf4;
-  --panel: #f9f7f4;
-  --page: #f4f2ee;
-  --accent: #67558c;
-  --accent-soft: #e9e1f3;
-  --coral: #eb957a;
-  --green: #3b7765;
-  --warning: #986626;
-  --shadow: 0 18px 50px #3a2b5712;
+  --ink: #242729;
+  --muted: #62676b;
+  --soft: #8d9294;
+  --line: #d6d5cf;
+  --surface: #fffcf5;
+  --canvas: #eae9df;
+  --panel: #f7f3e9;
+  --page: #f3eee4;
+  --accent: #234fdf;
+  --accent-soft: #e1e9ff;
+  --coral: #ec7428;
+  --green: #236e58;
+  --warning: #945d0d;
+  --shadow: 0 18px 50px #1c2b3512;
   color-scheme: light;
 }
 :root[data-theme="dark"] {
-  --ink: #ede8f3;
-  --muted: #b3aabd;
-  --soft: #8b809a;
-  --line: #423b50;
-  --surface: #272331;
-  --canvas: #252130;
-  --panel: #2d2737;
-  --page: #201c28;
-  --accent: #c3ace7;
-  --accent-soft: #443751;
-  --coral: #f1ac8f;
-  --green: #9ccdb6;
-  --warning: #e4bd83;
-  --shadow: 0 18px 50px #100b1729;
+  --ink: #f6f2e8;
+  --muted: #babfbd;
+  --soft: #929a97;
+  --line: #454a46;
+  --surface: #252a27;
+  --canvas: #202622;
+  --panel: #2b312d;
+  --page: #171d19;
+  --accent: #9cb6ff;
+  --accent-soft: #2c3b62;
+  --coral: #ffa665;
+  --green: #94d2b6;
+  --warning: #f3c579;
+  --shadow: 0 18px 50px #090d0b29;
   color-scheme: dark;
   background: var(--page);
   color: var(--ink);
@@ -478,7 +491,7 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #37303d;
+  color: #282c28;
   flex-shrink: 0;
 }
 .part > span:nth-child(2) {
@@ -594,7 +607,7 @@ h2 {
 }
 .segmented button[aria-pressed="true"] {
   background: var(--surface);
-  box-shadow: 0 1px 4px #25203312;
+  box-shadow: 0 1px 4px #1c2b3512;
   color: var(--ink);
 }
 .status-chip {
@@ -621,10 +634,10 @@ h2 {
   min-height: 430px;
   flex: 1;
   overflow: hidden;
-  background: radial-gradient(ellipse at 50% 46%, #f8f6fc70 0, transparent 65%);
+  background: radial-gradient(ellipse at 50% 46%, #fffdf260 0, transparent 65%);
 }
 [data-theme="dark"] .stage {
-  background: radial-gradient(ellipse at 50% 46%, #50425b50 0, transparent 67%);
+  background: radial-gradient(ellipse at 50% 46%, #5a675020 0, transparent 67%);
 }
 .stage-title {
   position: absolute;
@@ -635,7 +648,7 @@ h2 {
   max-width: calc(100% - 90px);
 }
 .stage-title h1 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Space Grotesk", sans-serif;
   font-weight: 400;
   font-size: clamp(28px, 2.6vw, 43px);
   line-height: 1.15;
@@ -684,7 +697,7 @@ h2 {
   border-radius: 7px;
   background: var(--surface);
   padding: 4px;
-  box-shadow: 0 4px 16px #40344508;
+  box-shadow: 0 4px 16px #29342608;
 }
 .camera-tools .icon-button {
   width: 29px;
@@ -719,7 +732,7 @@ h2 {
   text-align: center;
 }
 .viewer-fallback strong {
-  font-family: Georgia, serif;
+  font-family: "Space Grotesk", sans-serif;
   font-size: 24px;
   font-weight: 400;
 }
@@ -881,7 +894,7 @@ h2 {
   align-items: center;
   justify-content: center;
   padding: 0;
-  color: #302638;
+  color: #242729;
 }
 .color-chip[aria-pressed="true"] {
   outline: 1px solid var(--ink);
@@ -960,10 +973,10 @@ h2 {
   font-size: 9px;
 }
 .danger {
-  color: #aa604d;
+  color: #a14f12;
 }
 [data-theme="dark"] .danger {
-  color: #efb09a;
+  color: #ffaf72;
 }
 .card-settings {
   border-top: 1px solid var(--line);
@@ -1301,7 +1314,7 @@ h2 {
   max-height: 100%;
   max-width: 100%;
   height: 100%;
-  box-shadow: 0 5px 24px #29233920;
+  box-shadow: 0 5px 24px #27312820;
 }
 .print-empty {
   max-width: 260px;
@@ -1460,11 +1473,11 @@ progress::-webkit-progress-value {
   border-radius: 14px;
   color: var(--ink);
   background: var(--surface);
-  box-shadow: 0 30px 110px #0e071b50;
+  box-shadow: 0 30px 110px #0d160f50;
   overflow-y: auto;
 }
 .dialog::backdrop {
-  background: #211a36a8;
+  background: #18211ac9;
   backdrop-filter: blur(5px);
 }
 .dialog-heading {
@@ -1475,7 +1488,7 @@ progress::-webkit-progress-value {
   margin-bottom: 18px;
 }
 .dialog-heading h2 {
-  font-family: Georgia, serif;
+  font-family: "Space Grotesk", sans-serif;
   font-weight: 400;
   font-size: 27px;
   letter-spacing: -0.6px;
@@ -1534,17 +1547,17 @@ progress::-webkit-progress-value {
 .starter-art {
   height: 145px;
   position: relative;
-  background: #eee4dc;
+  background: #f5e8d3;
   padding: 17px 24px;
 }
 .art-1 {
-  background: #e9e1f1;
+  background: #e1e9f6;
 }
 .art-2 {
-  background: #dfeae5;
+  background: #e2e9d3;
 }
 .art-3 {
-  background: #efe8d4;
+  background: #f1e3cb;
 }
 .starter-art > svg {
   width: 100%;
@@ -1555,7 +1568,7 @@ progress::-webkit-progress-value {
   left: 12px;
   top: 10px;
   font-size: 7px;
-  color: #5e5467;
+  color: #536057;
   letter-spacing: 1px;
 }
 .starter-card > div:last-child {
@@ -1630,7 +1643,7 @@ progress::-webkit-progress-value {
   min-height: 440px;
 }
 .guide-article h3 {
-  font-family: Georgia, serif;
+  font-family: "Space Grotesk", sans-serif;
   font-size: 30px;
   line-height: 1.2;
   letter-spacing: -0.6px;
@@ -1666,13 +1679,13 @@ progress::-webkit-progress-value {
   padding: 18px 20px;
   border-left: 3px solid var(--coral);
   background: var(--panel);
-  font-family: Georgia, serif;
+  font-family: "Space Grotesk", sans-serif;
   font-size: 18px;
   line-height: 1.55;
   margin: 23px 0;
 }
 .formula {
-  font-family: Georgia, serif;
+  font-family: "Space Grotesk", sans-serif;
   font-size: 21px;
   line-height: 1.85;
   letter-spacing: 0.4px;
@@ -2547,6 +2560,638 @@ progress::-webkit-progress-value {
     font-size: 11px;
   }
 }
+/* The workshop is an instrument: the scene stays on screen while each tool
+   panel scrolls within its own bounded area. Printing keeps its own layout. */
+@media screen {
+  html,
+  body,
+  #root {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .app {
+    width: 100%;
+    max-width: none;
+    height: 100dvh;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .masthead,
+  .project-bar,
+  .workflow,
+  .notice,
+  .app-footer {
+    flex-shrink: 0;
+  }
+  .masthead {
+    height: 52px;
+    padding: 0 24px;
+  }
+  .brand > span {
+    font-size: 29px;
+  }
+  .project-bar {
+    padding: 10px 24px;
+  }
+  .project-name input {
+    font-size: 20px;
+  }
+  .workflow {
+    margin: 0 24px;
+  }
+  .workflow > button,
+  .workflow > button:first-child,
+  .workflow > button:last-of-type {
+    padding-top: 11px;
+    padding-bottom: 11px;
+  }
+  .notice {
+    margin: 5px 24px 0;
+    max-height: 58px;
+    overflow: auto;
+  }
+  .workbench {
+    flex: 1 1 0;
+    display: grid;
+    grid-template-columns: 190px minmax(0, 1fr) 310px;
+    grid-template-rows: minmax(0, 1fr);
+    min-width: 0;
+    min-height: 0;
+    margin: 10px 16px 0;
+    overflow: hidden;
+  }
+  .parts-panel,
+  .stage-column,
+  .inspector {
+    min-width: 0;
+    min-height: 0;
+    max-height: 100%;
+  }
+  .parts-panel {
+    padding: 16px 12px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-gutter: stable;
+  }
+  .parts-panel > * {
+    flex-shrink: 0;
+  }
+  .parts-panel .panel-heading {
+    margin-bottom: 12px;
+  }
+  .parts-list {
+    min-width: 0;
+  }
+  .zone-diagram svg {
+    height: 170px;
+  }
+  .left-bottom {
+    padding-top: 12px;
+  }
+  .stage-column {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .stage-heading,
+  .motion-control,
+  .print-legend,
+  .stage-foot {
+    flex-shrink: 0;
+  }
+  .stage-heading {
+    padding: 10px 16px;
+    gap: 8px;
+  }
+  .stage {
+    flex: 1 1 0;
+    height: auto;
+    min-height: 0;
+  }
+  .stage-title {
+    top: 18px;
+    left: 22px;
+    right: 65px;
+    max-width: none;
+  }
+  .stage-title h1 {
+    font-size: clamp(25px, 2.5vw, 42px);
+  }
+  .paper-viewer {
+    inset: 62px 0 6px;
+  }
+  .camera-tools {
+    top: 76px;
+    right: 12px;
+  }
+  .motion-control {
+    padding: 10px 20px;
+    gap: 14px;
+  }
+  .stage-foot {
+    padding: 7px 16px;
+  }
+  .inspector {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .inspector-content {
+    flex: 1 1 0;
+    min-height: 0;
+    max-height: none;
+    padding: 18px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+  }
+  .cutwork-controls {
+    display: grid;
+    gap: 12px;
+    padding: 15px 0;
+    margin: 12px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .cutwork-controls label {
+    min-width: 0;
+  }
+  .cutwork-controls select {
+    width: 100%;
+    min-width: 0;
+    min-height: 36px;
+    padding: 7px 9px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    color: var(--ink);
+    background: var(--surface);
+  }
+  .app-footer {
+    min-height: 28px;
+    padding: 7px 20px;
+    gap: 12px;
+  }
+  .dialog {
+    max-height: calc(100dvh - 24px);
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+  }
+}
+@media screen and (min-width: 1800px) {
+  .workbench {
+    grid-template-columns: 210px minmax(0, 1fr) 330px;
+  }
+}
+@media screen and (min-width: 801px) and (max-width: 1100px) {
+  .workbench {
+    grid-template-columns: 155px minmax(0, 1fr) 260px;
+    margin-inline: 10px;
+  }
+  .parts-panel {
+    padding: 12px 8px;
+  }
+  .inspector-content {
+    padding: 15px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .masthead {
+    height: 46px;
+    padding: 0 14px;
+  }
+  .project-bar {
+    padding: 8px 14px;
+  }
+  .workflow {
+    margin: 0 14px;
+  }
+  .workbench {
+    margin: 6px 8px 0;
+    grid-template-columns: minmax(0, 1fr) 270px;
+    grid-template-rows: 56px minmax(0, 1fr);
+  }
+  .parts-panel {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 8px;
+    overflow: hidden;
+    scrollbar-gutter: auto;
+  }
+  .parts-list {
+    flex: 1 1 0;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    align-self: stretch;
+    align-items: center;
+    overscroll-behavior: contain;
+  }
+  .part {
+    flex: 0 0 130px;
+    width: 130px;
+    min-width: 130px;
+    min-height: 38px;
+    padding: 4px;
+  }
+  .part-swatch {
+    width: 24px;
+    height: 28px;
+  }
+  .add-buttons {
+    flex: 0 0 auto;
+    flex-direction: row;
+    gap: 4px;
+    margin: 0;
+  }
+  .add-buttons .button {
+    min-height: 34px;
+    padding: 5px;
+    font-size: 9px;
+  }
+  .parts-panel > .pack-button {
+    display: flex;
+    flex: 0 0 auto;
+    min-height: 34px;
+    width: auto;
+    margin: 0;
+    padding: 5px;
+    font-size: 9px;
+  }
+  .stage-heading {
+    padding: 7px 10px;
+    flex-wrap: nowrap;
+  }
+  .stage-title {
+    top: 14px;
+    left: 16px;
+    right: 50px;
+  }
+  .stage-title h1 {
+    font-size: 28px;
+  }
+  .paper-viewer {
+    inset: 54px 0 4px;
+  }
+  .motion-control {
+    padding: 6px 12px;
+    gap: 10px;
+  }
+  .play-button {
+    width: 34px;
+    height: 34px;
+  }
+  .fold-slider input {
+    margin: 3px 0;
+  }
+  .stage-foot {
+    padding: 5px 10px;
+  }
+  .app-footer {
+    min-height: 25px;
+    padding: 5px 12px;
+  }
+  .notice {
+    margin: 4px 12px 0;
+    max-height: 45px;
+  }
+}
+@media screen and (max-width: 620px) {
+  .brand > span {
+    font-size: 26px;
+  }
+  .masthead {
+    height: 43px;
+  }
+  .project-bar {
+    flex-wrap: nowrap;
+    gap: 6px;
+    padding-block: 6px;
+  }
+  .project-name {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .project-name input {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+  .project-eyebrow {
+    font-size: 7px;
+  }
+  .save-state {
+    font-size: 8px;
+    line-height: 1.3;
+  }
+  .project-tools {
+    flex: 0 0 auto;
+  }
+  .workflow > button,
+  .workflow > button:first-child,
+  .workflow > button:last-of-type {
+    min-height: 34px;
+    padding-block: 8px;
+  }
+  .workbench {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 52px minmax(0, 1fr) minmax(130px, 24%);
+    border-radius: 8px;
+  }
+  .parts-panel {
+    gap: 5px;
+    padding: 4px 6px;
+  }
+  .parts-list {
+    gap: 4px;
+  }
+  .part {
+    flex-basis: 120px;
+    min-width: 120px;
+    width: 120px;
+  }
+  .part strong {
+    font-size: 9px;
+  }
+  .part small {
+    font-size: 7px;
+  }
+  .add-buttons {
+    flex-direction: column;
+    gap: 2px;
+  }
+  .add-buttons .button {
+    min-height: 20px;
+    font-size: 8px;
+    padding: 2px 4px;
+  }
+  .parts-panel > .pack-button {
+    width: 42px;
+    min-height: 38px;
+    padding: 3px;
+    font-size: 8px;
+    line-height: 1.2;
+  }
+  .stage-heading {
+    min-height: 34px;
+    padding: 5px 9px;
+  }
+  .segmented button {
+    padding: 4px 7px;
+  }
+  .stage-title h1 {
+    font-size: 25px;
+  }
+  .stage-title .eyebrow {
+    font-size: 6.5px;
+    letter-spacing: 0.8px;
+  }
+  .camera-tools {
+    top: 65px;
+    right: 9px;
+  }
+  .motion-control {
+    padding: 5px 12px;
+  }
+  .fold-slider output {
+    font-size: 13px;
+  }
+  .fold-slider label {
+    font-size: 9px;
+  }
+  .angle-presets button {
+    min-height: 20px;
+  }
+  .stage-foot > span {
+    font-size: 7px;
+  }
+  .stage-foot .text-button {
+    font-size: 8px;
+  }
+  .print-preview {
+    inset: 58px 18px 32px;
+  }
+  .print-legend {
+    padding: 7px 10px;
+    gap: 9px;
+    font-size: 7px;
+  }
+  .inspector-content {
+    padding: 14px 18px 20px;
+    overflow-y: auto;
+  }
+  .inspector .panel-heading {
+    margin-bottom: 12px;
+  }
+  .inspector h2 {
+    font-size: 20px;
+  }
+  .app-footer {
+    flex-wrap: nowrap;
+    font-size: 8px;
+    min-height: 24px;
+    padding-block: 5px;
+  }
+  .app-footer small {
+    font-size: 7px;
+  }
+}
+@media screen and (max-height: 740px) and (max-width: 620px) {
+  .masthead {
+    height: 39px;
+  }
+  .project-eyebrow {
+    display: none;
+  }
+  .project-bar {
+    padding-block: 4px;
+  }
+  .workbench {
+    grid-template-rows: 48px minmax(0, 1fr) minmax(112px, 22%);
+  }
+  .stage-heading {
+    min-height: 30px;
+    padding-block: 3px;
+  }
+  .stage-title {
+    top: 10px;
+  }
+  .stage-title h1 {
+    font-size: 22px;
+  }
+  .paper-viewer {
+    inset: 44px 0 4px;
+  }
+  .camera-tools {
+    top: 50px;
+    gap: 0;
+  }
+  .camera-tools .icon-button {
+    width: 26px;
+    height: 25px;
+  }
+  .scene-measure {
+    right: 53px;
+    bottom: 27px;
+    font-size: 8px;
+  }
+  .motion-control {
+    padding-block: 3px;
+  }
+  .stage-foot {
+    padding-block: 3px;
+  }
+  .app-footer {
+    min-height: 20px;
+    padding-block: 3px;
+  }
+}
+@media screen and (max-height: 550px) and (min-width: 621px) {
+  .masthead {
+    height: 38px;
+  }
+  .project-bar {
+    padding-block: 4px;
+  }
+  .workflow > button,
+  .workflow > button:first-child,
+  .workflow > button:last-of-type {
+    padding-block: 6px;
+  }
+  .workbench {
+    grid-template-columns: 135px minmax(0, 1fr) 245px;
+    grid-template-rows: minmax(0, 1fr);
+    margin-top: 4px;
+  }
+  .parts-panel {
+    grid-column: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 8px;
+    overflow-y: auto;
+    border-right: 1px solid var(--line);
+  }
+  .parts-list {
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: stretch;
+    overflow: visible;
+  }
+  .part {
+    flex-basis: auto;
+    width: 100%;
+    min-width: 0;
+  }
+  .add-buttons {
+    flex-direction: column;
+  }
+  .parts-panel > .pack-button {
+    width: 100%;
+  }
+  .stage-title {
+    top: 8px;
+  }
+  .stage-title h1 {
+    font-size: 20px;
+  }
+  .paper-viewer {
+    inset: 38px 0 0;
+  }
+  .camera-tools {
+    top: 42px;
+  }
+  .orbit-hint {
+    bottom: 5px;
+  }
+  .project-name {
+    grid-template-columns: auto auto;
+    gap: 2px 10px;
+  }
+  .project-eyebrow {
+    display: none;
+  }
+  .project-name input {
+    font-size: 17px;
+    width: 195px;
+  }
+  .save-state {
+    grid-column: auto;
+    font-size: 8px;
+  }
+  .project-tools .button {
+    min-height: 30px;
+    padding-block: 5px;
+  }
+  .stage-heading {
+    padding: 4px 10px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  .camera-tools {
+    top: auto;
+    bottom: 5px;
+    flex-direction: row;
+    padding: 2px;
+    gap: 0;
+  }
+  .camera-tools .icon-button {
+    width: 25px;
+    height: 25px;
+  }
+  .camera-tools .tool-divider {
+    display: none;
+  }
+  .paper-viewer {
+    inset: 34px 0 26px;
+  }
+  .orbit-hint {
+    max-width: calc(100% - 180px);
+    font-size: 6px;
+  }
+  .scene-measure {
+    top: 7px;
+    right: 10px;
+    bottom: auto;
+    font-size: 8px;
+  }
+  .motion-control {
+    padding: 3px 12px;
+    gap: 10px;
+  }
+  .play-button {
+    width: 30px;
+    height: 30px;
+  }
+  .fold-slider label {
+    font-size: 9px;
+  }
+  .fold-slider output {
+    font-size: 13px;
+  }
+  .fold-slider input {
+    margin: 2px 0;
+  }
+  .angle-presets button {
+    font-size: 8px;
+  }
+  .stage-foot {
+    padding: 3px 10px;
+  }
+  .app-footer {
+    min-height: 20px;
+    padding-block: 3px;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   *,
   *:before,
@@ -2576,5 +3221,293 @@ progress::-webkit-progress-value {
   }
   .stage {
     height: 500px;
+  }
+}
+
+/* Plega v0.02: a warm paper engineering instrument. */
+.logo,
+h1,
+h2,
+h3,
+.project-title,
+.workflow {
+  font-family: "Space Grotesk", sans-serif;
+}
+.stage {
+  background-color: var(--canvas);
+  background-image:
+    linear-gradient(
+      color-mix(in srgb, var(--ink) 3%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--ink) 3%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 28px 28px;
+}
+.stage-title h1 {
+  font-weight: 600;
+  letter-spacing: -0.045em;
+}
+.stage-title .eyebrow {
+  color: var(--accent);
+}
+.workbench {
+  border-radius: 6px;
+}
+.button.primary {
+  background: var(--accent);
+  color: #fff;
+}
+:root[data-theme="dark"] .button.primary {
+  color: #142139;
+}
+.workflow button[aria-current="step"] {
+  color: var(--accent);
+}
+
+/* Precision fields complement canvas handles without duplicating them as sliders. */
+.numeric-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.numeric-field .field-heading {
+  flex: 1;
+  margin: 0;
+  gap: 4px;
+}
+.numeric-field .field-heading label {
+  max-width: 130px;
+}
+.number-line {
+  gap: 3px;
+}
+.number-box {
+  width: 64px;
+}
+.dimension-step {
+  width: 23px;
+  height: 27px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 3px;
+  color: var(--accent);
+  font-size: 15px;
+}
+.detail-options {
+  margin: 12px 0 16px;
+  font-size: 10px;
+  color: var(--muted);
+}
+.detail-options > div {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  margin-top: 8px;
+  gap: 4px;
+}
+.detail-options button {
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  height: 29px;
+  color: var(--ink);
+  background: var(--surface);
+}
+.detail-options button[aria-pressed="true"] {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+[data-theme="dark"] .detail-options button[aria-pressed="true"] {
+  color: #15223b;
+}
+.cutwork-web {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.cutwork-web input {
+  max-width: 72px;
+}
+.cutwork-count {
+  color: var(--accent);
+  font-size: 10px;
+  margin-bottom: 8px;
+}
+.cutwork-count strong {
+  font:
+    600 20px "Space Grotesk",
+    sans-serif;
+  margin-right: 5px;
+}
+
+/* Reserve the workbench for the object; its editable title already lives above. */
+@media screen {
+  .masthead {
+    height: 42px;
+    min-height: 42px;
+    padding-block: 0;
+  }
+  .brand > span {
+    font-size: 26px;
+  }
+  .brand svg {
+    width: 29px;
+    height: 29px;
+  }
+  .project-bar {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    min-height: 42px;
+  }
+  .project-eyebrow {
+    display: none;
+  }
+  .project-name input {
+    font-size: 18px;
+  }
+  .workflow > button,
+  .workflow > button:first-child,
+  .workflow > button:last-of-type {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    min-height: 32px;
+  }
+  .workbench {
+    margin-top: 6px;
+  }
+  .stage:not(.has-stage-title) .paper-viewer {
+    inset: 4px 0 6px;
+  }
+  .stage:not(.has-stage-title) .camera-tools {
+    top: 11px;
+  }
+  .stage:not(.has-stage-title) .print-preview {
+    inset: 12px 20px 34px;
+  }
+  .cutwork-controls {
+    gap: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+@media screen and (max-width: 620px) {
+  .masthead {
+    height: 36px;
+    min-height: 36px;
+  }
+  .project-bar {
+    min-height: 38px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+  .project-name {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1px;
+  }
+  .project-name input {
+    font-size: 15px;
+  }
+  .save-state {
+    font-size: 7px;
+  }
+  .workflow > button,
+  .workflow > button:first-child,
+  .workflow > button:last-of-type {
+    min-height: 31px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+  .workbench {
+    grid-template-rows: 48px minmax(0, 1fr) minmax(118px, 21%);
+  }
+  .stage-heading {
+    min-height: 31px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+  .stage:not(.has-stage-title) .paper-viewer {
+    inset: 3px 0 4px;
+  }
+  .stage:not(.has-stage-title) .camera-tools {
+    top: 7px;
+  }
+  .inspector-content {
+    padding-top: 10px;
+  }
+  .app-footer {
+    min-height: 20px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+}
+
+@media screen {
+  .stage:not(.has-stage-title) .camera-tools {
+    bottom: auto;
+  }
+}
+@media screen and (max-height: 550px) and (min-width: 621px) {
+  .masthead {
+    height: 32px;
+    min-height: 32px;
+  }
+  .masthead .icon-button {
+    width: 28px;
+    height: 28px;
+  }
+  .brand > span {
+    font-size: 22px;
+  }
+  .brand svg {
+    height: 24px;
+    width: 24px;
+  }
+  .project-bar {
+    min-height: 32px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+  .project-tools .button {
+    min-height: 28px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+  .project-tools .icon-button {
+    width: 28px;
+    height: 28px;
+  }
+  .project-name input {
+    font-size: 16px;
+    line-height: 1.15;
+  }
+  .workflow > button,
+  .workflow > button:first-child,
+  .workflow > button:last-of-type {
+    min-height: 28px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+  .stage:not(.has-stage-title) .camera-tools {
+    top: auto;
+    bottom: 4px;
+  }
+  .stage:not(.has-stage-title) .paper-viewer {
+    inset: 3px 0 34px;
+  }
+  .stage-column .motion-control {
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+  .app-footer {
+    min-height: 17px;
+    padding-top: 2px;
+    padding-bottom: 2px;
   }
 }

@@ -59,15 +59,23 @@ def project_issues(project: dict) -> set[str]:
         raise ValueError("Unsupported card shape")
     w, height = number(card["W"], 0.1), number(card["H"], 0.1)
     margin, gap = number(card["margin"]), number(card["gap"], 0.1)
-    if card["blank"] not in ("uncreased", "prefolded") or len(project["modules"]) > 6:
+    if card["blank"] not in ("uncreased", "prefolded") or len(project["modules"]) > 16:
         raise ValueError("Unsupported card or module count")
     if not re.fullmatch(r"#[0-9a-fA-F]{6}", card["color"]) or len(set(card["pins"])) != len(card["pins"]) or not set(card["pins"]) <= {"W", "H", "margin", "gap"}:
         raise ValueError("Invalid card color or pins")
     issues, intervals, ids = set(), [], set()
     for module in project["modules"]:
-        if set(module) != {"id", "kind", "label", "color", "y", "params", "pins"} or module["id"] in ids:
+        if set(module) != {"id", "kind", "label", "color", "y", "params", "pins", *(["cutwork"] if "cutwork" in module else [])} or module["id"] in ids:
             raise ValueError("Unsupported or duplicate module")
         ids.add(module["id"])
+        if "cutwork" in module:
+            c = module["cutwork"]
+            if not isinstance(c, dict) or set(c) != {"pattern", "detail", "web"} or c["pattern"] not in ("arcade", "leaf", "wing", "lattice"):
+                raise ValueError("Unsupported cutwork")
+            detail = number(c["detail"], 1, 6)
+            if detail != int(detail):
+                raise ValueError("Cutwork density must be an integer")
+            number(c["web"], 1, 5)
         if not re.fullmatch(r"[a-z][a-z0-9-]{0,47}", module["id"]) or not isinstance(module["label"], str) or not 0 < len(module["label"]) <= 80 or not re.fullmatch(r"#[0-9a-fA-F]{6}", module["color"]):
             raise ValueError("Invalid module text or color")
         y, p = number(module["y"], -4000, 4000), module["params"]
@@ -117,8 +125,8 @@ def project_issues(project: dict) -> set[str]:
 def validate_catalog(data: dict) -> None:
     if set(data) != {"schemaVersion", "license", "provenance", "sources", "starters", "repairCases"} or data["schemaVersion"] != 1:
         raise ValueError("Unsupported catalog")
-    if len(data["starters"]) != 6 or len(data["repairCases"]) < 2:
-        raise ValueError("Six original starters and two repair cases required")
+    if len(data["starters"]) != 12 or len(data["repairCases"]) < 2:
+        raise ValueError("Twelve original starters and two repair cases required")
     ids = set()
     for source in data["sources"]:
         if set(source) != {"id", "label", "url", "citation"} or not source["url"].startswith("https://"):

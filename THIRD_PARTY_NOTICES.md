@@ -503,3 +503,8 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 ## Development data: caniuse-lite
 
 The locked build toolchain includes `caniuse-lite` 1.0.30001810, under CC-BY-4.0. Browser-compatibility data originate from [Can I use](https://caniuse.com/) and are repackaged by [caniuse-lite](https://github.com/browserslist/caniuse-lite). They are used as build tooling data, not as PLEGA design data or a served exhibit. The full upstream license remains in the installed package; see [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/). No other lockfile entry has an unknown license declaration at this audit snapshot.
+
+
+## Plega v0.02 interface fonts
+
+Unmodified Space Grotesk and IBM Plex Sans are redistributed under the SIL Open Font License 1.1. Complete upstream copyright and license texts accompany the fonts at `frontend/public/fonts/SpaceGrotesk-OFL.txt` and `frontend/public/fonts/IBMPlexSans-OFL.txt`. The pinned Google Fonts revision, source URLs and file hashes are recorded in `frontend/public/fonts/provenance.json`. They are served from the application origin; no external font service is contacted. Noto Sans remains the separate, previously licensed print-export font.

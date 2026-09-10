@@ -15,6 +15,10 @@ export const ALL: readonly Capability[] = [
   "fold-export",
 ];
 const TEXT: Record<string, Localized> = {
+  FOLD_DENSITY: {
+    en: "This crease graph contains too many cut edges. Reduce detail density or use the PDF/SVG patterns.",
+    es: "El grafo contiene demasiados bordes de corte. Reduce la densidad o utiliza los patrones PDF/SVG.",
+  },
   INPUT_INVALID: {
     en: "The project contains invalid or unsupported data.",
     es: "El proyecto contiene datos no válidos o no admitidos.",
