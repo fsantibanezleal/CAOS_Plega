@@ -6,7 +6,7 @@ The complete workflow runs in the browser without an account or remote computati
 
 The workshop combines a linked moving-paper view and cut-sheet view, dimension editing, pinned repair proposals, local project recovery, portable files and assembly progress. Six original starters and deliberate failure cases make the mathematical limits visible. English/Spanish and light/dark presentation are part of the application.
 
-[Open the workshop](https://fsantibanezleal.github.io/CAOS_Plega/) or download a [versioned release](https://github.com/fsantibanezleal/CAOS_Plega/releases). GitHub Pages serves the exact artifact tested in CI. Each release includes the deployed file hashes, clean source revision and publication evidence; the live `release.json` identifies the running version.
+[Open the workshop](https://plega.fasl-work.com/) or download a [versioned release](https://github.com/fsantibanezleal/releases). GitHub Pages serves the exact artifact tested in CI. Each release includes the deployed file hashes, clean source revision and publication evidence; the live `release.json` identifies the running version.
 
 ## Run locally
 
@@ -17,7 +17,7 @@ Use Python 3.13 and Node 24 (Node 22 is also supported). From the repository roo
 ./scripts/dev.ps1
 ```
 
-On Linux/macOS, use `bash scripts/setup.sh` and `bash scripts/dev.sh`. Setup creates `.venv`, installs the locked frontend dependencies, verifies existing canonical data and creates `.env` only when absent. Python processing uses the standard library and downloads no design data. Development opens at `http://127.0.0.1:5903/CAOS_Plega/`.
+On Linux/macOS, use `bash scripts/setup.sh` and `bash scripts/dev.sh`. Setup creates `.venv`, installs the locked frontend dependencies, verifies existing canonical data and creates `.env` only when absent. Python processing uses the standard library and downloads no design data. Development opens at `http://127.0.0.1:5903/`.
 
 ```powershell
 ./scripts/test.ps1
@@ -26,7 +26,7 @@ On Linux/macOS, use `bash scripts/setup.sh` and `bash scripts/dev.sh`. Setup cre
 ./scripts/verify-ui.ps1
 ```
 
-The browser installation is explicit and uses the Playwright version in the lockfile. `scripts/preview.ps1` serves the exact staged artifact at `http://127.0.0.1:4903/CAOS_Plega/`. See the [command reference](scripts/README.md) for shell equivalents, browser caches and clean-release builds.
+The browser installation is explicit and uses the Playwright version in the lockfile. `scripts/preview.ps1` serves the exact staged artifact at `http://127.0.0.1:4903/`. See the [command reference](scripts/README.md) for shell equivalents, browser caches and clean-release builds.
 
 ## Design, check and print
 

@@ -26,7 +26,7 @@ class ReleaseTests(unittest.TestCase):
         (self.root / 'frontend/dist/assets').mkdir(parents=True)
         (self.root / 'frontend/dist/assets/app.js').write_bytes(b'console.info("fixture");\n')
         (self.root / 'frontend/dist/index.html').write_text(
-            '<!doctype html><html><head><script type="module" src="/CAOS_Plega/assets/app.js"></script></head><body>PLEGA</body></html>',
+            '<!doctype html><html><head><script type="module" src="/assets/app.js"></script></head><body>PLEGA</body></html>',
             encoding='utf-8')
         (self.root / 'VERSION').write_text('0.01.000\n', encoding='utf-8')
         for name in ['LICENSE', 'data/LICENSE', 'THIRD_PARTY_NOTICES.md', 'docs/asset-licenses.json', 'docs/dependency-licenses.json',
@@ -50,6 +50,9 @@ class ReleaseTests(unittest.TestCase):
         self.assertTrue(result['passed'])
         metadata = json.loads((self.root / 'build/pages/release.json').read_bytes())
         self.assertIn('sw.js', metadata['files'])
+        self.assertEqual(metadata['hosting']['url'], 'https://plega.fasl-work.com/')
+        self.assertEqual(metadata['hosting']['base_path'], '/')
+        self.assertEqual((self.root / 'build/pages/CNAME').read_text(), 'plega.fasl-work.com\n')
         self.assertIn('notices/frontend/src/export/assets/OFL.txt', metadata['files'])
         self.assertNotIn('release.json', metadata['files'])
         self.assertEqual(metadata['artifact_tree_sha256'], receipt['artifact_tree_sha256'])
@@ -77,7 +80,7 @@ class ReleaseTests(unittest.TestCase):
             release.prepare('d' * 40, require_clean=True)
 
     def test_foreign_or_wrong_base_resources_are_rejected(self):
-        for address in ['https://external.invalid/a.js', '/assets/app.js', '//external.invalid/a.js']:
+        for address in ['https://external.invalid/a.js', 'assets/app.js', '//external.invalid/a.js']:
             with self.subTest(address=address):
                 (self.root / 'frontend/dist/index.html').write_text(f'<head><script src="{address}"></script></head>')
                 with self.assertRaisesRegex(RuntimeError, 'project base'):

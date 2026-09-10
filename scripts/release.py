@@ -15,8 +15,9 @@ import sys
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE = '/CAOS_Plega/'
-PUBLIC_URL = 'https://fsantibanezleal.github.io/CAOS_Plega/'
+BASE = '/'
+PUBLIC_URL = 'https://plega.fasl-work.com/'
+CUSTOM_DOMAIN = 'plega.fasl-work.com'
 POLICY = ("default-src 'self'; script-src 'self'; worker-src 'self' blob:; "
           "style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; "
           "font-src 'self' data:; connect-src 'self' blob:; "
@@ -132,6 +133,7 @@ def prepare(revision=None, require_clean=False):
     shutil.copytree(dist, output)
     (output / 'index.html').write_text(html, encoding='utf-8', newline='\n')
     (output / '404.html').write_text(html, encoding='utf-8', newline='\n')
+    (output / 'CNAME').write_text(CUSTOM_DOMAIN + '\n', encoding='ascii', newline='\n')
     notices = {
         'LICENSE': 'LICENSE',
         'data/LICENSE': 'data/LICENSE',
@@ -215,6 +217,7 @@ def verify(directory=None):
     expected = f'v{metadata["version"]}-{metadata["revision"][:12]}-{digest(files)[:12]}'
     require(metadata['release_id'] == expected, 'Staged release identity does not match its source and bytes.')
     require(metadata['hosting']['url'] == PUBLIC_URL and metadata['hosting']['provider'] == 'github-pages', 'Wrong public hosting identity.')
+    require((output / 'CNAME').read_text(encoding='ascii').strip() == CUSTOM_DOMAIN, 'Wrong custom domain.')
     return {'passed': True, 'release_id': metadata['release_id'], 'files': len(files), 'artifact_tree_sha256': digest(files)}
 
 

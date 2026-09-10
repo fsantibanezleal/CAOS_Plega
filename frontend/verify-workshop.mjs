@@ -9,7 +9,7 @@ import { chromium, expect } from "@playwright/test";
 import { PDFDocument } from "pdf-lib";
 
 const frontend = path.dirname(fileURLToPath(import.meta.url));
-const url = process.env.PLEGA_QA_URL || "http://127.0.0.1:4903/CAOS_Plega/";
+const url = process.env.PLEGA_QA_URL || "http://127.0.0.1:4903/";
 const output = path.resolve(
   process.env.PLEGA_QA_OUTPUT || path.join(frontend, "../build/browser-qa"),
 );

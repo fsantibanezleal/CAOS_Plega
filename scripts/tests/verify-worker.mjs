@@ -12,10 +12,10 @@ let precache = [];
 const cachedPage = { cached: 'entry' };
 const cache = {
   addAll: async (requests) => { precache = requests; },
-  match: async (request) => request === '/CAOS_Plega/' ? cachedPage : undefined,
+  match: async (request) => request === '/' ? cachedPage : undefined,
 };
 const self = {
-  location: { origin: 'https://fsantibanezleal.github.io' },
+  location: { origin: 'https://plega.fasl-work.com' },
   addEventListener: (name, callback) => { handlers[name] = callback; },
   skipWaiting: async () => { skipCount += 1; },
 };
@@ -41,7 +41,7 @@ async function lifecycle(name, extra = {}) {
 await lifecycle('install');
 assert.equal(skipCount, 0, 'Installation must wait for user-approved activation.');
 assert(precache.length > 1);
-assert(precache.every(({ url }) => url.startsWith('/CAOS_Plega/') && !url.endsWith('release.json') && !url.endsWith('sw.js')));
+assert(precache.every(({ url }) => url.startsWith('/') && !url.endsWith('release.json') && !url.endsWith('sw.js')));
 await lifecycle('activate');
 assert(!deleted.includes('other-product-cache'), 'Other project caches must survive.');
 assert.deepEqual(deleted, ['plega-obsolete', 'plega-reserved-old']);
@@ -54,13 +54,13 @@ function request(path, mode = 'cors', method = 'GET', origin = self.location.ori
   handlers.fetch({ request: { url: origin + path, mode, method }, respondWith: (promise) => { response = promise; } });
   return response;
 }
-assert.equal(request('/another-project/app.js'), undefined);
-assert.equal(request('/CAOS_Plega/app.js', 'cors', 'POST'), undefined);
-assert.equal(request('/CAOS_Plega/app.js', 'cors', 'GET', 'https://foreign.invalid'), undefined);
-await request('/CAOS_Plega/release.json');
+assert.equal(request('/app.js', 'cors', 'GET', 'https://floraria.fasl-work.com'), undefined);
+assert.equal(request('/app.js', 'cors', 'POST'), undefined);
+assert.equal(request('/app.js', 'cors', 'GET', 'https://foreign.invalid'), undefined);
+await request('/release.json');
 assert.equal(fetches.at(-1).options.cache, 'no-store');
 offline = true;
-assert.equal(await request('/CAOS_Plega/a-deep-link', 'navigate'), cachedPage);
-await assert.rejects(request('/CAOS_Plega/release.json'), /simulated offline/);
-assert.equal(request('/CAOS_Plega/sw.js'), undefined);
+assert.equal(await request('/a-deep-link', 'navigate'), cachedPage);
+await assert.rejects(request('/release.json'), /simulated offline/);
+assert.equal(request('/sw.js'), undefined);
 console.log('Worker lifecycle, cache isolation, offline navigation and network identity passed.');

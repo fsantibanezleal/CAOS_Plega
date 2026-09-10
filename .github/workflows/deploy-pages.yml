@@ -79,20 +79,20 @@ jobs:
           path: ${{ runner.temp }}/plega-browser
           if-no-files-found: ignore
           retention-days: 14
-      - name: Read configured default-project Pages binding
+      - name: Read configured custom-domain Pages binding
         if: github.ref == 'refs/heads/main'
         id: pages
         uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
         with:
           enablement: false
-      - name: Require the documented project URL
+      - name: Require the documented custom domain
         if: github.ref == 'refs/heads/main'
         env:
           PAGES_HOST: ${{ steps.pages.outputs.host }}
           PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
         run: |
-          test "$PAGES_HOST" = fsantibanezleal.github.io
-          test "$PAGES_BASE_PATH" = /CAOS_Plega
+          test "$PAGES_HOST" = plega.fasl-work.com
+          test -z "$PAGES_BASE_PATH"
       - name: Upload the tested Pages artifact
         if: github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4

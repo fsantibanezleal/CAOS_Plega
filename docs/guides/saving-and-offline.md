@@ -6,7 +6,7 @@ Import validates the project's schema and bounded dimensions before it replaces 
 
 The production application caches its own static assets after a successful visit. Allow the initial worker installation and reload once before depending on offline availability. It serves the cached entry when navigation cannot reach the network. Browser eviction can still remove the cache, and a first-ever visit cannot load offline.
 
-The service worker is restricted to `/CAOS_Plega/` and manages only caches named with the `plega-` prefix. It does not intercept other projects on the same GitHub Pages host. Release identity is always requested from the network, so offline operation does not claim to know the current deployed revision.
+The service worker is restricted to `/` and manages only caches named with the `plega-` prefix. Its same-origin restriction isolates it from apps on other subdomains. Release identity is always requested from the network, so offline operation does not claim to know the current deployed revision.
 
 When a newer worker is ready, save or export the project before choosing the update action. New workers wait for that explicit activation. Reloading into an updated release is a separate step from saving; keeping a portable project file gives a recovery route if local storage fails.
 
