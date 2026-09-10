@@ -6,7 +6,7 @@ The complete workflow runs in the browser without an account or remote computati
 
 The workshop combines a linked moving-paper view and cut-sheet view, dimension editing, pinned repair proposals, local project recovery, portable files and assembly progress. Six original starters and deliberate failure cases make the mathematical limits visible. English/Spanish and light/dark presentation are part of the application.
 
-The publication target is [GitHub Pages](https://fsantibanezleal.github.io/CAOS_Plega/). Publication is complete only when that site's `release.json` matches a clean promoted main revision and the published files have been independently verified. Current development work and local previews are not a release receipt.
+[Open the workshop](https://fsantibanezleal.github.io/CAOS_Plega/) or download a [versioned release](https://github.com/fsantibanezleal/CAOS_Plega/releases). GitHub Pages serves the exact artifact tested in CI. Each release includes the deployed file hashes, clean source revision and publication evidence; the live `release.json` identifies the running version.
 
 ## Run locally
 
