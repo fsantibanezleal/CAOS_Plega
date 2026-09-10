@@ -287,9 +287,7 @@ export function poseProject(
     diagnostics: a.diagnostics,
   };
 }
-export function vPerimeter(
-  m: VModule,
-): {
+export function vPerimeter(m: VModule): {
   id: string;
   points: readonly [Vec2, Vec2];
   region: "left" | "right" | "tab-left" | "tab-right";
