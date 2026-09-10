@@ -165,7 +165,7 @@ async function close(page, context) {
 async function stage(page, name) {
   const button = page
     .locator(".workflow button")
-    .filter({ hasText: new RegExp(`\\b${name}\\b`) });
+    .filter({ has: page.getByText(name, { exact: true }) });
   await button.click();
   await expect(button).toHaveAttribute("aria-current", "step");
 }
@@ -189,18 +189,29 @@ async function saved(page) {
   );
 }
 async function openStarter(page, name) {
+  const before = await saved(page);
   await page.getByRole("button", { name: "Projects", exact: true }).click();
   const card = page
     .locator(".starter-card")
     .filter({ has: page.getByRole("heading", { name, exact: true }) });
   await expect(card).toHaveCount(1);
-  await card.click();
+  const backup = JSON.parse(
+    (
+      await download(page, "starter-backup-" + name, () => card.click())
+    ).toString("utf8"),
+  );
+  assert.deepEqual(
+    backup,
+    before,
+    "Opening a starter must preserve the current workspace in its backup.",
+  );
   await expect(page.locator(".library-dialog")).not.toBeVisible();
 }
 async function download(page, name, action) {
-  const pending = page.waitForEvent("download", { timeout: 45000 });
-  await action();
-  const item = await pending;
+  const [item] = await Promise.all([
+    page.waitForEvent("download", { timeout: 45000 }),
+    action(),
+  ]);
   assert.equal(await item.failure(), null);
   const suggested = item.suggestedFilename();
   assert(!/[\\/]/.test(suggested), "Download filename must be flat.");
@@ -272,6 +283,63 @@ async function noOverflow(page) {
   );
 }
 
+async function workerNetworkControl(browser) {
+  // Chromium keeps service-worker networking in a separate target. Page/context
+  // offline emulation alone can leave that target online after a navigation.
+  const control = await browser.newBrowserCDPSession();
+  const { targetInfos } = await control.send("Target.getTargets");
+  const workers = targetInfos.filter(
+    (target) =>
+      target.type === "service_worker" &&
+      target.url === new URL("sw.js", url).href,
+  );
+  assert.equal(
+    workers.length,
+    1,
+    "Control only this workshop's installed worker.",
+  );
+  const { sessionId } = await control.send("Target.attachToTarget", {
+    targetId: workers[0].targetId,
+    flatten: false,
+  });
+  let nextId = 1;
+  async function command(method, params = {}) {
+    const id = nextId++;
+    const response = new Promise((resolve, reject) => {
+      const timer = setTimeout(() => {
+        control.off("Target.receivedMessageFromTarget", receive);
+        reject(new Error(`Worker network emulation timed out: ${method}`));
+      }, 15000);
+      function receive(event) {
+        if (event.sessionId !== sessionId) return;
+        const message = JSON.parse(event.message);
+        if (message.id !== id) return;
+        clearTimeout(timer);
+        control.off("Target.receivedMessageFromTarget", receive);
+        if (message.error) reject(new Error(JSON.stringify(message.error)));
+        else resolve(message.result);
+      }
+      control.on("Target.receivedMessageFromTarget", receive);
+    });
+    await control.send("Target.sendMessageToTarget", {
+      sessionId,
+      message: JSON.stringify({ id, method, params }),
+    });
+    return response;
+  }
+  await command("Network.enable");
+  return {
+    setOffline: (offline) =>
+      command("Network.emulateNetworkConditions", {
+        offline,
+        latency: 0,
+        downloadThroughput: -1,
+        uploadThroughput: -1,
+      }),
+    close: () => control.detach(),
+  };
+}
+
 try {
   browser = await chromium.launch({
     headless: true,
@@ -279,9 +347,28 @@ try {
   });
   await group("Design controls and keyboard motion", async () => {
     const { page, context } = await pageFor();
+    await expect(page.locator(".paper-viewer")).toHaveAttribute(
+      "data-rendered",
+      "true",
+    );
+    await expect
+      .poll(async () =>
+        Number(
+          await page.locator(".paper-viewer").getAttribute("data-triangles"),
+        ),
+      )
+      .toBeGreaterThan(0);
     await expect(
       page.locator(".paper-viewer canvas, .viewer canvas, canvas").first(),
     ).toBeVisible();
+    const canvas = page.locator(".paper-viewer canvas");
+    const beforeOrbit = hash(await canvas.screenshot());
+    await canvas.focus();
+    await canvas.press("ArrowLeft");
+    await expect
+      .poll(async () => hash(await canvas.screenshot()))
+      .not.toBe(beforeOrbit);
+    await canvas.press("r");
     await expect(
       page.getByRole("button", { name: "Play motion", exact: true }),
     ).toBeEnabled();
@@ -396,7 +483,7 @@ try {
         ["Letter", 215.9, 279.4],
       ]) {
         await page
-          .getByLabel("Printer paper", { exact: true })
+          .getByRole("combobox", { name: "Printer paper", exact: true })
           .selectOption(paper);
         const bytes = await download(page, `pdf-${paper}`, () =>
           page
@@ -418,7 +505,7 @@ try {
         await download(page, "svg", () =>
           page
             .getByRole("button", {
-              name: "SVG sheets Ãƒâ€šÃ‚Â· ZIP",
+              name: "SVG sheets \u00b7 ZIP",
               exact: true,
             })
             .click(),
@@ -439,7 +526,7 @@ try {
         await download(page, "fold", () =>
           page
             .getByRole("button", {
-              name: "FOLD flat frames Ãƒâ€šÃ‚Â· ZIP",
+              name: "FOLD flat frames \u00b7 ZIP",
               exact: true,
             })
             .click(),
@@ -503,7 +590,9 @@ try {
       await capture(page, "assemble-observations");
       await page.getByRole("button", { name: "Share", exact: true }).click();
       const shared = new URL(
-        await page.getByLabel("Design link", { exact: true }).inputValue(),
+        await page
+          .getByRole("textbox", { name: "Design link", exact: true })
+          .inputValue(),
       );
       const design = JSON.parse(
         decodeURIComponent(shared.hash.slice("#project=".length)),
@@ -560,7 +649,7 @@ try {
         mimeType: "application/json",
         buffer: bytes,
       });
-      await expect(page.getByRole("status")).toContainText(
+      await expect(page.locator('.notice[role="status"]')).toContainText(
         "current project is unchanged",
       );
       assert.deepEqual(await saved(page), before);
@@ -568,6 +657,193 @@ try {
     await capture(page, "invalid-import-preserved");
     await close(page, context);
   });
+
+  await group(
+    "Incoming shares and valid imports preserve editable work",
+    async () => {
+      const { page, context } = await pageFor();
+      await stage(page, "Assemble");
+      await page
+        .getByLabel("Your build observations", { exact: true })
+        .fill("QA_SYNTHETIC_BACKUP_OBSERVATION");
+      await page.getByLabel("I completed this step", { exact: true }).check();
+      const before = await saved(page);
+      assert.equal(before.notes, "QA_SYNTHETIC_BACKUP_OBSERVATION");
+      assert(before.completed.length > 0);
+      const incoming = structuredClone(catalog.starters[0].project);
+      incoming.title = "QA incoming editable design";
+      const sharedUrl =
+        url + "#project=" + encodeURIComponent(JSON.stringify(incoming));
+      // A shared fragment pasted into this already mounted document must open
+      // the same preservation flow as an external link in a fresh document.
+      await page.goto(sharedUrl, { waitUntil: "domcontentloaded" });
+      await expect(
+        page.getByRole("dialog", {
+          name: "A shared design is ready",
+          exact: true,
+        }),
+      ).toBeVisible();
+      assert.deepEqual(
+        await saved(page),
+        before,
+        "An incoming link must not overwrite the existing workspace.",
+      );
+      await page
+        .getByRole("button", { name: "Keep my current project", exact: true })
+        .click();
+      assert.deepEqual(await saved(page), before);
+      assert.equal(new URL(page.url()).hash, "");
+      await page.goto("about:blank");
+      await page.goto(sharedUrl, { waitUntil: "domcontentloaded" });
+      const backup = JSON.parse(
+        (
+          await download(page, "incoming-share-backup", () =>
+            page
+              .getByRole("button", {
+                name: "Back up and open shared design",
+                exact: true,
+              })
+              .click(),
+          )
+        ).toString("utf8"),
+      );
+      assert.deepEqual(backup, before);
+      await expect(
+        page.getByRole("textbox", { name: "Project title", exact: true }),
+      ).toHaveValue(incoming.title);
+      const accepted = await saved(page);
+      assert.deepEqual(accepted.project, incoming);
+      assert.deepEqual(accepted.completed, []);
+      assert.equal(accepted.notes, "");
+      await page
+        .getByRole("textbox", { name: "Project title", exact: true })
+        .fill("QA edits after shared design");
+      await saved(page);
+      await page.reload({ waitUntil: "domcontentloaded" });
+      await expect(
+        page.getByRole("textbox", { name: "Project title", exact: true }),
+      ).toHaveValue("QA edits after shared design");
+      assert.equal(
+        new URL(page.url()).hash,
+        "",
+        "A consumed shared link must not replace later edits on reload.",
+      );
+      const beforeImport = await saved(page);
+      const importBackup = JSON.parse(
+        (
+          await download(page, "valid-import-backup", () =>
+            page.locator('input[type="file"]').setInputFiles({
+              name: "restored.plega.json",
+              mimeType: "application/json",
+              buffer: Buffer.from(JSON.stringify(before)),
+            }),
+          )
+        ).toString("utf8"),
+      );
+      assert.deepEqual(importBackup, beforeImport);
+      await expect.poll(() => saved(page)).toEqual(before);
+      await stage(page, "Assemble");
+      await expect(
+        page.getByLabel("Your build observations", { exact: true }),
+      ).toHaveValue(before.notes);
+      await expect(
+        page.getByLabel("I completed this step", { exact: true }),
+      ).toBeChecked();
+      await capture(page, "portable-import-restored");
+      await close(page, context);
+      return {
+        incoming_share: "Keep or back up before replacement",
+        valid_import:
+          "Previous workspace downloaded and all imported observations restored",
+      };
+    },
+  );
+
+  await group(
+    "Unreadable browser data remains recoverable before replacement",
+    async () => {
+      const raw =
+        '{"format":"plega-workspace","broken":"QA_SYNTHETIC_RECOVERY_BYTES","payload":';
+      const { page, context } = await pageFor({
+        storageState: {
+          cookies: [],
+          origins: [
+            {
+              origin,
+              localStorage: [{ name: "plega-workspace-v1", value: raw }],
+            },
+          ],
+        },
+      });
+      await expect(
+        page.getByRole("dialog", {
+          name: "Keep your stored data safe",
+          exact: true,
+        }),
+      ).toBeVisible();
+      assert.equal(
+        await page.evaluate(() => localStorage.getItem("plega-workspace-v1")),
+        raw,
+      );
+      await page
+        .getByRole("button", {
+          name: "Keep stored data; pause automatic saving",
+          exact: true,
+        })
+        .click();
+      await page
+        .getByRole("textbox", { name: "Project title", exact: true })
+        .fill("QA portable recovery work");
+      const portable = JSON.parse(
+        (
+          await download(page, "paused-save-portable", () =>
+            page
+              .getByRole("button", { name: "Save project", exact: true })
+              .click(),
+          )
+        ).toString("utf8"),
+      );
+      assert.equal(portable.project.title, "QA portable recovery work");
+      assert.equal(
+        await page.evaluate(() => localStorage.getItem("plega-workspace-v1")),
+        raw,
+      );
+      await page.reload({ waitUntil: "domcontentloaded" });
+      await expect(
+        page.getByRole("dialog", {
+          name: "Keep your stored data safe",
+          exact: true,
+        }),
+      ).toBeVisible();
+      const recovered = await download(page, "unreadable-original-bytes", () =>
+        page
+          .getByRole("button", {
+            name: "Download stored data and replace save",
+            exact: true,
+          })
+          .click(),
+      );
+      assert.equal(
+        recovered.toString("utf8"),
+        raw,
+        "Recovery must preserve the exact original unreadable text.",
+      );
+      await expect(
+        page.getByRole("dialog", {
+          name: "Keep your stored data safe",
+          exact: true,
+        }),
+      ).not.toBeVisible();
+      await saved(page);
+      await capture(page, "unreadable-save-recovered");
+      await close(page, context);
+      return {
+        unreadable_bytes_preserved: true,
+        portable_edits_available: true,
+        explicit_replacement_downloaded_original: true,
+      };
+    },
+  );
 
   await group(
     "English Spanish light dark and guide keyboard close",
@@ -593,12 +869,12 @@ try {
       await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
       await capture(page, "desktop-en-dark");
       await page
-        .getByRole("button", { name: "Cambiar a espaÃƒÆ’Ã‚Â±ol", exact: true })
+        .getByRole("button", { name: "Cambiar a espa\u00f1ol", exact: true })
         .click();
       await expect(page.locator("html")).toHaveAttribute("lang", "es");
       await stage(page, "Comprobar");
       await expect(page.locator(".check-verdict")).toContainText(
-        "GeometrÃƒÆ’Ã‚Â­a admitida correcta",
+        "Geometr\u00eda admitida correcta",
       );
       await capture(page, "desktop-es-dark");
       await page
@@ -686,8 +962,11 @@ try {
       keys.includes("unrelated-project-qa-sentinel") &&
         keys.some((key) => key.startsWith("plega-")),
     );
+    const workerNetwork = await workerNetworkControl(browser);
+    await workerNetwork.setOffline(true);
     await context.setOffline(true);
     await page.reload({ waitUntil: "domcontentloaded" });
+    await workerNetwork.setOffline(true);
     await expect(
       page.getByRole("textbox", { name: "Project title", exact: true }),
     ).toBeVisible();
@@ -716,12 +995,16 @@ try {
       "Offline release identity must not be supplied from cache.",
     );
     await capture(page, "offline-printable-workshop");
+    await workerNetwork.setOffline(false);
     await context.setOffline(false);
+    await workerNetwork.close();
     await close(page, context);
     return {
       offline_pdf: true,
       unrelated_cache_preserved: true,
       identity_network_only: true,
+      offline_emulation:
+        "Page context and the exact Plega service-worker network target",
       update:
         "Waiting/explicit activation additionally exercised by isolated generated-worker regression",
     };

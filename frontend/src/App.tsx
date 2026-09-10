@@ -552,6 +552,31 @@ export default function App() {
     mechanism = project.modules.find((m) => m.id === selected);
   const reduced = useRef(false);
   useEffect(() => {
+    const incoming = () => {
+      if (!location.hash.startsWith("#project=")) return;
+      const read = readWorkspace();
+      const candidate =
+        read.incomingShare ??
+        (read.message === "shared" ? read.workspace : null);
+      clearProcessedShare();
+      if (
+        candidate &&
+        JSON.stringify(candidate.project) !==
+          JSON.stringify(workspaceRef.current.project)
+      )
+        setIncomingShare(candidate);
+      else if (read.message === "invalid-share")
+        setNotice(
+          t(
+            "The shared link is invalid. Your current project is unchanged.",
+            "El enlace no es válido. Tu proyecto actual no cambió.",
+          ),
+        );
+    };
+    window.addEventListener("hashchange", incoming);
+    return () => window.removeEventListener("hashchange", incoming);
+  }, [lang]);
+  useEffect(() => {
     const q = matchMedia("(prefers-reduced-motion: reduce)");
     const change = () => {
       reduced.current = q.matches;
@@ -1009,7 +1034,11 @@ export default function App() {
           {t("PAPER IN MOTION", "PAPEL EN MOVIMIENTO")}
         </span>
         <div className="header-actions">
-          <button className="button subdued" onClick={() => setLibrary(true)}>
+          <button
+            className="button subdued"
+            aria-label={t("Projects", "Proyectos")}
+            onClick={() => setLibrary(true)}
+          >
             <FolderOpen size={16} />
             <span>{t("Projects", "Proyectos")}</span>
           </button>
@@ -2176,6 +2205,11 @@ export default function App() {
                 <label className="text-field notes-field">
                   {t("Your build observations", "Observaciones de tu montaje")}
                   <textarea
+                    aria-label={t(
+                      "Your build observations",
+                      "Observaciones de tu montaje",
+                    )}
+                    aria-describedby="build-observations-privacy"
                     rows={4}
                     maxLength={8000}
                     value={workspace.notes}
@@ -2187,7 +2221,7 @@ export default function App() {
                       setWorkspace((w) => ({ ...w, notes: e.target.value }))
                     }
                   />
-                  <small>
+                  <small id="build-observations-privacy">
                     {t(
                       "Private on this device and in your project file. Excluded from share links.",
                       "Privadas en este dispositivo y en tu archivo. No se incluyen en enlaces compartidos.",
