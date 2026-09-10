@@ -53,11 +53,8 @@ const stable = (value: unknown): string =>
         "}"
       : JSON.stringify(value);
 export const defaultProject = () =>
-  STARTERS.find(
-    (s) =>
-      s.project.modules.some((m) => m.kind === "P") &&
-      s.project.modules.some((m) => m.kind === "V"),
-  )?.project ?? STARTERS[0].project;
+  STARTERS.find((s) => s.id === "tideglass-pavilion")?.project ??
+  STARTERS[0].project;
 export function parseWorkspace(input: unknown): Workspace | null {
   if (typeof input === "string") {
     if (input.length > MAX_FILE_BYTES || bytes(input) > MAX_FILE_BYTES)

@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import releaseVersion from "../../VERSION?raw";
 import {
   ArrowDown,
   ArrowLeft,
@@ -44,6 +45,8 @@ import {
 } from "lucide-react";
 import {
   analyzeProject,
+  createModule,
+  MAX_MODULES,
   applyRepair,
   makePrintPlan,
   packLanes,
@@ -55,6 +58,7 @@ import {
 } from "./core";
 import type {
   Analysis,
+  Cutwork,
   Mechanism,
   PrintPlan,
   Project,
@@ -248,15 +252,16 @@ function NumericField({
         </IconButton>
       </div>
       <div className="number-line">
-        <input
-          type="range"
-          aria-label={title + " " + (lang === "es" ? "deslizador" : "slider")}
-          min={min}
-          max={max}
-          step={step}
-          value={Math.min(max, Math.max(min, value))}
-          onChange={(e) => onValue(Number(e.target.value))}
-        />
+        <button
+          className="dimension-step"
+          aria-label={(lang === "es" ? "Reducir " : "Decrease ") + title}
+          disabled={value <= min}
+          onClick={() =>
+            onValue(Math.max(min, Number((value - step).toFixed(4))))
+          }
+        >
+          −
+        </button>
         <span className="number-box">
           <input
             id={"field-" + name}
@@ -281,6 +286,16 @@ function NumericField({
           />
           <small>{angular ? "°" : "mm"}</small>
         </span>
+        <button
+          className="dimension-step"
+          aria-label={(lang === "es" ? "Aumentar " : "Increase ") + title}
+          disabled={value >= max}
+          onClick={() =>
+            onValue(Math.min(max, Number((value + step).toFixed(4))))
+          }
+        >
+          +
+        </button>
       </div>
     </div>
   );
@@ -489,6 +504,7 @@ export default function App() {
   const [mode, setMode] = useState<Mode>("design"),
     [selected, setSelected] = useState(project.modules[0]?.id ?? ""),
     [opening, setOpening] = useState(100),
+    [framing, setFraming] = useState<"sculpture" | "card">("sculpture"),
     [playing, setPlaying] = useState(false),
     [view, setView] = useState<"model" | "pattern">("model"),
     [camera, setCamera] = useState<"perspective" | "top" | "front">(
@@ -509,6 +525,7 @@ export default function App() {
     [past, setPast] = useState<Project[]>([]),
     [future, setFuture] = useState<Project[]>([]),
     [repair, setRepair] = useState<RepairProposal | null>(null),
+    [canvasDraft, setCanvasDraft] = useState<Project | null>(null),
     [paper, setPaper] = useState<"A4" | "Letter">("A4"),
     [tiling, setTiling] = useState(true),
     [page, setPage] = useState(0),
@@ -530,7 +547,7 @@ export default function App() {
     workspaceRef = useRef(workspace);
   workspaceRef.current = workspace;
   const analysis = useMemo(() => analyzeProject(project), [project]),
-    displayed = repair?.after ?? project,
+    displayed = repair?.after ?? canvasDraft ?? project,
     displayAnalysis = useMemo(() => analyzeProject(displayed), [displayed]);
   const scene = useMemo(() => posed(displayed, opening), [displayed, opening]);
   const planResult = useMemo(
@@ -549,7 +566,7 @@ export default function App() {
   );
   const plan: PrintPlan | null = planResult.ok ? planResult.value : null;
   const repairs = useMemo(() => proposeRepairs(project), [project]),
-    mechanism = project.modules.find((m) => m.id === selected);
+    mechanism = displayed.modules.find((m) => m.id === selected);
   const reduced = useRef(false);
   useEffect(() => {
     const incoming = () => {
@@ -725,6 +742,7 @@ export default function App() {
     };
   }, []);
   const commit = (next: Project, key = "") => {
+    setCanvasDraft(null);
     const checked = parseProject(next);
     if (!checked.ok) {
       setNotice(checked.diagnostics.map((d) => d.message[lang]).join(" "));
@@ -744,6 +762,7 @@ export default function App() {
     setWorkspace((w) => ({ ...w, project: next, completed: [] }));
   };
   const undo = () => {
+    setCanvasDraft(null);
     if (!past.length) return;
     const prev = past[past.length - 1];
     setFuture((f) => [project, ...f]);
@@ -753,6 +772,7 @@ export default function App() {
     editGroup.current = { key: "", time: 0 };
   };
   const redo = () => {
+    setCanvasDraft(null);
     if (!future.length) return;
     setPast((p) => [...p, project]);
     setWorkspace((w) => ({ ...w, project: future[0], completed: [] }));
@@ -869,44 +889,62 @@ export default function App() {
     } as Partial<Mechanism>);
   };
   const add = (kind: "P" | "V") => {
-    if (project.modules.length >= 6) return;
-    let id = "m1";
-    for (let i = 1; project.modules.some((m) => m.id === id); i++)
-      id = "m" + (i + 1);
-    const color = palette[project.modules.length % palette.length];
-    const y = Math.max(
-      project.card.margin,
-      ...analysis.modules.map((m) => m.sweptY[1] + project.card.gap),
-    );
-    const m: Mechanism =
+    const result = createModule(
+      project,
+      kind,
       kind === "P"
-        ? {
-            id,
-            kind,
-            label: t("New step", "Nuevo escalón"),
-            color,
-            y,
-            params: { a: 20, b: 20, width: 20 },
-            pins: [],
-          }
-        : {
-            id,
-            kind,
-            label: t("New V-fold", "Nuevo pliegue V"),
-            color,
-            y: y + 15,
-            params: {
-              r: 30,
-              h: 30,
-              betaDeg: 30,
-              gammaDeg: 70,
-              tabWidth: 4,
-              tabInset: 5,
-            },
-            pins: [],
-          };
-    commit({ ...project, modules: [...project.modules, m] });
-    setSelected(id);
+        ? t("New arcade", "Nueva arcada")
+        : t("New sculpted wing", "Nueva ala calada"),
+      palette[project.modules.length % palette.length],
+    );
+    if (result.ok) {
+      commit(result.project);
+      setSelected(result.moduleId);
+      setNotice(
+        t(
+          "Part added in a checked free motion lane. Shape its cutwork below.",
+          "Pieza añadida en una zona libre comprobada. Personaliza su calado.",
+        ),
+      );
+    } else
+      setNotice(
+        result.reason === "invalid-current"
+          ? t(
+              "Resolve the current geometry checks before adding another moving part.",
+              "Resuelve las comprobaciones actuales antes de añadir otra pieza móvil.",
+            )
+          : t(
+              "No free motion lane fits another part. Increase the card height, reduce a part, or remove one; your design is unchanged.",
+              "No cabe otra pieza en las zonas libres. Aumenta la altura de la tarjeta, reduce o retira una pieza. Tu diseño se conserva.",
+            ),
+      );
+  };
+  const removeSelected = () => {
+    commit({
+      ...project,
+      modules: project.modules.filter((m) => m.id !== selected),
+    });
+    setSelected(project.modules.find((m) => m.id !== selected)?.id ?? "");
+  };
+  const profileSelected = (pattern: Cutwork["pattern"] | "solid") => {
+    if (!mechanism) return;
+    if (pattern === "solid") {
+      const { cutwork: _cutwork, ...solid } = mechanism;
+      void _cutwork;
+      commit({
+        ...project,
+        modules: project.modules.map((m) =>
+          m.id === selected ? (solid as Mechanism) : m,
+        ),
+      });
+    } else
+      patchModule({
+        cutwork: {
+          pattern,
+          detail: mechanism.cutwork?.detail ?? 3,
+          web: mechanism.cutwork?.web ?? 1.5,
+        },
+      });
   };
   const move = (offset: number) => {
     const a = [...project.modules],
@@ -914,7 +952,25 @@ export default function App() {
       j = i + offset;
     if (i < 0 || j < 0 || j >= a.length) return;
     [a[i], a[j]] = [a[j], a[i]];
-    commit({ ...project, modules: a });
+    const packed = packLanes({ ...project, modules: a });
+    if (
+      packed.ok &&
+      analyzeProject(packed.value.after).certificate === "pass"
+    ) {
+      commit(packed.value.after);
+      setNotice(
+        t(
+          "Part order changed and free lanes were packed. Pinned origins stay fixed.",
+          "Orden cambiado y zonas libres distribuidas. Los orígenes fijados se conservan.",
+        ),
+      );
+    } else
+      setNotice(
+        t(
+          "This order does not fit with the current pinned origins and card height. The project is unchanged.",
+          "Este orden no cabe con los orígenes fijados y la altura actual. El proyecto se conserva.",
+        ),
+      );
   };
   const preview = (r: RepairProposal) => {
     setRepair(r);
@@ -1199,9 +1255,11 @@ export default function App() {
           <div className="panel-heading">
             <div>
               <span className="eyebrow">{t("COMPOSITION", "COMPOSICIÓN")}</span>
-              <h2>{t("Your mechanisms", "Tus mecanismos")}</h2>
+              <h2>{t("Scene parts", "Piezas de la escena")}</h2>
             </div>
-            <span className="count">{project.modules.length}/6</span>
+            <span className="count">
+              {project.modules.length}/{MAX_MODULES}
+            </span>
           </div>
           <div className="parts-list">
             {project.modules.map((m, i) => (
@@ -1244,7 +1302,7 @@ export default function App() {
           <div className="add-buttons">
             <button
               className="button outline"
-              disabled={project.modules.length >= 6 || !!repair}
+              disabled={project.modules.length >= MAX_MODULES || !!repair}
               onClick={() => add("P")}
             >
               <Plus size={14} />
@@ -1252,7 +1310,7 @@ export default function App() {
             </button>
             <button
               className="button outline"
-              disabled={project.modules.length >= 6 || !!repair}
+              disabled={project.modules.length >= MAX_MODULES || !!repair}
               onClick={() => add("V")}
             >
               <Plus size={14} />
@@ -1345,32 +1403,55 @@ export default function App() {
             </div>
           </div>
           <div
-            className={"stage " + (view === "pattern" ? "pattern-stage" : "")}
+            className={
+              "stage " +
+              (view === "pattern" ? "pattern-stage " : "") +
+              (repair ? "has-stage-title" : "")
+            }
           >
-            <div className="stage-title">
-              <span className="eyebrow">
-                {repair
-                  ? t("REPAIR PREVIEW", "VISTA DE CORRECCIÓN")
-                  : mode === "assemble"
-                    ? t("FOLLOW THE FOLD", "SIGUE EL PLIEGUE")
-                    : t(
-                        "A LITTLE PAPER. A LOT OF POSSIBILITY.",
-                        "POCO PAPEL. MUCHAS POSIBILIDADES.",
-                      )}
-              </span>
-              <h1>
-                {repair
-                  ? repair.label[lang]
-                  : mode === "assemble" && currentStep
-                    ? currentStep.title
-                    : mode === "make"
-                      ? t("From screen to paper.", "De la pantalla al papel.")
-                      : t("Make it move.", "Haz que se mueva.")}
-              </h1>
-            </div>
+            {repair && (
+              <div className="stage-title">
+                <span className="eyebrow">
+                  {repair
+                    ? t("REPAIR PREVIEW", "VISTA DE CORRECCIÓN")
+                    : mode === "assemble"
+                      ? t("FOLLOW THE FOLD", "SIGUE EL PLIEGUE")
+                      : t(
+                          "A LITTLE PAPER. A LOT OF POSSIBILITY.",
+                          "POCO PAPEL. MUCHAS POSIBILIDADES.",
+                        )}
+                </span>
+                <h1>
+                  {repair
+                    ? repair.label[lang]
+                    : mode === "assemble" && currentStep
+                      ? currentStep.title
+                      : mode === "make"
+                        ? t("From screen to paper.", "De la pantalla al papel.")
+                        : displayed.title}
+                </h1>
+              </div>
+            )}
             {view === "model" ? (
               <PaperViewer
                 scene={scene}
+                project={project}
+                editable={
+                  mode === "design" &&
+                  !repair &&
+                  analysis.certificate === "pass"
+                }
+                onPreview={(next) => {
+                  setPlaying(false);
+                  setCanvasDraft(next);
+                }}
+                onCommit={(next) => {
+                  commit(next);
+                  setCanvasDraft(null);
+                }}
+                onAdd={add}
+                onRemove={removeSelected}
+                onProfile={profileSelected}
                 height={displayed.card.H}
                 width={displayed.card.W}
                 selected={selected}
@@ -1380,6 +1461,7 @@ export default function App() {
                 camera={camera}
                 reset={reset}
                 dimensions={dimensions}
+                framing={framing}
               />
             ) : (
               <div className="print-preview">
@@ -1418,8 +1500,17 @@ export default function App() {
                   </IconButton>
                   <span />
                   <IconButton
-                    label={t("Fit the card", "Encuadrar tarjeta")}
-                    onClick={() => setReset((r) => r + 1)}
+                    label={
+                      framing === "sculpture"
+                        ? t("Fit the card", "Encuadrar tarjeta")
+                        : t("Focus sculpture", "Enfocar escultura")
+                    }
+                    onClick={() => {
+                      setFraming(
+                        framing === "sculpture" ? "card" : "sculpture",
+                      );
+                      setReset((r) => r + 1);
+                    }}
                   >
                     <Maximize size={17} />
                   </IconButton>
@@ -1433,8 +1524,8 @@ export default function App() {
                 </div>
                 <div className="orbit-hint">
                   {t(
-                    "Drag to orbit · Scroll to zoom · Select a part",
-                    "Arrastra para orbitar · Rueda para ampliar · Selecciona una pieza",
+                    "Select a part · Drag its handles · Drag empty space to orbit",
+                    "Selecciona una pieza · Arrastra sus controles · Arrastra el fondo para orbitar",
                   )}
                 </div>
               </>
@@ -1630,14 +1721,14 @@ export default function App() {
                 <div className="panel-heading">
                   <div>
                     <span className="eyebrow">
-                      {t("SHAPE THE IDEA", "DA FORMA A LA IDEA")}
+                      {t(
+                        "SCULPT THE SELECTED PART",
+                        "ESCULPE LA PIEZA ELEGIDA",
+                      )}
                     </span>
                     <h2>
-                      {mechanism?.kind === "P"
-                        ? t("Parallel step", "Escalón paralelo")
-                        : mechanism
-                          ? t("V-fold", "Pliegue V")
-                          : t("Card settings", "Ajustes de tarjeta")}
+                      {mechanism?.label ??
+                        t("Card settings", "Ajustes de tarjeta")}
                     </h2>
                   </div>
                   <IconButton
@@ -1694,6 +1785,133 @@ export default function App() {
                         />
                       </div>
                     </div>
+                    <section
+                      className="cutwork-controls"
+                      aria-label={t("Cut-paper design", "Diseño del calado")}
+                    >
+                      <label className="text-field">
+                        {t("Cut-paper profile", "Perfil de calado")}
+                        <select
+                          aria-label={t(
+                            "Cut-paper profile",
+                            "Perfil de calado",
+                          )}
+                          value={mechanism.cutwork?.pattern ?? "solid"}
+                          onChange={(e) =>
+                            profileSelected(
+                              e.target.value as Cutwork["pattern"] | "solid",
+                            )
+                          }
+                        >
+                          <option value="solid">
+                            {t("Solid panel", "Panel macizo")}
+                          </option>
+                          <option value="arcade">
+                            {t(
+                              "Arcade · arched windows",
+                              "Arcada · ventanas curvas",
+                            )}
+                          </option>
+                          <option value="leaf">
+                            {t(
+                              "Botanical · ribbed leaf",
+                              "Botánico · hoja nervada",
+                            )}
+                          </option>
+                          <option value="wing">
+                            {t(
+                              "Wing · scalloped lace",
+                              "Ala · encaje ondulado",
+                            )}
+                          </option>
+                          <option value="lattice">
+                            {t("Lattice · diamond screen", "Celosía · rombos")}
+                          </option>
+                        </select>
+                      </label>
+                      {mechanism.cutwork && (
+                        <>
+                          <div
+                            className="detail-options"
+                            role="group"
+                            aria-label={t(
+                              "Detail density",
+                              "Densidad del detalle",
+                            )}
+                          >
+                            <span>
+                              {t("Detail density", "Densidad del detalle")}
+                            </span>
+                            <div>
+                              {[1, 2, 3, 4, 5, 6].map((detail) => (
+                                <button
+                                  key={detail}
+                                  aria-pressed={
+                                    mechanism.cutwork?.detail === detail
+                                  }
+                                  onClick={() =>
+                                    patchModule({
+                                      cutwork: {
+                                        ...mechanism.cutwork!,
+                                        detail,
+                                      },
+                                    })
+                                  }
+                                >
+                                  {detail}
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                          <label className="text-field cutwork-web">
+                            {t(
+                              "Protected paper web · mm",
+                              "Borde de papel protegido · mm",
+                            )}
+                            <input
+                              type="number"
+                              aria-label={t(
+                                "Protected paper web",
+                                "Borde de papel protegido",
+                              )}
+                              min="1"
+                              max="5"
+                              step="0.1"
+                              value={mechanism.cutwork.web}
+                              onChange={(e) => {
+                                const web = Number(e.target.value);
+                                if (web >= 1 && web <= 5)
+                                  patchModule(
+                                    { cutwork: { ...mechanism.cutwork!, web } },
+                                    selected + "web",
+                                  );
+                              }}
+                            />
+                          </label>
+                          <p className="cutwork-count">
+                            <strong>
+                              {plan?.pieces
+                                .flatMap((p) => p.faces)
+                                .filter((f) => f.moduleId === selected)
+                                .reduce(
+                                  (n, f) => n + (f.holes?.length ?? 0),
+                                  0,
+                                ) ?? 0}
+                            </strong>{" "}
+                            {t(
+                              "actual openings in this part",
+                              "huecos reales en esta pieza",
+                            )}
+                          </p>
+                          <p className="fine-print">
+                            {t(
+                              "These are real cuts in the model and print files. Detail that cannot retain the chosen web is omitted. Test the stiffness of your paper.",
+                              "Son cortes reales en el modelo y los archivos. El detalle que no conserva el borde elegido se omite. Prueba la rigidez del papel.",
+                            )}
+                          </p>
+                        </>
+                      )}
+                    </section>
                     <div className="parameter-list">
                       {Object.entries(mechanism.params).map(
                         ([field, value]) => (
@@ -1755,18 +1973,7 @@ export default function App() {
                       </IconButton>
                       <button
                         className="text-button danger"
-                        onClick={() => {
-                          commit({
-                            ...project,
-                            modules: project.modules.filter(
-                              (m) => m.id !== selected,
-                            ),
-                          });
-                          setSelected(
-                            project.modules.find((m) => m.id !== selected)
-                              ?.id ?? "",
-                          );
-                        }}
+                        onClick={removeSelected}
                       >
                         <Trash2 size={14} />
                         {t("Remove part", "Quitar pieza")}
@@ -2239,7 +2446,7 @@ export default function App() {
       </main>
       <footer className="app-footer">
         <span>
-          PLEGA <small>v0.01.000</small>
+          PLEGA <small>v{releaseVersion.trim()}</small>
         </span>
         <span>
           {t(
@@ -2383,8 +2590,8 @@ export default function App() {
       >
         <p className="dialog-intro">
           {t(
-            "Six original compositions, two repair challenges. Opening a starter downloads your current project first.",
-            "Seis composiciones originales, dos retos de corrección. Al abrir un modelo se descarga primero tu proyecto actual.",
+            "Twelve original compositions, two repair challenges. Opening a starter downloads your current project first.",
+            "Doce composiciones originales, dos retos de corrección. Al abrir un modelo se descarga primero tu proyecto actual.",
           )}
         </p>
         <input
@@ -2396,7 +2603,7 @@ export default function App() {
           onChange={(e) => setQuery(e.target.value)}
         />
         <div className="starter-grid">
-          {[...STARTERS, ...REPAIR_CASES]
+          {[...STARTERS.slice(6), ...STARTERS.slice(0, 6), ...REPAIR_CASES]
             .filter((s) =>
               (s.title[lang] + " " + s.description[lang])
                 .toLowerCase()
@@ -2570,8 +2777,8 @@ function Guide({ topic, lang }: { topic: string; lang: Language }) {
           </p>
           <p>
             {t(
-              "Design a composition with up to six parts. Check the closed fit and motion zones. Preview a repair without losing your dimensions. Make a complete print package. Assemble it while recording what you actually observe.",
-              "Diseña hasta seis piezas. Comprueba la huella cerrada y las zonas de movimiento. Previsualiza una corrección sin perder tus medidas. Prepara el paquete impreso. Móntalo registrando lo que observes.",
+              "Design a composition with up to sixteen parts. Check the closed fit and motion zones. Preview a repair without losing your dimensions. Make a complete print package. Assemble it while recording what you actually observe.",
+              "Diseña hasta diecis?is piezas. Comprueba la huella cerrada y las zonas de movimiento. Previsualiza una corrección sin perder tus medidas. Prepara el paquete impreso. Móntalo registrando lo que observes.",
             )}
           </p>
           <div className="guide-callout">
@@ -2849,8 +3056,8 @@ function Guide({ topic, lang }: { topic: string; lang: Language }) {
           <h4>{t("The assumptions", "Las suposiciones")}</h4>
           <p>
             {t(
-              "Perfectly rigid panels. Zero thickness and friction. Straight hinges. No gravity, adhesive failure, paper strain or added cutouts. At exact closure, overlapping layers are expected. Up to six mechanisms are checked using disjoint conservative motion zones; arbitrary nesting and interlocking are outside this model.",
-              "Paneles perfectamente rígidos. Sin espesor ni fricción. Bisagras rectas. Sin gravedad, fallos de adhesivo, deformación ni recortes añadidos. Al cerrar exactamente se espera contacto entre capas. Se comprueban hasta seis mecanismos con zonas conservadoras separadas; el anidamiento y entrelazado arbitrarios quedan fuera del modelo.",
+              "Perfectly rigid panels. Zero thickness and friction. Straight hinges. No gravity, adhesive failure, or paper strain. Designed cutouts remove material while retaining protected hinges; material stiffness still needs a physical test. At exact closure, overlapping layers are expected. Up to sixteen mechanisms are checked using disjoint conservative motion zones; arbitrary nesting and interlocking are outside this model.",
+              "Paneles perfectamente rígidos. Sin espesor ni fricción. Bisagras rectas. Sin gravedad, fallos de adhesivo ni deformación. Los calados conservan las bisagras, pero la rigidez del papel requiere una prueba física. Al cerrar exactamente se espera contacto entre capas. Se comprueban hasta dieciséis mecanismos con zonas conservadoras separadas; el anidamiento y entrelazado arbitrarios quedan fuera del modelo.",
             )}
           </p>
           <p>

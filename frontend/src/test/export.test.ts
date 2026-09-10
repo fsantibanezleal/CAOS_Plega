@@ -102,6 +102,29 @@ const save = (name: string, file: ExportFile) => {
 };
 
 describe("fabrication serialization from actual engine plans", () => {
+  it("exports real sculpture apertures and trim contours with assembly instructions", async () => {
+    const sculpture = STARTERS.find(
+      (s) => s.id === "tideglass-pavilion",
+    )!.project;
+    const layout = plan(sculpture);
+    const svg = pass(
+      await serializeSvgPages(sculpture, layout, { lang: "en", fontBytes }),
+    );
+    const patterns = svg.filter((f) => f.name.includes("pattern"));
+    expect(patterns.some((f) => chars(f).includes(":aperture:"))).toBe(true);
+    expect(patterns.some((f) => chars(f).includes(":trim:"))).toBe(true);
+    expect(patterns.some((f) => chars(f).includes(":void:"))).toBe(true);
+    expect(svg.some((f) => chars(f).includes("Remove their centres"))).toBe(
+      true,
+    );
+    save("tideglass-pattern.svg", patterns[0]);
+    const pdf = pass(
+      await serializePdf(sculpture, layout, { lang: "en", fontBytes }),
+    );
+    save("tideglass-complete.pdf", pdf);
+    const decoded = await PDFDocument.load(pdf.bytes);
+    expect(decoded.getPageCount()).toBeGreaterThan(layout.pages.length);
+  });
   it("writes standalone SVG pages at millimetre scale with a real 100 mm ruler", async () => {
     const files = pass(
       await serializeSvgPages(step, plan(step), { lang: "en", fontBytes }),

@@ -2,11 +2,13 @@
 
 A paper mechanism workshop: design moving cards, understand why they cannot close, compare geometric repairs and export actual-size cut, score and assembly sheets.
 
-The complete workflow runs in the browser without an account or remote computation. Supported mechanisms are a one-sheet parallel step and a symmetric triangular V-fold, composed in up to six separated motion lanes. These are known paper mechanisms; the application provides an integrated design-to-print workflow, not a claim of newly invented folding mathematics.
+The complete workflow runs in the browser without an account or remote computation. Supported mechanisms are a one-sheet parallel step and a symmetric triangular V-fold, composed in up to sixteen separated motion lanes. These are known paper mechanisms; the application provides an integrated design-to-print workflow, not a claim of newly invented folding mathematics.
 
-The workshop combines a linked moving-paper view and cut-sheet view, dimension editing, pinned repair proposals, local project recovery, portable files and assembly progress. Six original starters and deliberate failure cases make the mathematical limits visible. English/Spanish and light/dark presentation are part of the application.
+The workshop opens as an editable paper sculpture. Sculpt architectural arcades, ribbed leaves, scalloped wings and diamond screens with real negative-space cuts. Projected handles move and resize the selected part in the 3D scene; the flat pattern, geometric checks and fabrication files follow the same geometry. Twelve original compositions and deliberate repair cases are available as starting points. English/Spanish and light/dark presentation are part of the application.
 
-[Open the workshop](https://plega.fasl-work.com/) or download a [versioned release](https://github.com/fsantibanezleal/releases). GitHub Pages serves the exact artifact tested in CI. Each release includes the deployed file hashes, clean source revision and publication evidence; the live `release.json` identifies the running version.
+The v0.02 editor keeps the canvas and tools inside the viewport, including on phones. Direct edits preserve pinned dimensions and stop at the supported geometric limits. Adding a part finds a valid free motion lane before changing the project. Existing v0.01 projects remain editable and keep their original geometry until a cut profile is chosen. See the [sculpture and editing contract](docs/architecture/0003-cut-paper-sculptures.md).
+
+[Open the workshop](https://plega.fasl-work.com/) or download a [versioned release](https://github.com/fsantibanezleal/CAOS_Plega/releases). GitHub Pages serves the exact artifact tested in CI. Each release includes the deployed file hashes, clean source revision and publication evidence; the live `release.json` identifies the running version.
 
 ## Run locally
 

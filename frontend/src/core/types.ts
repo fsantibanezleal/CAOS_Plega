@@ -1,4 +1,10 @@
 export type Localized = Readonly<{ en: string; es: string }>;
+export const MAX_MODULES = 16;
+export type Cutwork = Readonly<{
+  pattern: "arcade" | "leaf" | "wing" | "lattice";
+  detail: number;
+  web: number;
+}>;
 export type Vec2 = readonly [number, number];
 export type Vec3 = readonly [number, number, number];
 export type Tri = readonly [number, number, number];
@@ -17,6 +23,7 @@ export interface ModuleCommon {
   readonly label: string;
   readonly color: string;
   readonly y: number;
+  readonly cutwork?: Cutwork;
 }
 export interface StepModule extends ModuleCommon {
   readonly kind: "P";
@@ -136,6 +143,7 @@ export interface PrintLine {
 export interface PrintFace {
   readonly id: string;
   readonly polygon: readonly Vec2[];
+  readonly holes?: readonly (readonly Vec2[])[];
   readonly fill: string;
   readonly moduleId?: string;
 }

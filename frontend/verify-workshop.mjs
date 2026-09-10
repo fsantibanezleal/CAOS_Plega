@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 import { inflateRawSync } from "node:zlib";
 import { chromium, expect } from "@playwright/test";
 import { PDFDocument } from "pdf-lib";
+import { verifyCanvasEdits } from "./verify-canvas.mjs";
 
 const frontend = path.dirname(fileURLToPath(import.meta.url));
 const url = process.env.PLEGA_QA_URL || "http://127.0.0.1:4903/";
@@ -345,6 +346,29 @@ try {
     headless: true,
     args: ["--enable-unsafe-swiftshader"],
   });
+  for (const phone of [false, true]) {
+    await group(
+      phone
+        ? "Touch sculpture editing and valid creation"
+        : "Direct sculpture editing and valid creation",
+      async () => {
+        const { page, context } = await pageFor({
+          viewport: phone
+            ? { width: 390, height: 844 }
+            : { width: 1440, height: 900 },
+          hasTouch: phone,
+          isMobile: phone,
+        });
+        const result = await verifyCanvasEdits(page, {
+          touch: phone,
+          capture: (name) =>
+            capture(page, (phone ? "phone-" : "desktop-") + name),
+        });
+        await close(page, context);
+        return result;
+      },
+    );
+  }
   await group("Design controls and keyboard motion", async () => {
     const { page, context } = await pageFor();
     await expect(page.locator(".paper-viewer")).toHaveAttribute(
@@ -403,9 +427,9 @@ try {
     await close(page, context);
   });
 
-  await group("Six original starters and supported checks", async () => {
+  await group("Twelve original projects and supported checks", async () => {
     const { page, context } = await pageFor();
-    assert.equal(catalog.starters.length, 6);
+    assert.equal(catalog.starters.length, 12);
     for (const starter of catalog.starters) {
       await openStarter(page, starter.title.en);
       await expect(
@@ -906,7 +930,7 @@ try {
         page.getByRole("button", { name: "Play motion", exact: true }),
       ).toBeVisible();
       await page.getByRole("button", { name: "Projects", exact: true }).tap();
-      await expect(page.locator(".starter-card")).toHaveCount(8);
+      await expect(page.locator(".starter-card")).toHaveCount(14);
       await capture(page, "phone-project-library");
       await page.keyboard.press("Escape");
       await close(page, context);
@@ -943,6 +967,9 @@ try {
       };
     }
     assert(metadata.files["sw.js"] && /^[a-f0-9]{40}$/.test(metadata.revision));
+    await expect(page.locator(".app-footer small")).toHaveText(
+      `v${metadata.version}`,
+    );
     report.release = {
       revision: metadata.revision,
       source_clean: metadata.source_clean,

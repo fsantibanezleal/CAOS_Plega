@@ -33,7 +33,7 @@ class GeometryPipelineTests(unittest.TestCase):
     def catalog(self):
         return PIPE.read_json(self.root/PIPE.SOURCES[0])
 
-    def test_six_complete_starters_and_two_specific_diagnoses(self):
+    def test_twelve_complete_starters_and_two_specific_diagnoses(self):
         data = self.catalog()
         PIPE.validate_catalog(data)
         for item in data["starters"]:
@@ -48,6 +48,15 @@ class GeometryPipelineTests(unittest.TestCase):
         wrong["vPoses"][1]["ridge"][1] += 0.1
         with self.assertRaises(ValueError):
             PIPE.validate_fixtures(wrong)
+
+    def test_cutwork_extensions_are_bounded_and_preserve_rich_designs(self):
+        original = self.catalog()["starters"][6]["project"]
+        self.assertFalse(PIPE.project_issues(original))
+        for field, value in [("pattern", "remote-url"), ("detail", 2.5), ("detail", 7), ("detail", True), ("web", 0), ("web", 6)]:
+            project = copy.deepcopy(original)
+            project["modules"][0]["cutwork"][field] = value
+            with self.assertRaises(ValueError):
+                PIPE.project_issues(project)
 
     def test_compiler_is_deterministic(self):
         first = PIPE.generate(self.root)

@@ -7,8 +7,10 @@ import type {
   Vec2,
   Vec3,
   VModule,
+  Cutwork,
 } from "./types";
-import { ALL, area2, diag, RAD, rect } from "./shared";
+import { ALL, diag, RAD, rect } from "./shared";
+import { cutPanel } from "./cutwork";
 import { analyzeProject } from "./analysis";
 import { baseFaces, insertPoint, pagePoint, vNet } from "./math";
 export function poseProject(
@@ -32,23 +34,27 @@ export function poseProject(
     role: Panel3D["role"],
     color: string,
     moduleId?: string,
+    cutwork?: Cutwork,
   ) => {
-    const pp = area2(polygon) < 0 ? [...polygon].reverse() : polygon;
+    const shaped = cutPanel(polygon, cutwork);
     panels.push({
       id,
       pieceId,
       ...(moduleId ? { moduleId } : {}),
       role,
       color,
-      vertices: pp.map(map),
-      triangles:
-        pp.length === 3
-          ? [[0, 1, 2]]
-          : [
-              [0, 1, 2],
-              [0, 2, 3],
-            ],
+      vertices: shaped.vertices.map(map),
+      triangles: shaped.triangles,
     });
+    shaped.cuts.forEach((cut) =>
+      edge(
+        `${id}:${cut.id}`,
+        [map(cut.points[0]), map(cut.points[1])],
+        "cut",
+        moduleId,
+        `${id}:${cut.id}`,
+      ),
+    );
   };
   const edge = (
     id: string,
@@ -128,6 +134,7 @@ export function poseProject(
         "moving",
         m.color,
         m.id,
+        m.cutwork,
       );
       panel(
         `${m.id}:p2`,
@@ -137,6 +144,7 @@ export function poseProject(
         "moving",
         m.color,
         m.id,
+        m.cutwork,
       );
       for (const [i, yy] of [y0, y1].entries()) {
         edge(
@@ -200,6 +208,7 @@ export function poseProject(
         "moving",
         m.color,
         m.id,
+        m.cutwork,
       );
       panel(
         `${m.id}:right`,
@@ -209,6 +218,7 @@ export function poseProject(
         "moving",
         m.color,
         m.id,
+        m.cutwork,
       );
       for (const side of ["left", "right"] as const) {
         const tab = side === "left" ? n.leftTab : n.rightTab;
@@ -242,7 +252,13 @@ export function poseProject(
         m.id,
         `${m.id}:ridge`,
       );
-      for (const seg of vPerimeter(m))
+      for (const seg of vPerimeter(m)) {
+        if (
+          m.cutwork &&
+          ["leaf", "wing"].includes(m.cutwork.pattern) &&
+          [5, 6].some((i) => seg.id === `${m.id}:perimeter:${i}`)
+        )
+          continue;
         edge(
           seg.id,
           [
@@ -253,6 +269,7 @@ export function poseProject(
           m.id,
           seg.id,
         );
+      }
     }
   }
   const pts = panels.flatMap((p) => p.vertices);

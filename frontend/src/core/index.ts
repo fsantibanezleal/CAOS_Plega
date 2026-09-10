@@ -1,4 +1,7 @@
 export * from "./types";
+export { createModule } from "./creation";
+export { editMechanism } from "./directEdit";
+export type { DirectEdit, DirectField } from "./directEdit";
 export { parseProject } from "./validation";
 export { analyzeProject } from "./analysis";
 export { poseProject } from "./pose";
