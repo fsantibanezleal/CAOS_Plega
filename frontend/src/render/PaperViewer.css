@@ -1,0 +1,299 @@
+﻿.paper-canvas-editor {
+  position: absolute;
+  z-index: 6;
+  top: 5px;
+  left: 12px;
+  max-width: calc(100% - 76px);
+  padding: 7px 9px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 3px 14px #101a4020;
+}
+.paper-canvas-selection {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  margin-bottom: 5px;
+}
+.paper-canvas-selection strong {
+  font-size: 10px;
+  max-width: 140px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.paper-canvas-selection > span {
+  color: var(--muted);
+  font-size: 8px;
+}
+.paper-canvas-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.paper-canvas-framing {
+  display: flex;
+  gap: 3px;
+  margin: 0 0 5px;
+}
+.paper-canvas-framing button {
+  min-height: 24px;
+  padding: 4px 6px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 9px;
+  cursor: pointer;
+}
+.paper-canvas-framing button[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--surface);
+}
+.paper-canvas-actions button,
+.paper-canvas-actions select,
+.paper-canvas-add > summary {
+  min-height: 27px;
+  padding: 4px 7px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  font: inherit;
+  font-size: 10px;
+  color: var(--ink);
+  background: var(--surface);
+  cursor: pointer;
+}
+.paper-canvas-actions select {
+  min-width: 0;
+  max-width: 108px;
+}
+.paper-canvas-actions button:hover,
+.paper-canvas-add > summary:hover {
+  border-color: var(--accent);
+}
+.paper-canvas-add {
+  position: relative;
+}
+.paper-canvas-add > summary {
+  list-style: none;
+  color: var(--accent);
+  font-weight: 650;
+}
+.paper-canvas-add > summary::-webkit-details-marker {
+  display: none;
+}
+.paper-canvas-add > div {
+  position: absolute;
+  z-index: 10;
+  display: grid;
+  gap: 4px;
+  top: calc(100% + 5px);
+  left: 0;
+  width: 165px;
+  background: var(--surface);
+  padding: 7px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: 0 6px 20px #101a4030;
+}
+.paper-canvas-add > div button {
+  text-align: left;
+}
+.paper-canvas-actions .paper-canvas-remove {
+  color: var(--coral);
+}
+.paper-handle-guides {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+  overflow: hidden;
+}
+.paper-handle-guides line {
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 3;
+}
+.paper-handle-guides circle {
+  fill: var(--accent);
+  stroke: var(--surface);
+  stroke-width: 1.5;
+}
+.paper-edit-handle {
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 66px;
+  min-height: 31px;
+  padding: 5px 7px;
+  border: 1.5px solid var(--accent);
+  border-radius: 6px;
+  transform: translate(-50%, -50%);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 10px;
+  line-height: 1.2;
+  white-space: nowrap;
+  box-shadow: 0 2px 7px #101a4025;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  visibility: hidden;
+}
+.paper-edit-handle > span:first-child {
+  color: var(--accent);
+  font-size: 15px;
+}
+.paper-edit-handle output {
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+  font-weight: 700;
+}
+.paper-edit-handle:hover,
+.paper-edit-handle:focus-visible {
+  outline: 2px solid var(--surface);
+  box-shadow: 0 0 0 4px var(--accent);
+}
+.paper-edit-handle.is-dragging {
+  background: var(--accent);
+  color: var(--surface);
+  cursor: grabbing;
+}
+.paper-edit-handle.is-dragging > span:first-child,
+.paper-edit-handle.is-dragging output {
+  color: var(--surface);
+}
+.paper-edit-handle.is-pinned {
+  border-style: dashed;
+  cursor: not-allowed;
+}
+.paper-edit-feedback {
+  position: absolute;
+  z-index: 7;
+  bottom: 7px;
+  left: 8px;
+  max-width: calc(100% - 16px);
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  pointer-events: none;
+}
+.paper-edit-feedback.is-visible {
+  padding: 7px 9px;
+  background: var(--ink);
+  color: var(--surface);
+  border-radius: 6px;
+}
+.paper-edit-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+@media (max-width: 620px) {
+  .paper-canvas-editor {
+    left: 7px;
+    top: 3px;
+    padding: 5px 6px;
+    max-width: calc(100% - 57px);
+  }
+  .paper-canvas-selection {
+    gap: 6px;
+    margin-bottom: 3px;
+  }
+  .paper-canvas-selection strong {
+    max-width: 100px;
+    font-size: 9px;
+  }
+  .paper-canvas-selection > span {
+    max-width: 120px;
+    font-size: 7px;
+  }
+  .paper-canvas-framing {
+    gap: 2px;
+    margin-bottom: 4px;
+  }
+  .paper-canvas-framing button {
+    min-height: 23px;
+    padding: 3px 5px;
+    font-size: 8px;
+  }
+  .paper-canvas-actions button,
+  .paper-canvas-actions select,
+  .paper-canvas-add > summary {
+    min-height: 27px;
+    font-size: 9px;
+    padding: 4px 6px;
+  }
+  .paper-edit-handle {
+    min-width: 59px;
+    padding: 4px 5px;
+    min-height: 32px;
+    font-size: 9px;
+  }
+  .paper-edit-handle > span:first-child {
+    font-size: 13px;
+  }
+  .paper-edit-feedback {
+    font-size: 9px;
+    max-width: calc(100% - 24px);
+  }
+}
+@media (max-height: 550px) and (min-width: 621px) {
+  .paper-edit-feedback {
+    bottom: -28px;
+    max-width: calc(100% - 166px);
+    font-size: 8px;
+    line-height: 1.2;
+  }
+  .paper-edit-feedback.is-visible {
+    padding: 4px 6px;
+  }
+  .paper-canvas-editor {
+    display: flex;
+    gap: 9px;
+    align-items: center;
+    padding: 3px 5px;
+  }
+  .paper-canvas-framing {
+    margin: 0;
+  }
+  .paper-canvas-selection {
+    margin: 0;
+  }
+  .paper-canvas-selection > span {
+    display: none;
+  }
+  .paper-canvas-actions button,
+  .paper-canvas-actions select,
+  .paper-canvas-add > summary {
+    min-height: 23px;
+    padding-block: 2px;
+    font-size: 9px;
+  }
+  .paper-edit-handle {
+    min-height: 25px;
+    padding: 3px 5px;
+    font-size: 9px;
+  }
+}
+@media print {
+  .paper-canvas-editor,
+  .paper-handle-guides,
+  .paper-edit-handle,
+  .paper-edit-feedback {
+    display: none;
+  }
+}

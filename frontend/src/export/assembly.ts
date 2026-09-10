@@ -83,6 +83,21 @@ export function makeAssemblySteps(
     180,
   );
   for (const module of project.modules) {
+    if (module.cutwork)
+      add(
+        "cutwork.cut",
+        say(
+          `${module.label}: open the cut-paper detail`,
+          `${module.label}: recorta el calado`,
+        ),
+        say(
+          `Cut the closed aperture loops before the outer boundary. Remove their centres. Keep the ${module.cutwork.web} mm minimum designed border and all printed hinges intact. On sculpted V wings, cut the curved trim line and discard the strip between it and the original straight outline. Thin webs may flex: test your chosen stock; the rigid-panel check does not certify material strength.`,
+          `Recorta los huecos cerrados antes del contorno exterior y retira sus centros. Conserva el borde mínimo diseñado de ${module.cutwork.web} mm y todas las bisagras impresas. En las alas V, corta la curva y descarta la tira hasta el contorno recto original. Prueba tu cartulina: la comprobación geométrica no certifica su resistencia.`,
+        ),
+        "cut",
+        module.id,
+        180,
+      );
     if (module.kind === "P") {
       add(
         "p.cut",

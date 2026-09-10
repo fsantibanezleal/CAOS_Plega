@@ -10,11 +10,14 @@ import type {
   Project,
   Result,
   Vec2,
+  Cutwork,
+  Mechanism,
 } from "./types";
 import { analyzeProject } from "./analysis";
 import { baseFaces, tabPolygon, vNet } from "./math";
 import { vPerimeter } from "./pose";
 import { area2, bounds2, diag, EPS, rect, rotate2 } from "./shared";
+import { cutPanel } from "./cutwork";
 export const DEFAULT_PRINT_OPTIONS: PrintOptions = {
   purpose: "fabrication",
   sheet: { width: 210, height: 297, margin: 10 },
@@ -39,6 +42,26 @@ const label = (
   b: Box2,
   role: PrintLabel["role"] = "decoration",
 ): PrintLabel => ({ id, text, box: b, role });
+function sculptFace(
+  id: string,
+  polygon: readonly Vec2[],
+  fill: string,
+  moduleId: string,
+  lines: PrintLine[],
+  cutwork?: Cutwork,
+): PrintFace {
+  if (!cutwork) return face(id, polygon, fill, moduleId);
+  const p = cutPanel(polygon, cutwork);
+  lines.push(
+    ...p.cuts.map((c) => ({
+      id: `${id}:${c.id}`,
+      assignment: "cut" as const,
+      points: c.points,
+      moduleId,
+    })),
+  );
+  return { id, polygon: p.polygon, holes: p.holes, fill, moduleId };
+}
 function insideBox(poly: readonly Vec2[], maxHeight = 12): Box2 {
   const p = area2(poly) < 0 ? [...poly].reverse() : poly,
     c: Vec2 = [
@@ -64,6 +87,27 @@ function insideBox(poly: readonly Vec2[], maxHeight = 12): Box2 {
     min: [c[0] - half, c[1] - Math.min(half, maxHeight / 2)],
     max: [c[0] + half, c[1] + Math.min(half, maxHeight / 2)],
   };
+}
+/** Label feasibility without generating cutout meshes during a pointer gesture. */
+export function readableModuleLabels(m: Mechanism): boolean {
+  const polygons: (readonly Vec2[])[] = [];
+  if (m.kind === "P") {
+    if (!m.cutwork) polygons.push(rect(0, 0, m.params.a, m.params.width));
+  } else {
+    const n = vNet(m),
+      p = m.params;
+    polygons.push(
+      n.leftTab,
+      n.rightTab,
+      tabPolygon(p.betaDeg, p.r, p.tabInset, p.tabWidth, "left"),
+      tabPolygon(p.betaDeg, p.r, p.tabInset, p.tabWidth, "right"),
+    );
+    if (!m.cutwork) polygons.push([n.o, n.l, n.c], [n.o, n.r, n.c]);
+  }
+  return polygons.every((p) => {
+    const b = insideBox(p);
+    return b.max[0] - b.min[0] >= 2.7 && b.max[1] - b.min[1] >= 2.7;
+  });
 }
 export function makePieces(project: Project): PrintPiece[] {
   const W = project.card.W,
@@ -108,8 +152,22 @@ export function makePieces(project: Project): PrintPiece[] {
       const { a, b, width: w } = m.params,
         mid = b - a;
       faces.push(
-        face(`${m.id}:p1`, rect(-a, m.y, mid, m.y + w), m.color, m.id),
-        face(`${m.id}:p2`, rect(mid, m.y, b, m.y + w), m.color, m.id),
+        sculptFace(
+          `${m.id}:p1`,
+          rect(-a, m.y, mid, m.y + w),
+          m.color,
+          m.id,
+          lines,
+          m.cutwork,
+        ),
+        sculptFace(
+          `${m.id}:p2`,
+          rect(mid, m.y, b, m.y + w),
+          m.color,
+          m.id,
+          lines,
+          m.cutwork,
+        ),
       );
       for (const [i, yy] of [m.y, m.y + w].entries())
         lines.push({
@@ -150,15 +208,35 @@ export function makePieces(project: Project): PrintPiece[] {
           moduleId: m.id,
         },
       );
-      labels.push(
-        label(`${m.id}:label`, m.label, insideBox(rect(mid, m.y, b, m.y + w))),
-      );
+      if (!m.cutwork)
+        labels.push(
+          label(
+            `${m.id}:label`,
+            m.label,
+            insideBox(rect(mid, m.y, b, m.y + w)),
+          ),
+        );
     } else {
+      const sculptLines: PrintLine[] = [];
       const p = m.params,
         n = vNet(m),
         insertFaces: PrintFace[] = [
-          face(`${m.id}:left`, [n.o, n.l, n.c], m.color, m.id),
-          face(`${m.id}:right`, [n.o, n.r, n.c], m.color, m.id),
+          sculptFace(
+            `${m.id}:left`,
+            [n.o, n.l, n.c],
+            m.color,
+            m.id,
+            sculptLines,
+            m.cutwork,
+          ),
+          sculptFace(
+            `${m.id}:right`,
+            [n.o, n.r, n.c],
+            m.color,
+            m.id,
+            sculptLines,
+            m.cutwork,
+          ),
         ];
       const insertLines: PrintLine[] = vPerimeter(m).map((s) => ({
         id: s.id,
@@ -166,6 +244,7 @@ export function makePieces(project: Project): PrintPiece[] {
         points: s.points,
         moduleId: m.id,
       }));
+      insertLines.push(...sculptLines);
       insertLines.push({
         id: `${m.id}:ridge`,
         assignment: "mountain",
@@ -213,7 +292,7 @@ export function makePieces(project: Project): PrintPiece[] {
       }
       const words = m.label.trim().split(/\s+/),
         mid = Math.ceil(words.length / 2);
-      if (words.length > 1) {
+      if (!m.cutwork && words.length > 1) {
         insertLabels.push(
           label(
             `${m.id}:label:left`,
@@ -226,7 +305,7 @@ export function makePieces(project: Project): PrintPiece[] {
             insideBox([n.o, n.r, n.c]),
           ),
         );
-      } else
+      } else if (!m.cutwork)
         insertLabels.push(
           label(`${m.id}:label:right`, m.label, insideBox([n.o, n.r, n.c])),
         );

@@ -2,7 +2,11 @@
 
 Choose an original starter or a failure case. The card dimensions are in millimetres; width is one page, so the open blank is twice as wide. The opening angle runs from closed at 0 degrees to flat at 180 degrees. The moving view and flat cut sheet refer to the same physical project.
 
-Select a module and adjust its dimensions. A parallel step is cut from the base blank. A symmetric V-fold is a separate insert attached using matching tab/glue labels. Up to six modules can occupy separated lanes along the gutter. The parameters and supported ranges are documented in [the geometry model](../geometry.md).
+Select a module and adjust its dimensions. A parallel step is cut from the base blank. A symmetric V-fold is a separate insert attached using matching tab/glue labels. Up to sixteen modules can occupy separated lanes along the gutter. The parameters and supported ranges are documented in [the geometry model](../geometry.md).
+
+Drag the selected part's canvas handles to change its real dimensions or gutter position. On a phone, the selected part is framed for editing; use **All parts** or **Whole card** to review the composition. Arrow keys adjust the focused handle by one millimetre; Shift adjusts five and Alt one tenth. Release commits the gesture as one undoable change; Escape cancels it. Pinned fields cannot move, and a visible limit message explains when the supported geometry stops a drag. Compact numeric fields provide precise values without duplicating the canvas as a set of sliders.
+
+The canvas **Add** menu finds a valid free lane for a new step or V insert. Existing dimensions and pins remain unchanged; insufficient capacity leaves the project intact. Choose a cut profile on the canvas or inspector, set its density, and inspect the actual opening count. The protected web controls material retained around apertures; details that cannot retain it are omitted. The 3D holes and print cuts are the same geometry. Cut small interior openings first and follow the guide's offcut instructions for scalloped insert edges.
 
 Read the diagnosis before printing. A card can fail closed fit, use unsupported geometry or lack a lane-separation certificate. These are different conditions. An uncertified overlap does not assert an actual collision, and a pleasing pose does not override a failed check. Use a draft sheet to inspect the current design; fabrication output requires its specific checks to pass.
 

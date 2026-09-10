@@ -331,6 +331,906 @@
           }
         ]
       }
+    },
+    {
+      "id": "tideglass-pavilion",
+      "title": {
+        "en": "Tideglass pavilion",
+        "es": "Pabellón de mareas"
+      },
+      "description": {
+        "en": "A fold-flat architectural model: arched galleries, pierced roof sails and a diamond clerestory. Six working parts become one display piece.",
+        "es": "Una maqueta arquitectónica plegable: galerías de arcos, velas caladas y una celosía elevada. Seis piezas móviles forman una composición."
+      },
+      "learning": {
+        "en": "Customize each gallery window density, sculpt the roof edges, then sweep the opening and print the matching cut-and-score set. There is room to add another part.",
+        "es": "Personaliza las ventanas, esculpe los bordes del techo y recorre la apertura antes de imprimir el conjunto de cortes y pliegues. Queda espacio para otra pieza."
+      },
+      "project": {
+        "schemaVersion": 1,
+        "title": "Tideglass pavilion",
+        "card": {
+          "W": 92,
+          "H": 260,
+          "margin": 6,
+          "gap": 5,
+          "blank": "uncreased",
+          "color": "#f4ead7",
+          "pins": []
+        },
+        "modules": [
+          {
+            "id": "arrival-arcade",
+            "kind": "P",
+            "label": "Arrival arcade",
+            "color": "#cf713e",
+            "y": 7.0,
+            "params": {
+              "a": 28,
+              "b": 36,
+              "width": 28
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "arcade",
+              "detail": 3,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "west-roof-sail",
+            "kind": "V",
+            "label": "West roof sail",
+            "color": "#167d8d",
+            "y": 40.01,
+            "params": {
+              "r": 42,
+              "h": 60,
+              "betaDeg": 25,
+              "gammaDeg": 65,
+              "tabWidth": 5,
+              "tabInset": 6
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "wing",
+              "detail": 3,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "inner-gallery",
+            "kind": "P",
+            "label": "Inner gallery",
+            "color": "#e6b553",
+            "y": 83.0849,
+            "params": {
+              "a": 37,
+              "b": 37,
+              "width": 28
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "arcade",
+              "detail": 3,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "east-roof-sail",
+            "kind": "V",
+            "label": "East roof sail",
+            "color": "#135664",
+            "y": 116.0949,
+            "params": {
+              "r": 42,
+              "h": 66,
+              "betaDeg": 25,
+              "gammaDeg": 65,
+              "tabWidth": 5,
+              "tabInset": 6
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "wing",
+              "detail": 3,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "upper-lantern",
+            "kind": "P",
+            "label": "Upper lantern",
+            "color": "#de9871",
+            "y": 159.1699,
+            "params": {
+              "a": 32,
+              "b": 28,
+              "width": 25
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "lattice",
+              "detail": 3,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "crown-canopy",
+            "kind": "V",
+            "label": "Crown canopy",
+            "color": "#459d9c",
+            "y": 189.1799,
+            "params": {
+              "r": 33,
+              "h": 56,
+              "betaDeg": 25,
+              "gammaDeg": 65,
+              "tabWidth": 5,
+              "tabInset": 6
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "leaf",
+              "detail": 2,
+              "web": 1.2
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "fern-conservatory",
+      "title": {
+        "en": "Fern conservatory",
+        "es": "Invernadero de helechos"
+      },
+      "description": {
+        "en": "A miniature paper conservatory with five sculpted, vein-cut fronds and an open-work planter. Change the leaf rhythm and watch the canopy fold flat.",
+        "es": "Un pequeño invernadero de papel con cinco frondas caladas y una jardinera abierta. Cambia el ritmo de las hojas y observa cómo se pliega."
+      },
+      "learning": {
+        "en": "Select a frond, change its rib density and protected web, and compare light passing through the actual openings. Cut the small apertures before separating each insert.",
+        "es": "Selecciona una fronda, cambia la densidad y el borde protegido y observa sus huecos reales. Recorta los detalles antes de separar cada inserto."
+      },
+      "project": {
+        "schemaVersion": 1,
+        "title": "Fern conservatory",
+        "card": {
+          "W": 92,
+          "H": 251,
+          "margin": 6,
+          "gap": 5,
+          "blank": "uncreased",
+          "color": "#eee7d4",
+          "pins": []
+        },
+        "modules": [
+          {
+            "id": "young-frond",
+            "kind": "V",
+            "label": "Young frond",
+            "color": "#abc56a",
+            "y": 7.0,
+            "params": {
+              "r": 31,
+              "h": 52,
+              "betaDeg": 25,
+              "gammaDeg": 65,
+              "tabWidth": 5,
+              "tabInset": 6
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "leaf",
+              "detail": 3,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "fern-canopy",
+            "kind": "V",
+            "label": "Fern canopy",
+            "color": "#2c8767",
+            "y": 40.1055,
+            "params": {
+              "r": 40,
+              "h": 70,
+              "betaDeg": 25,
+              "gammaDeg": 65,
+              "tabWidth": 5,
+              "tabInset": 6
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "leaf",
+              "detail": 3,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "silver-frond",
+            "kind": "V",
+            "label": "Silver frond",
+            "color": "#88b99a",
+            "y": 81.3679,
+            "params": {
+              "r": 33,
+              "h": 65,
+              "betaDeg": 25,
+              "gammaDeg": 65,
+              "tabWidth": 5,
+              "tabInset": 6
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "leaf",
+              "detail": 2,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "forest-crown",
+            "kind": "V",
+            "label": "Forest crown",
+            "color": "#225d50",
+            "y": 116.6879,
+            "params": {
+              "r": 38,
+              "h": 75,
+              "betaDeg": 25,
+              "gammaDeg": 65,
+              "tabWidth": 5,
+              "tabInset": 6
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "leaf",
+              "detail": 3,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "new-growth",
+            "kind": "V",
+            "label": "New growth",
+            "color": "#c3d78b",
+            "y": 156.6709,
+            "params": {
+              "r": 27,
+              "h": 48,
+              "betaDeg": 25,
+              "gammaDeg": 65,
+              "tabWidth": 5,
+              "tabInset": 6
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "leaf",
+              "detail": 2,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "glasshouse-plinth",
+            "kind": "P",
+            "label": "Glasshouse plinth",
+            "color": "#c88a58",
+            "y": 186.1512,
+            "params": {
+              "a": 25,
+              "b": 30,
+              "width": 24
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "arcade",
+              "detail": 2,
+              "web": 1.2
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "ribbon-observatory",
+      "title": {
+        "en": "Ribbon observatory",
+        "es": "Observatorio de cintas"
+      },
+      "description": {
+        "en": "A folding exhibition object built from layered pierced screens: a repeating diamond field rises into a sequence of vaulted fins.",
+        "es": "Un objeto expositivo plegable con celosías superpuestas: un campo de rombos asciende entre aletas abovedadas."
+      },
+      "learning": {
+        "en": "Compare a solid panel with a perforated one using the profile selector. Every removed opening also appears in the SVG, PDF and crease graph.",
+        "es": "Compara un panel sólido con uno calado usando el selector. Cada hueco aparece también en SVG, PDF y el grafo de pliegues."
+      },
+      "project": {
+        "schemaVersion": 1,
+        "title": "Ribbon observatory",
+        "card": {
+          "W": 92,
+          "H": 258,
+          "margin": 6,
+          "gap": 5,
+          "blank": "uncreased",
+          "color": "#f4ead7",
+          "pins": []
+        },
+        "modules": [
+          {
+            "id": "entry-screen",
+            "kind": "P",
+            "label": "Entry screen",
+            "color": "#e29560",
+            "y": 7.0,
+            "params": {
+              "a": 30,
+              "b": 30,
+              "width": 26
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "lattice",
+              "detail": 3,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "low-vault",
+            "kind": "V",
+            "label": "Low vault",
+            "color": "#5870a8",
+            "y": 38.01,
+            "params": {
+              "r": 34,
+              "h": 52,
+              "betaDeg": 25,
+              "gammaDeg": 65,
+              "tabWidth": 5,
+              "tabInset": 6
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "lattice",
+              "detail": 3,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "mid-screen",
+            "kind": "P",
+            "label": "Mid screen",
+            "color": "#d76855",
+            "y": 73.8345,
+            "params": {
+              "a": 34,
+              "b": 38,
+              "width": 30
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "lattice",
+              "detail": 4,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "high-vault",
+            "kind": "V",
+            "label": "High vault",
+            "color": "#374d86",
+            "y": 108.8445,
+            "params": {
+              "r": 42,
+              "h": 74,
+              "betaDeg": 25,
+              "gammaDeg": 65,
+              "tabWidth": 5,
+              "tabInset": 6
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "wing",
+              "detail": 3,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "light-screen",
+            "kind": "P",
+            "label": "Light screen",
+            "color": "#e7bc76",
+            "y": 151.9194,
+            "params": {
+              "a": 30,
+              "b": 36,
+              "width": 28
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "lattice",
+              "detail": 3,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "final-vault",
+            "kind": "V",
+            "label": "Final vault",
+            "color": "#95add2",
+            "y": 184.9294,
+            "params": {
+              "r": 36,
+              "h": 63,
+              "betaDeg": 25,
+              "gammaDeg": 65,
+              "tabWidth": 5,
+              "tabInset": 6
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "lattice",
+              "detail": 3,
+              "web": 1.2
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "arcade-procession",
+      "title": {
+        "en": "Arcade procession",
+        "es": "Procesión de arcadas"
+      },
+      "description": {
+        "en": "A seven-bay paper streetscape with a changing skyline of rising arches, small windows and open bridges. One continuous base; no glued inserts.",
+        "es": "Un paisaje de papel de siete tramos con arcos, ventanas y puentes. Una base continua, sin insertos pegados."
+      },
+      "learning": {
+        "en": "Each bay is directly editable. Change height versus depth to design the skyline, then test the closed footprint. Preserve the printed side hinges when cutting.",
+        "es": "Cada tramo es editable. Cambia altura y profundidad para diseñar el perfil y comprueba su huella cerrada. Conserva las bisagras laterales al cortar."
+      },
+      "project": {
+        "schemaVersion": 1,
+        "title": "Arcade procession",
+        "card": {
+          "W": 92,
+          "H": 255,
+          "margin": 6,
+          "gap": 5,
+          "blank": "uncreased",
+          "color": "#f4ead7",
+          "pins": []
+        },
+        "modules": [
+          {
+            "id": "gatehouse",
+            "kind": "P",
+            "label": "Gatehouse",
+            "color": "#b86145",
+            "y": 7.0,
+            "params": {
+              "a": 24,
+              "b": 28,
+              "width": 25
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "arcade",
+              "detail": 2,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "east-bridge",
+            "kind": "P",
+            "label": "East bridge",
+            "color": "#d68556",
+            "y": 37.01,
+            "params": {
+              "a": 28,
+              "b": 36,
+              "width": 23
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "arcade",
+              "detail": 3,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "clock-gallery",
+            "kind": "P",
+            "label": "Clock gallery",
+            "color": "#e7bc7b",
+            "y": 65.02,
+            "params": {
+              "a": 39,
+              "b": 40,
+              "width": 28
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "arcade",
+              "detail": 3,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "central-passage",
+            "kind": "P",
+            "label": "Central passage",
+            "color": "#ae5741",
+            "y": 98.03,
+            "params": {
+              "a": 34,
+              "b": 34,
+              "width": 25
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "arcade",
+              "detail": 3,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "west-bridge",
+            "kind": "P",
+            "label": "West bridge",
+            "color": "#d09a67",
+            "y": 128.04,
+            "params": {
+              "a": 32,
+              "b": 37,
+              "width": 27
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "arcade",
+              "detail": 3,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "high-gallery",
+            "kind": "P",
+            "label": "High gallery",
+            "color": "#d9ae80",
+            "y": 160.05,
+            "params": {
+              "a": 40,
+              "b": 39,
+              "width": 27
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "arcade",
+              "detail": 3,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "garden-gate",
+            "kind": "P",
+            "label": "Garden gate",
+            "color": "#8c584b",
+            "y": 192.06,
+            "params": {
+              "a": 26,
+              "b": 29,
+              "width": 23
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "lattice",
+              "detail": 2,
+              "web": 1.2
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "moth-theatre",
+      "title": {
+        "en": "Moth theatre",
+        "es": "Teatro de alas"
+      },
+      "description": {
+        "en": "Four scalloped, pierced wing pairs open above two lacework stages. A folded-paper study of symmetry, silhouette and changing negative space.",
+        "es": "Cuatro pares de alas onduladas se abren sobre dos escenarios calados. Un estudio de simetría, silueta y espacio negativo en papel."
+      },
+      "learning": {
+        "en": "Change the wing profile and density while keeping the same rigid hinges. Turn the opening slowly to see how the overlapping apertures transform the view.",
+        "es": "Cambia el perfil y la densidad conservando las bisagras rígidas. Abre lentamente para observar cómo se transforman los huecos superpuestos."
+      },
+      "project": {
+        "schemaVersion": 1,
+        "title": "Moth theatre",
+        "card": {
+          "W": 92,
+          "H": 258,
+          "margin": 6,
+          "gap": 5,
+          "blank": "uncreased",
+          "color": "#f6eadc",
+          "pins": []
+        },
+        "modules": [
+          {
+            "id": "amber-wings",
+            "kind": "V",
+            "label": "Amber wings",
+            "color": "#df9a48",
+            "y": 7.0,
+            "params": {
+              "r": 39,
+              "h": 65,
+              "betaDeg": 25,
+              "gammaDeg": 65,
+              "tabWidth": 5,
+              "tabInset": 6
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "wing",
+              "detail": 3,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "small-stage",
+            "kind": "P",
+            "label": "Small stage",
+            "color": "#6c436e",
+            "y": 47.356,
+            "params": {
+              "a": 23,
+              "b": 29,
+              "width": 22
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "lattice",
+              "detail": 2,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "violet-wings",
+            "kind": "V",
+            "label": "Violet wings",
+            "color": "#94649b",
+            "y": 74.366,
+            "params": {
+              "r": 43,
+              "h": 75,
+              "betaDeg": 25,
+              "gammaDeg": 65,
+              "tabWidth": 5,
+              "tabInset": 6
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "wing",
+              "detail": 3,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "copper-wings",
+            "kind": "V",
+            "label": "Copper wings",
+            "color": "#bb673f",
+            "y": 118.3472,
+            "params": {
+              "r": 38,
+              "h": 66,
+              "betaDeg": 25,
+              "gammaDeg": 65,
+              "tabWidth": 5,
+              "tabInset": 6
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "wing",
+              "detail": 3,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "lace-stage",
+            "kind": "P",
+            "label": "Lace stage",
+            "color": "#cfacc3",
+            "y": 157.7969,
+            "params": {
+              "a": 28,
+              "b": 32,
+              "width": 23
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "lattice",
+              "detail": 3,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "moon-wings",
+            "kind": "V",
+            "label": "Moon wings",
+            "color": "#d7bc72",
+            "y": 185.8069,
+            "params": {
+              "r": 35,
+              "h": 60,
+              "betaDeg": 25,
+              "gammaDeg": 65,
+              "tabWidth": 5,
+              "tabInset": 6
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "wing",
+              "detail": 3,
+              "web": 1.2
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "tessera-light-garden",
+      "title": {
+        "en": "Tessera light garden",
+        "es": "Jardín de luz Tesela"
+      },
+      "description": {
+        "en": "A display card of interleaved leaf sails and architectural screens, designed to cast patterned shadows in ordinary ambient light.",
+        "es": "Una tarjeta de exposición con hojas y celosías intercaladas, diseñada para producir sombras bajo luz ambiental."
+      },
+      "learning": {
+        "en": "Switch individual pieces between botanical, arcade and diamond cuts. Keep a wider paper web for delicate stock and add a new checked wing in the remaining lane.",
+        "es": "Cambia piezas entre cortes botánicos, arcos y rombos. Conserva un borde ancho con papel delicado y añade un ala comprobada en el espacio restante."
+      },
+      "project": {
+        "schemaVersion": 1,
+        "title": "Tessera light garden",
+        "card": {
+          "W": 92,
+          "H": 253,
+          "margin": 6,
+          "gap": 5,
+          "blank": "uncreased",
+          "color": "#f4ead7",
+          "pins": []
+        },
+        "modules": [
+          {
+            "id": "lattice-threshold",
+            "kind": "P",
+            "label": "Lattice threshold",
+            "color": "#c78c40",
+            "y": 7.0,
+            "params": {
+              "a": 27,
+              "b": 33,
+              "width": 24
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "lattice",
+              "detail": 3,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "first-leaf-sail",
+            "kind": "V",
+            "label": "First leaf sail",
+            "color": "#358a88",
+            "y": 36.01,
+            "params": {
+              "r": 38,
+              "h": 68,
+              "betaDeg": 25,
+              "gammaDeg": 65,
+              "tabWidth": 5,
+              "tabInset": 6
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "leaf",
+              "detail": 3,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "rose-gallery",
+            "kind": "P",
+            "label": "Rose gallery",
+            "color": "#d57a72",
+            "y": 75.4597,
+            "params": {
+              "a": 33,
+              "b": 35,
+              "width": 27
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "arcade",
+              "detail": 3,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "second-leaf-sail",
+            "kind": "V",
+            "label": "Second leaf sail",
+            "color": "#5c7497",
+            "y": 107.4697,
+            "params": {
+              "r": 41,
+              "h": 73,
+              "betaDeg": 25,
+              "gammaDeg": 65,
+              "tabWidth": 5,
+              "tabInset": 6
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "leaf",
+              "detail": 3,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "amber-screen",
+            "kind": "P",
+            "label": "Amber screen",
+            "color": "#dfae61",
+            "y": 149.6383,
+            "params": {
+              "a": 29,
+              "b": 36,
+              "width": 26
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "lattice",
+              "detail": 3,
+              "web": 1.2
+            }
+          },
+          {
+            "id": "final-leaf-sail",
+            "kind": "V",
+            "label": "Final leaf sail",
+            "color": "#8eaa7b",
+            "y": 180.6483,
+            "params": {
+              "r": 35,
+              "h": 58,
+              "betaDeg": 25,
+              "gammaDeg": 65,
+              "tabWidth": 5,
+              "tabInset": 6
+            },
+            "pins": [],
+            "cutwork": {
+              "pattern": "leaf",
+              "detail": 2,
+              "web": 1.2
+            }
+          }
+        ]
+      }
     }
   ],
   "repairCases": [

@@ -172,6 +172,16 @@ export function validatePlan(project: Project, plan: PrintPlan): void {
       if (
         face.polygon.length < 3 ||
         !face.polygon.every(finitePoint) ||
+        (face.holes !== undefined &&
+          (!Array.isArray(face.holes) ||
+            face.holes.length > 80 ||
+            face.holes.some(
+              (hole) =>
+                !Array.isArray(hole) ||
+                hole.length < 3 ||
+                hole.length > 32 ||
+                !hole.every(finitePoint),
+            ))) ||
         !/^#[a-f\d]{6}$/iu.test(face.fill)
       )
         fail("PRINT_FACE_INVALID", "An invalid printed face was rejected.", [
@@ -303,7 +313,7 @@ function pieceInk(
   const clip = placement.clip
     ? globalBox(placement.clip, placement)
     : undefined;
-  for (const face of piece.faces)
+  for (const face of piece.faces) {
     path(
       page,
       face.id,
@@ -317,6 +327,15 @@ function pieceInk(
         clip,
       },
     );
+    for (const [index, hole] of (face.holes ?? []).entries())
+      path(
+        page,
+        `${face.id}:void:${index}`,
+        hole.map((v) => placed(v, placement)),
+        "artwork",
+        { closed: true, stroke: "#ffffff", width: 0, fill: "#ffffff", clip },
+      );
+  }
   for (const glue of piece.glue) {
     const points = glue.polygon.map((v) => placed(v, placement));
     path(page, glue.id, points, "glue", {

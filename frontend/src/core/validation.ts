@@ -1,4 +1,5 @@
 import type { Project, Result } from "./types";
+import { MAX_MODULES } from "./types";
 import { ALL, diag, freeze } from "./shared";
 type Obj = Record<string, unknown>;
 const isObj = (v: unknown): v is Obj =>
@@ -102,13 +103,22 @@ export function parseProject(input: unknown): Result<Project> {
     !pins(c.pins, ["W", "H", "margin", "gap"])
   )
     return bad("card-shape");
-  if (!Array.isArray(v.modules) || v.modules.length > 6)
+  if (!Array.isArray(v.modules) || v.modules.length > MAX_MODULES)
     return bad("module-count");
   const ids = new Set<string>();
   for (const m of v.modules) {
     if (
       !isObj(m) ||
-      !keys(m, ["id", "kind", "label", "color", "y", "params", "pins"]) ||
+      !keys(m, [
+        "id",
+        "kind",
+        "label",
+        "color",
+        "y",
+        "params",
+        "pins",
+        ...(m.cutwork !== undefined ? ["cutwork"] : []),
+      ]) ||
       !str(m.id, 48) ||
       !/^[a-z][a-z0-9-]*$/.test(m.id as string) ||
       ids.has(m.id as string) ||
@@ -119,6 +129,18 @@ export function parseProject(input: unknown): Result<Project> {
     )
       return bad("module-shape");
     ids.add(m.id as string);
+    if (m.cutwork !== undefined) {
+      const c = m.cutwork;
+      if (
+        !isObj(c) ||
+        !keys(c, ["pattern", "detail", "web"]) ||
+        !["arcade", "leaf", "wing", "lattice"].includes(c.pattern as string) ||
+        !num(c.detail, 1, 6) ||
+        !Number.isInteger(c.detail) ||
+        !num(c.web, 1, 5)
+      )
+        return bad("cutwork-shape");
+    }
     const p = m.params;
     if (m.kind === "P") {
       if (

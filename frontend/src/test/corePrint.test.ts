@@ -15,7 +15,7 @@ describe("physical fabrication coordinates", () => {
     "%s fits actual-size pieces and keeps labels inside their faces",
     (_, project) => {
       const r = makePrintPlan(project);
-      expect(r.ok).toBe(true);
+      expect(r.ok, JSON.stringify(r.diagnostics)).toBe(true);
       if (!r.ok) return;
       for (const pl of r.value.placements) {
         const p = r.value.pieces.find((p) => p.id === pl.pieceId)!,

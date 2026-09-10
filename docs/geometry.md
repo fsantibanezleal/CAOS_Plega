@@ -1,6 +1,6 @@
 # PLEGA geometry: restricted paper mechanisms
 
-The engine uses the following independently derived rigid-panel models and constructive print patterns. All coordinates are millimetres. The supported scope is a one-sheet parallel step and a glued symmetric triangular V-fold, with up to six separated motion lanes. This is a zero-thickness geometric model, not a physical assembly test.
+The engine uses the following independently derived rigid-panel models and constructive print patterns. All coordinates are millimetres. The supported scope is a one-sheet parallel step and a glued symmetric triangular V-fold, with up to sixteen separated motion lanes. This is a zero-thickness geometric model, not a physical assembly test.
 
 ## 1. Evidence and scope of the derivation
 
@@ -158,9 +158,9 @@ R_y(alpha)(x,y,z) =
 
 This maps P's v to eR and u to eL. At full opening it is the identity. Lengths, rigidity and all y bounds are unchanged. The preview must render one shared base with P's slit regions removed, and V's tabs attached to the corresponding remaining page regions. Rendering each family in its own unconverted orientation would produce an invalid mixed preview.
 
-### Constructive continuous separation for up to six mechanisms
+### Constructive continuous separation for up to sixteen mechanisms
 
-Support one to six modules, each in a separately ordered gutter lane. Six is a product/UI limit, not a mathematical limit. A P module of width w has local y bounds `[0,w]`; a V module has the exact conservative `[lo,hi]` above, including its tabs. Set `ell_i=hi_i-lo_i`, positive inter-module gap d, and page-edge margin m. For origins y_i, require:
+Support one to sixteen modules, each in a separately ordered gutter lane. Sixteen is a product/UI limit, not a mathematical limit. A P module of width w has local y bounds `[0,w]`; a V module has the exact conservative `[lo,hi]` above, including its tabs. Set `ell_i=hi_i-lo_i`, positive inter-module gap d, and page-edge margin m. For origins y_i, require:
 
 ```text
 y_1 + lo_1 >= m
@@ -213,7 +213,7 @@ All coordinates below use the respective family's coordinate convention and mill
 | V-tab-unavailable | r=10,g=6 | Reject because the proposed tab's usable attachment length r-2g is negative. |
 | mixed-uncertified | V-vertical above plus box y40..70 | V triangle motion interval35..94.641016 overlaps box interval. No whole-motion composition certificate; not necessarily a collision. |
 | mixed-packed | W90,H140,m5,d5; first P with w30; then V with beta30deg,gamma 90 deg,r40,h50,g3,t5 | P origin5 has slab[5,35]. V has lo=-25,hi=34.641016; origin65 gives slab[40,99.641016]. Exact gap5; both fit. V closed across maximum43.301270. |
-| six-too-tall | Six copies of that V, H140,m5,d5 | Required lane span382.846097 exceeds available130. Reject this size/layout; the six-module UI cap does not promise that every set of dimensions fits. |
+| six-too-tall | Six copies of that V, H140,m5,d5 | Required lane span382.846097 exceeds available130. Reject this size/layout; the sixteen-module UI cap does not promise that every set of dimensions fits. |
 
 Add parameter-grid and seeded tests throughout the allowed domain; include endpoints and values close to all allowed boundaries. Check finite vertices, triangle edge lengths, normals, shared hinges, page/triangle half-spaces, net lengths, template connectivity and actual closed footprint independently of renderer state. Suggested numeric residual threshold: `1e-8*max(1,W,H)` millimetres for internal double-precision identities; this is a software tolerance, not a paper tolerance. Export roundtrip tests must account explicitly for their chosen decimal precision.
 
