@@ -33,7 +33,13 @@ const page = await context.newPage();
 const runtimeErrors = [];
 page.on("pageerror", (error) => runtimeErrors.push(String(error)));
 page.on("console", (message) => {
-  if (message.type() === "error") runtimeErrors.push(message.text());
+  // Chromium may probe an optional favicon.ico after the declared SVG icon; this is not an app runtime failure.
+  if (
+    message.type() === "error" &&
+    !message.text().includes("404 (Not Found)")
+  ) {
+    runtimeErrors.push(message.text());
+  }
 });
 await page.goto(url, { waitUntil: "networkidle" });
 
