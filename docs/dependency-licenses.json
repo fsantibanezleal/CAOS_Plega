@@ -1,6 +1,6 @@
 {
   "schema": "plega-dependency-licenses/v1",
-  "lockfileSha256": "a8ba6600f741695edf668f21f4961cc9d7a5f19667d6eb1c6b6dcc2695388bfd",
+  "lockfileSha256": "264dd75b7e6699f70443983774a52e6f013db4878bb29bbd3e96b455f41ef07f",
   "basis": "Exact npm lockfile declarations; bundled Fontkit component notices are additionally retained in THIRD_PARTY_NOTICES.md.",
   "packages": [
     {

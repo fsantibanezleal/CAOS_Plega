@@ -163,7 +163,11 @@ export function PaperViewer(props: Props) {
   const [frameMode, setFrameMode] = useState<
     "selected" | "composition" | "card"
   >(() =>
-    matchMedia("(max-width: 620px)").matches ? "selected" : "composition",
+    props.framing === "card"
+      ? "card"
+      : matchMedia("(max-width: 620px)").matches
+        ? "selected"
+        : "composition",
   );
   const framingMode = useRef(frameMode);
   framingMode.current = frameMode;
@@ -594,7 +598,7 @@ export function PaperViewer(props: Props) {
             : p.scene?.bounds,
         span = Math.max(
           p.width * 2,
-          p.height,
+          framingMode.current === "card" ? p.height : 90,
           90,
           ...(bounds ? bounds.max.map((v, i) => v - bounds.min[i]) : []),
         ),
