@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "units": "mm",
+  "description": "Independently tabulated values and analytic invariants; not physical measurements.",
+  "vPoses": [
+    {
+      "name": "lean-closed",
+      "betaDeg": 30,
+      "gammaDeg": 60,
+      "r": 40,
+      "h": 50,
+      "y": 55,
+      "openingDeg": 0,
+      "ridge": [
+        0,
+        55,
+        50
+      ]
+    },
+    {
+      "name": "lean-half",
+      "betaDeg": 30,
+      "gammaDeg": 60,
+      "r": 40,
+      "h": 50,
+      "y": 55,
+      "openingDeg": 90,
+      "ridge": [
+        0,
+        63.77166884027,
+        49.22456526732
+      ]
+    },
+    {
+      "name": "lean-open",
+      "betaDeg": 30,
+      "gammaDeg": 60,
+      "r": 40,
+      "h": 50,
+      "y": 55,
+      "openingDeg": 180,
+      "ridge": [
+        0,
+        83.86751345948,
+        40.82482904639
+      ]
+    },
+    {
+      "name": "vertical-closed",
+      "betaDeg": 30,
+      "gammaDeg": 90,
+      "r": 40,
+      "h": 50,
+      "y": 60,
+      "openingDeg": 0,
+      "ridge": [
+        0,
+        35,
+        43.30127018922
+      ]
+    },
+    {
+      "name": "vertical-open",
+      "betaDeg": 30,
+      "gammaDeg": 90,
+      "r": 40,
+      "h": 50,
+      "y": 60,
+      "openingDeg": 180,
+      "ridge": [
+        0,
+        60,
+        50
+      ]
+    }
+  ],
+  "step": {
+    "a": 25,
+    "b": 30,
+    "width": 32,
+    "W": 90,
+    "H": 140,
+    "middleCrease": 5,
+    "closedReach": 55,
+    "stationaryArea": 23440,
+    "movingArea": 1760
+  },
+  "invalidAngles": {
+    "betaDeg": 40,
+    "gammaDeg": 30,
+    "fullOpenDiscriminant": -0.16317591116653485
+  },
+  "lanes": {
+    "betaDeg": 30,
+    "gammaDeg": 90,
+    "r": 40,
+    "h": 50,
+    "g": 3,
+    "t": 5,
+    "lo": -25,
+    "hi": 34.64101615137755,
+    "sixSpanGap5": 382.8460969082653
+  },
+  "print": {
+    "rulerMm": 100,
+    "rulerPt": 283.46456692913387
+  }
+}

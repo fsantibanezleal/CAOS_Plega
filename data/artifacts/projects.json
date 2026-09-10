@@ -1,0 +1,431 @@
+{
+  "schemaVersion": 1,
+  "license": "MIT",
+  "provenance": "Original parameterized workshop designs. No third-party templates, artwork or physical-build claims.",
+  "sources": [
+    {
+      "id": "winder-2009",
+      "label": "Kinematic Representations of Pop-Up Paper Mechanisms",
+      "url": "https://fab.cba.mit.edu/classes/865.18/discrete/folding/KinematicPaperMechanisms.pdf",
+      "citation": "Winder, Magleby and Howell (2009), DOI 10.1115/1.3046128; mechanism context."
+    },
+    {
+      "id": "li-2011",
+      "label": "A Geometric Study of V-style Pop-ups",
+      "url": "https://cg.cs.tsinghua.edu.cn/people/~xianying/Papers/V-Popup/index.html",
+      "citation": "Li, Ju, Gu and Hu (2011); broader geometric context, not a claim to implement its complete theorem."
+    },
+    {
+      "id": "fold-1-2",
+      "label": "FOLD specification 1.2",
+      "url": "https://github.com/edemaine/fold/blob/main/doc/spec.md",
+      "citation": "FOLD official specification, accessed 2026-09-06; crease-pattern interchange."
+    }
+  ],
+  "starters": [
+    {
+      "id": "name-stage",
+      "title": {
+        "en": "Name on a stage",
+        "es": "Nombre en un escenario"
+      },
+      "description": {
+        "en": "A single display step with an editable printed message.",
+        "es": "Un escalón de exposición con un mensaje impreso editable."
+      },
+      "learning": {
+        "en": "Pin height, then change depth and inspect the closed footprint.",
+        "es": "Fija la altura, cambia la profundidad y examina la huella cerrada."
+      },
+      "project": {
+        "schemaVersion": 1,
+        "title": "Name on a stage",
+        "card": {
+          "W": 90,
+          "H": 140,
+          "margin": 5,
+          "gap": 6,
+          "blank": "uncreased",
+          "color": "#fff3df",
+          "pins": []
+        },
+        "modules": [
+          {
+            "id": "stage",
+            "kind": "P",
+            "label": "HELLO",
+            "color": "#ef8f45",
+            "y": 40,
+            "params": {
+              "a": 25,
+              "b": 30,
+              "width": 32
+            },
+            "pins": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "celebration-terraces",
+      "title": {
+        "en": "Celebration terraces",
+        "es": "Terrazas de celebración"
+      },
+      "description": {
+        "en": "Three independently editable steps occupy separated motion lanes.",
+        "es": "Tres escalones editables ocupan bandas de movimiento separadas."
+      },
+      "learning": {
+        "en": "Compare each step's height and depth, then pack all lanes without moving pinned origins.",
+        "es": "Compara altura y profundidad y ordena las bandas sin mover los orígenes fijados."
+      },
+      "project": {
+        "schemaVersion": 1,
+        "title": "Celebration terraces",
+        "card": {
+          "W": 90,
+          "H": 160,
+          "margin": 5,
+          "gap": 6,
+          "blank": "uncreased",
+          "color": "#fff3df",
+          "pins": []
+        },
+        "modules": [
+          {
+            "id": "first",
+            "kind": "P",
+            "label": "MAKE",
+            "color": "#e3865a",
+            "y": 20,
+            "params": {
+              "a": 18,
+              "b": 22,
+              "width": 24
+            },
+            "pins": []
+          },
+          {
+            "id": "second",
+            "kind": "P",
+            "label": "SOMETHING",
+            "color": "#73a899",
+            "y": 62,
+            "params": {
+              "a": 22,
+              "b": 25,
+              "width": 24
+            },
+            "pins": []
+          },
+          {
+            "id": "third",
+            "kind": "P",
+            "label": "MOVE",
+            "color": "#8b81b2",
+            "y": 104,
+            "params": {
+              "a": 26,
+              "b": 28,
+              "width": 24
+            },
+            "pins": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "mountain-greeting",
+      "title": {
+        "en": "Mountain greeting",
+        "es": "Saludo de montaña"
+      },
+      "description": {
+        "en": "A triangular V-fold rises to a vertical ridge on the fully open card.",
+        "es": "Un pliegue V triangular eleva una arista vertical al abrir la tarjeta."
+      },
+      "learning": {
+        "en": "A 90 degree panel angle keeps the ridge vertical at full opening; two tabs define the attachments.",
+        "es": "Un ángulo de panel de 90 grados deja vertical la arista al abrir; dos pestañas definen las uniones."
+      },
+      "project": {
+        "schemaVersion": 1,
+        "title": "Mountain greeting",
+        "card": {
+          "W": 90,
+          "H": 140,
+          "margin": 5,
+          "gap": 6,
+          "blank": "uncreased",
+          "color": "#fff3df",
+          "pins": []
+        },
+        "modules": [
+          {
+            "id": "mountain",
+            "kind": "V",
+            "label": "HI THERE",
+            "color": "#798bd6",
+            "y": 60,
+            "params": {
+              "r": 40,
+              "h": 50,
+              "betaDeg": 30,
+              "gammaDeg": 90,
+              "tabWidth": 5,
+              "tabInset": 3
+            },
+            "pins": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "leaning-pennant",
+      "title": {
+        "en": "Leaning pennant",
+        "es": "Banderín inclinado"
+      },
+      "description": {
+        "en": "An intentional lean follows from the panel angles rather than a freely posed mesh.",
+        "es": "La inclinación procede de los ángulos del panel, no de una malla colocada libremente."
+      },
+      "learning": {
+        "en": "Compare the open height with the closed reach while the triangular edge lengths stay fixed.",
+        "es": "Compara la altura abierta con el alcance cerrado mientras las aristas conservan su longitud."
+      },
+      "project": {
+        "schemaVersion": 1,
+        "title": "Leaning pennant",
+        "card": {
+          "W": 90,
+          "H": 140,
+          "margin": 5,
+          "gap": 6,
+          "blank": "uncreased",
+          "color": "#fff3df",
+          "pins": []
+        },
+        "modules": [
+          {
+            "id": "pennant",
+            "kind": "V",
+            "label": "FOR YOU",
+            "color": "#dc8f6e",
+            "y": 50,
+            "params": {
+              "r": 40,
+              "h": 50,
+              "betaDeg": 30,
+              "gammaDeg": 60,
+              "tabWidth": 5,
+              "tabInset": 3
+            },
+            "pins": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "split-message",
+      "title": {
+        "en": "Split message",
+        "es": "Mensaje dividido"
+      },
+      "description": {
+        "en": "Two joined triangular faces carry a greeting through the opening motion.",
+        "es": "Dos caras triangulares unidas llevan un saludo durante la apertura."
+      },
+      "learning": {
+        "en": "Change the V angles and inspect the shared ridge, tab placement and immutable face dimensions.",
+        "es": "Cambia los ángulos V y revisa la arista, las pestañas y las dimensiones constantes."
+      },
+      "project": {
+        "schemaVersion": 1,
+        "title": "Split message",
+        "card": {
+          "W": 100,
+          "H": 160,
+          "margin": 5,
+          "gap": 6,
+          "blank": "uncreased",
+          "color": "#fff3df",
+          "pins": []
+        },
+        "modules": [
+          {
+            "id": "message",
+            "kind": "V",
+            "label": "THANK YOU",
+            "color": "#73a899",
+            "y": 55,
+            "params": {
+              "r": 45,
+              "h": 48,
+              "betaDeg": 35,
+              "gammaDeg": 75,
+              "tabWidth": 5,
+              "tabInset": 3
+            },
+            "pins": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "mechanism-sampler",
+      "title": {
+        "en": "Mechanism sampler",
+        "es": "Muestrario de mecanismos"
+      },
+      "description": {
+        "en": "A step and a V-fold share one card with a proven gap between their motion zones.",
+        "es": "Un escalón y un pliegue V comparten tarjeta con una separación demostrada entre sus zonas."
+      },
+      "learning": {
+        "en": "The step is raised at 90 degrees and flat at 180; the V-fold remains raised when fully open.",
+        "es": "El escalón se eleva a 90 grados y queda plano a 180; el pliegue V permanece elevado al abrir."
+      },
+      "project": {
+        "schemaVersion": 1,
+        "title": "Mechanism sampler",
+        "card": {
+          "W": 90,
+          "H": 150,
+          "margin": 5,
+          "gap": 6,
+          "blank": "uncreased",
+          "color": "#fff3df",
+          "pins": []
+        },
+        "modules": [
+          {
+            "id": "step",
+            "kind": "P",
+            "label": "EXPLORE",
+            "color": "#ef8f45",
+            "y": 15,
+            "params": {
+              "a": 22,
+              "b": 26,
+              "width": 28
+            },
+            "pins": []
+          },
+          {
+            "id": "peak",
+            "kind": "V",
+            "label": "CREATE",
+            "color": "#798bd6",
+            "y": 75,
+            "params": {
+              "r": 35,
+              "h": 45,
+              "betaDeg": 30,
+              "gammaDeg": 90,
+              "tabWidth": 5,
+              "tabInset": 3
+            },
+            "pins": []
+          }
+        ]
+      }
+    }
+  ],
+  "repairCases": [
+    {
+      "id": "repair-closed-width",
+      "title": {
+        "en": "Repair a closed overhang",
+        "es": "Reparar un saliente al cerrar"
+      },
+      "description": {
+        "en": "The step opens correctly but needs 55 mm when only 45 mm is available.",
+        "es": "El escalón abre correctamente, pero necesita 55 mm y solo dispone de 45 mm."
+      },
+      "learning": {
+        "en": "Pin the 25 mm height, compare a depth repair with a wider card, then accept a checked change.",
+        "es": "Fija la altura de 25 mm, compara reducir la profundidad con ampliar la tarjeta y acepta el cambio."
+      },
+      "project": {
+        "schemaVersion": 1,
+        "title": "Repair the closed width",
+        "card": {
+          "W": 50,
+          "H": 140,
+          "margin": 5,
+          "gap": 6,
+          "blank": "uncreased",
+          "color": "#fff3df",
+          "pins": []
+        },
+        "modules": [
+          {
+            "id": "overhang",
+            "kind": "P",
+            "label": "REPAIR",
+            "color": "#dc765d",
+            "y": 40,
+            "params": {
+              "a": 25,
+              "b": 30,
+              "width": 32
+            },
+            "pins": [
+              "a"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "repair-v-opening",
+      "title": {
+        "en": "Repair the opening",
+        "es": "Reparar la apertura"
+      },
+      "description": {
+        "en": "These V angles do not admit the required real-valued full-open pose.",
+        "es": "Estos ángulos V no admiten la posición real requerida de apertura completa."
+      },
+      "learning": {
+        "en": "Read the domain diagnosis and change the panel angle without inventing an intermediate mesh.",
+        "es": "Lee el diagnóstico y cambia el ángulo del panel sin inventar una malla intermedia."
+      },
+      "project": {
+        "schemaVersion": 1,
+        "title": "Repair the V opening",
+        "card": {
+          "W": 90,
+          "H": 140,
+          "margin": 5,
+          "gap": 6,
+          "blank": "uncreased",
+          "color": "#fff3df",
+          "pins": []
+        },
+        "modules": [
+          {
+            "id": "angle",
+            "kind": "V",
+            "label": "TRY AGAIN",
+            "color": "#dc765d",
+            "y": 60,
+            "params": {
+              "r": 40,
+              "h": 50,
+              "betaDeg": 40,
+              "gammaDeg": 30,
+              "tabWidth": 5,
+              "tabInset": 3
+            },
+            "pins": [
+              "betaDeg"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

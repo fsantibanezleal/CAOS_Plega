@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "method": "deterministic-original-design-compiler-v1",
+  "compiler": {
+    "path": "data-pipeline/run.py",
+    "bytes": 12809,
+    "sha256": "d7316b8b9ba07bd5f37dc8496bccfcada80286a782bfa2d266312176f953d986"
+  },
+  "sources": [
+    {
+      "path": "data/sources/projects.json",
+      "bytes": 12174,
+      "sha256": "68c4c3af14b3b4e49d152a9b8e5e5aeac5acb40ef24c8b78f1b75833da3bacd7"
+    },
+    {
+      "path": "data/sources/fixtures.json",
+      "bytes": 1849,
+      "sha256": "0d4cadb1b5d45b5a514c2e855b5339886ca61e122b87cf0bf98863c87f6b9292"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "data/artifacts/projects.json",
+      "bytes": 12174,
+      "sha256": "68c4c3af14b3b4e49d152a9b8e5e5aeac5acb40ef24c8b78f1b75833da3bacd7"
+    },
+    {
+      "path": "data/artifacts/fixtures.json",
+      "bytes": 1849,
+      "sha256": "0d4cadb1b5d45b5a514c2e855b5339886ca61e122b87cf0bf98863c87f6b9292"
+    },
+    {
+      "path": "frontend/src/core/starters.ts",
+      "bytes": 6852,
+      "sha256": "107ef4b62978adb423f2fa4fb92244803e92ed52d9b02d2de4442941de61ed00"
+    }
+  ],
+  "claims": [
+    "Restricted zero-thickness geometry",
+    "Independent numerical fixtures",
+    "No physical assembly validation"
+  ]
+}
