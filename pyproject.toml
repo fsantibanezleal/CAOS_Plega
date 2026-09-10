@@ -1,0 +1,4 @@
+# Tooling configuration only. This repository is not an installable Python package.
+[tool.ruff]
+target-version = "py313"
+line-length = 120

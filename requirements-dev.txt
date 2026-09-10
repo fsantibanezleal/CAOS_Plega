@@ -1,0 +1,2 @@
+# Python tests and processing use the Python 3.13 standard library.
+-r requirements.txt
