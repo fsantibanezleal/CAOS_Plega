@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.05.000
+
+Replaced the public entry with Origami Sections: an atlas and spatial lab for eight distinct fold topologies (tessellation, bases, radial sculpture, polyhedra and saddle surfaces). Each study has an authored facet mesh, named vertices/creases/layers, a crease-map view, continuous folded motion, exploded layers and a four-step fold sequence. The atlas is a real entry surface with family filters and geometry-derived pattern previews; the lab keeps selection synchronized across the 3D surface, inspector and field notes.
+
+The checked Kinetic Studio remains available at `?mechanism=1` and the first workshop at `?legacy=1`; the existing 24 projects, print pipeline, repairs and saved-workspace formats are preserved.
+
 ## 0.04.000
 
 Expanded the project gallery from 12 to 24 original designs, including twelve mechanically checked compositions with 8–12 separately editable parts. The gallery now appears at the top of the workbench; signature projects, all projects, and quick studies have separate views, with previews derived from actual part geometry. All original starter projects remain available.
