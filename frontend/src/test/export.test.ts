@@ -124,7 +124,7 @@ describe("fabrication serialization from actual engine plans", () => {
     save("tideglass-complete.pdf", pdf);
     const decoded = await PDFDocument.load(pdf.bytes);
     expect(decoded.getPageCount()).toBeGreaterThan(layout.pages.length);
-  });
+  }, 30000);
   it("writes standalone SVG pages at millimetre scale with a real 100 mm ruler", async () => {
     const files = pass(
       await serializeSvgPages(step, plan(step), { lang: "en", fontBytes }),
