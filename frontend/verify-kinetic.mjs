@@ -1,4 +1,4 @@
-/** Acceptance checks for the Kinetic Studio surface. The legacy workshop remains available at ?legacy=1. */
+/** Acceptance checks for the preserved Kinetic Studio surface at ?mechanism=1. */
 import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import path from "node:path";
@@ -6,7 +6,8 @@ import { fileURLToPath } from "node:url";
 import { chromium } from "@playwright/test";
 
 const frontend = path.dirname(fileURLToPath(import.meta.url));
-const url = process.env.PLEGA_QA_URL || "http://127.0.0.1:4903/";
+const url = new URL(process.env.PLEGA_QA_URL || "http://127.0.0.1:4903/");
+url.searchParams.set("mechanism", "1");
 const output = path.resolve(
   process.env.PLEGA_QA_OUTPUT || path.join(frontend, "../build/browser-qa"),
 );
@@ -41,7 +42,7 @@ page.on("console", (message) => {
     runtimeErrors.push(message.text());
   }
 });
-await page.goto(url, { waitUntil: "networkidle" });
+await page.goto(url.href, { waitUntil: "networkidle" });
 
 await run("Kinetic Studio loads", async () => {
   await page.getByRole("heading", { name: "Make the fold move." }).waitFor();
@@ -215,6 +216,10 @@ assert.deepEqual(
 );
 await fs.writeFile(
   path.join(output, "kinetic-report.json"),
-  JSON.stringify({ url, checks, runtime_errors: runtimeErrors }, null, 2),
+  JSON.stringify(
+    { url: url.href, checks, runtime_errors: runtimeErrors },
+    null,
+    2,
+  ),
 );
 console.log(`Wrote ${path.join(output, "kinetic-report.json")}`);
