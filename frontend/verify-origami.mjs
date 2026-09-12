@@ -59,20 +59,11 @@ assert.equal(
   "folded",
 );
 await page.getByRole("button", { name: "Separate layers" }).click();
-assert.equal(
-  await page.locator(".origami-canvas").getAttribute("data-mode"),
-  "exploded",
-);
+await page.locator('.origami-canvas[data-mode="exploded"]').waitFor();
 await page.getByRole("button", { name: "Crease map" }).click();
-assert.equal(
-  await page.locator(".origami-canvas").getAttribute("data-mode"),
-  "pattern",
-);
+await page.locator('.origami-canvas[data-mode="pattern"]').waitFor();
 await page.locator(".origami-sections button").nth(2).click();
-assert.equal(
-  await page.locator(".origami-canvas").getAttribute("data-selected"),
-  "lid",
-);
+await page.locator('.origami-canvas[data-selected="lid"]').waitFor();
 await page.screenshot({
   path: path.join(output, "lab-modular-cube.png"),
   fullPage: true,
