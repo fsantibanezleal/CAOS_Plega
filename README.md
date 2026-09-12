@@ -1,14 +1,14 @@
 # PLEGA
 
-A paper mechanism workshop: design moving cards, understand why they cannot close, compare geometric repairs and export actual-size cut, score and assembly sheets.
+An origami atlas and spatial paper lab: explore distinct crease topologies, follow a fold sequence, select named facets and layers in 3D, then inspect the same construction as a crease map or exploded form.
 
-The complete workflow runs in the browser without an account or remote computation. Supported mechanisms are a one-sheet parallel step and a symmetric triangular V-fold, composed in up to sixteen separated motion lanes. These are known paper mechanisms; the application provides an integrated design-to-print workflow, not a claim of newly invented folding mathematics.
+The public entry is an atlas of eight original studies: Miura field, waterbomb orbit, bird base, modular cube, lotus radial, twist tower, star lantern and hypar surface. They are different construction families rather than recolored versions of one shape. The browser lab connects a selected section to the 3D surface, crease-map state, fold sequence and field notes. No account or remote computation is required.
 
-The workshop opens as an editable paper sculpture. Sculpt architectural arcades, ribbed leaves, scalloped wings and diamond screens with real negative-space cuts. Projected handles move and resize the selected part in the 3D scene; the flat pattern, geometric checks and fabrication files follow the same geometry. Twenty-four original projects, including twelve signature compositions with 8-12 editable parts, and deliberate repair cases are available as starting points. English/Spanish and light/dark presentation are part of the application.
+The earlier Kinetic Studio remains available at `?mechanism=1`, with its 24 editable cut-paper projects, direct handles, geometric checks and fabrication files. The first workshop remains at `?legacy=1`; saved projects and the deterministic print pipeline are preserved.
 
 Kinetic Studio fills the viewport with a live object, a part navigator, and an inspector. Select any part from the object, the cast, or its true card position to frame it; drag projected 3D handles to change dimensions. Edit card size, part identity, color, aperture density, and protected paper web while the same project drives continuous motion and its cut plan. The prominent gallery offers 24 original projects with geometry-based previews; each can be loaded and undone. The previous workshop remains available at `?legacy=1`; existing projects and geometry remain intact. See the [workbench decision record](docs/architecture/0005-reachable-workbench.md), [Kinetic Studio decision record](docs/architecture/0004-kinetic-choreography.md), and [sculpture and editing contract](docs/architecture/0003-cut-paper-sculptures.md).
 
-[Open the workshop](https://plega.fasl-work.com/) or download a [versioned release](https://github.com/fsantibanezleal/CAOS_Plega/releases). GitHub Pages serves the exact artifact tested in CI. Each release includes the deployed file hashes, clean source revision and publication evidence; the live `release.json` identifies the running version.
+[Open the Origami Atlas](https://plega.fasl-work.com/) or download a [versioned release](https://github.com/fsantibanezleal/CAOS_Plega/releases). GitHub Pages serves the exact artifact tested in CI. Each release includes the deployed file hashes, clean source revision and publication evidence; the live `release.json` identifies the running version.
 
 ## Run locally
 
