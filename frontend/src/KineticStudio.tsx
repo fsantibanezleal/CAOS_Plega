@@ -27,8 +27,8 @@ import {
 import {
   analyzeProject,
   createModule,
-  DEFAULT_PRINT_OPTIONS,
   makePrintPlan,
+  projectPrintOptions,
   poseProject,
   STARTERS,
   type Cutwork,
@@ -164,6 +164,72 @@ function IconButton({
   );
 }
 
+function ProjectThumbnail({ project }: { project: Project }) {
+  const { W, H } = project.card;
+  return (
+    <svg
+      className="kinetic-project-preview"
+      viewBox={`0 0 ${H} ${W}`}
+      preserveAspectRatio="xMidYMid meet"
+      aria-hidden="true"
+    >
+      <rect x="0" y="0" width={H} height={W} fill={project.card.color} />
+      <line
+        x1="0"
+        x2={H}
+        y1={W / 2}
+        y2={W / 2}
+        stroke="#645460"
+        strokeWidth="1"
+        strokeDasharray="4 3"
+      />
+      {project.modules.map((part) => {
+        const span =
+          part.kind === "P" ? part.params.width : part.params.r * 0.9;
+        const reach =
+          part.kind === "P"
+            ? part.params.a + part.params.b
+            : part.params.h * 0.75;
+        const x = part.y;
+        const y = (W - reach) / 2;
+        return (
+          <g key={part.id}>
+            {part.kind === "P" ? (
+              <rect
+                x={x}
+                y={y}
+                width={span}
+                height={reach}
+                rx="2"
+                fill={part.color}
+                stroke="#443343"
+                strokeWidth="0.7"
+              />
+            ) : (
+              <path
+                d={`M ${x} ${W / 2} L ${x + span * 0.48} ${y} L ${x + span} ${W / 2} L ${x + span * 0.48} ${y + reach} Z`}
+                fill={part.color}
+                stroke="#443343"
+                strokeWidth="0.7"
+              />
+            )}
+            {part.cutwork && (
+              <line
+                x1={x + span * 0.3}
+                x2={x + span * 0.7}
+                y1={W / 2}
+                y2={W / 2}
+                stroke={project.card.color}
+                strokeWidth="2"
+              />
+            )}
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
+
 export default function KineticStudio() {
   const initial = useRef<ReturnType<typeof readWorkspace> | null>(null);
   if (!initial.current) initial.current = readWorkspace();
@@ -183,6 +249,7 @@ export default function KineticStudio() {
   const [opening, setOpening] = useState(92);
   const [playing, setPlaying] = useState(false);
   const [view, setView] = useState<"model" | "pattern">("model");
+  const [printPage, setPrintPage] = useState(0);
   const [camera, setCamera] = useState<"perspective" | "top" | "front">(
     "perspective",
   );
@@ -196,6 +263,9 @@ export default function KineticStudio() {
   const [notice, setNotice] = useState("");
   const [showMotifs, setShowMotifs] = useState(false);
   const [showLibrary, setShowLibrary] = useState(false);
+  const [projectFilter, setProjectFilter] = useState<
+    "signature" | "all" | "quick"
+  >("signature");
   const [showSources, setShowSources] = useState(false);
   const project = workspace.project;
   const t = (en: string, es: string) => (lang === "es" ? es : en);
@@ -211,10 +281,13 @@ export default function KineticStudio() {
   }, [displayed, opening]);
   const planResult = useMemo(
     () =>
-      makePrintPlan(displayed, {
-        ...DEFAULT_PRINT_OPTIONS,
-        purpose: displayedAnalysis.canFinalPrint ? "fabrication" : "draft",
-      }),
+      makePrintPlan(
+        displayed,
+        projectPrintOptions(
+          displayed,
+          displayedAnalysis.canFinalPrint ? "fabrication" : "draft",
+        ),
+      ),
     [displayed, displayedAnalysis.canFinalPrint],
   );
   const plan = planResult.ok ? planResult.value : null;
@@ -463,7 +536,7 @@ export default function KineticStudio() {
             onClick={() => setShowLibrary(true)}
           >
             <Layers3 size={16} />
-            {t("Compositions", "Composiciones")}
+            {t(`${STARTERS.length} projects`, `${STARTERS.length} proyectos`)}
           </button>
           <button
             className="kinetic-text-button"
@@ -499,13 +572,15 @@ export default function KineticStudio() {
             )}
           </p>
         </div>
-        <div className="kinetic-intro-stat">
-          <strong>{project.modules.length}</strong>
-          <span>{t("active parts", "piezas activas")}</span>
-          <small>
-            {t("one shared choreography", "una coreografía compartida")}
-          </small>
-        </div>
+        <button
+          className="kinetic-intro-projects"
+          onClick={() => setShowLibrary(true)}
+        >
+          <strong>{STARTERS.length}</strong>
+          <span>{t("Complete projects", "Proyectos completos")}</span>
+          <small>{t("Open the gallery", "Abrir la galería")}</small>
+          <ChevronRight size={18} />
+        </button>
       </section>
       <nav
         className="kinetic-stage-nav"
@@ -565,6 +640,34 @@ export default function KineticStudio() {
       )}
       <main className="kinetic-workbench">
         <aside className="kinetic-rail">
+          <button
+            className="kinetic-gallery-launch"
+            onClick={() => setShowLibrary(true)}
+          >
+            <span className="kinetic-kicker">
+              {t("PROJECT GALLERY", "GALERIA DE PROYECTOS")}
+            </span>
+            <strong>
+              {t(
+                "Start with a complete design",
+                "Empieza con un diseno completo",
+              )}
+            </strong>
+            <small>
+              {t(
+                `${STARTERS.length} editable structures`,
+                `${STARTERS.length} estructuras editables`,
+              )}
+            </small>
+            <span className="kinetic-gallery-colors" aria-hidden="true">
+              {STARTERS.slice(-8).map((starter) => (
+                <i
+                  key={starter.id}
+                  style={{ background: starter.project.modules[0].color }}
+                />
+              ))}
+            </span>
+          </button>
           <div className="kinetic-rail-heading">
             <div>
               <span className="kinetic-kicker">
@@ -759,9 +862,43 @@ export default function KineticStudio() {
               />
             ) : (
               <div className="kinetic-print-wrap">
+                {plan && plan.pages.length > 1 && (
+                  <div className="kinetic-print-pagination">
+                    <button
+                      onClick={() =>
+                        setPrintPage((value) => Math.max(0, value - 1))
+                      }
+                      disabled={printPage <= 0}
+                    >
+                      {t("Previous sheet", "Hoja anterior")}
+                    </button>
+                    <span>
+                      {t("Sheet", "Hoja")}{" "}
+                      {Math.min(printPage + 1, plan.pages.length)} /{" "}
+                      {plan.pages.length}
+                      {plan.pages[Math.min(printPage, plan.pages.length - 1)]
+                        ?.transferOnly
+                        ? ` · ${t("transfer tile", "mosaico de transferencia")}`
+                        : ""}
+                    </span>
+                    <button
+                      onClick={() =>
+                        setPrintPage((value) =>
+                          Math.min(plan.pages.length - 1, value + 1),
+                        )
+                      }
+                      disabled={printPage >= plan.pages.length - 1}
+                    >
+                      {t("Next sheet", "Hoja siguiente")}
+                    </button>
+                  </div>
+                )}
                 <PrintViewer
                   plan={plan}
-                  pageIndex={0}
+                  pageIndex={Math.min(
+                    printPage,
+                    Math.max(0, (plan?.pages.length ?? 1) - 1),
+                  )}
                   selected={selectedPart?.id ?? ""}
                   onSelect={setSelected}
                   lang={lang}
@@ -1228,27 +1365,41 @@ export default function KineticStudio() {
                 "Cada composición es un punto de partida mecánico editable. Al cargarla se reemplaza el lienzo; Deshacer restaura tu trabajo anterior.",
               )}
             </p>
+            <div
+              className="kinetic-library-filters"
+              aria-label={t("Project groups", "Grupos de proyectos")}
+            >
+              {(["signature", "all", "quick"] as const).map((group) => (
+                <button
+                  key={group}
+                  className={projectFilter === group ? "active" : ""}
+                  onClick={() => setProjectFilter(group)}
+                >
+                  {group === "signature"
+                    ? t("Signature 12", "Destacados 12")
+                    : group === "all"
+                      ? t(`All ${STARTERS.length}`, `Todos ${STARTERS.length}`)
+                      : t("Quick studies", "Estudios breves")}
+                </button>
+              ))}
+            </div>
             <div className="kinetic-library-grid">
-              {STARTERS.map((starter) => (
+              {STARTERS.filter(
+                (starter) =>
+                  projectFilter === "all" ||
+                  (projectFilter === "signature"
+                    ? starter.project.modules.length >= 8
+                    : starter.project.modules.length < 8),
+              ).map((starter) => (
                 <button key={starter.id} onClick={() => loadStarter(starter)}>
-                  <span className="kinetic-library-thumb" aria-hidden="true">
-                    {starter.project.modules.map((part, index) => (
-                      <i
-                        key={part.id}
-                        style={{
-                          background: part.color,
-                          height: `${Math.max(10, Math.min(80, (part.kind === "P" ? part.params.a : part.params.h) * 1.2))}%`,
-                          transform: `translateY(${index % 2 ? -7 : 7}px) skewY(${part.kind === "V" ? -18 : 0}deg)`,
-                        }}
-                      />
-                    ))}
-                  </span>
+                  <ProjectThumbnail project={starter.project} />
                   <strong>{starter.title[lang]}</strong>
                   <small>
                     {starter.project.modules.length} {t("parts", "piezas")} ·{" "}
                     {starter.project.card.W} × {starter.project.card.H} mm
                   </small>
                   <span>{starter.description[lang]}</span>
+                  <em>{starter.learning[lang]}</em>
                 </button>
               ))}
             </div>

@@ -3,6 +3,7 @@ import {
   DEFAULT_PRINT_OPTIONS,
   makeFoldDocuments,
   makePrintPlan,
+  projectPrintOptions,
   REPAIR_CASES,
   STARTERS,
   type Project,
@@ -14,14 +15,15 @@ describe("physical fabrication coordinates", () => {
   it.each(STARTERS.map((s) => [s.id, s.project] as const))(
     "%s fits actual-size pieces and keeps labels inside their faces",
     (_, project) => {
-      const r = makePrintPlan(project);
+      const r = makePrintPlan(project, projectPrintOptions(project));
       expect(r.ok, JSON.stringify(r.diagnostics)).toBe(true);
       if (!r.ok) return;
       for (const pl of r.value.placements) {
         const p = r.value.pieces.find((p) => p.id === pl.pieceId)!,
           page = r.value.pages[pl.pageIndex]!;
-        for (const x of [p.layoutBounds.min[0], p.layoutBounds.max[0]])
-          for (const y of [p.layoutBounds.min[1], p.layoutBounds.max[1]]) {
+        const testedBounds = pl.clip ?? p.layoutBounds;
+        for (const x of [testedBounds.min[0], testedBounds.max[0]])
+          for (const y of [testedBounds.min[1], testedBounds.max[1]]) {
             const q = transform([x, y], pl.rotationDeg, pl.translation);
             expect(q[0]).toBeGreaterThanOrEqual(
               page.contentBounds.min[0] - 1e-8,

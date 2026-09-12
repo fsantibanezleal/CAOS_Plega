@@ -5,6 +5,7 @@ import {
   editMechanism,
   makeFoldDocuments,
   makePrintPlan,
+  projectPrintOptions,
   parseProject,
   poseProject,
   REPAIR_CASES,
@@ -126,7 +127,9 @@ describe("material removal with shared physical geometry", () => {
           7,
         );
       }
-      expect(makePrintPlan(project).ok).toBe(true);
+      expect(makePrintPlan(project, projectPrintOptions(project)).ok).toBe(
+        true,
+      );
       expect(makeFoldDocuments(project).ok).toBe(true);
     },
   );
@@ -170,7 +173,9 @@ describe("creation and direct edits preserve a usable project", () => {
       expect(r.ok).toBe(true);
       if (!r.ok) return;
       expect(analyzeProject(r.project).certificate).toBe("pass");
-      expect(makePrintPlan(r.project).ok).toBe(true);
+      expect(makePrintPlan(r.project, projectPrintOptions(r.project)).ok).toBe(
+        true,
+      );
       expect(r.project.modules.filter((m) => m.id !== r.moduleId)).toEqual(
         project.modules,
       );

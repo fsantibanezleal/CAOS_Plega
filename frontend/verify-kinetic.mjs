@@ -148,10 +148,24 @@ await run("Surface and card controls change the live project", async () => {
   assert.equal(Number(await cardHeight.inputValue()), before);
 });
 await run("Working compositions are loadable and reversible", async () => {
-  await page.getByRole("button", { name: "Compositions" }).click();
-  assert.ok((await page.locator(".kinetic-library-grid button").count()) >= 10);
-  await page.locator(".kinetic-library-grid button").nth(1).click();
-  assert.ok((await page.locator(".kinetic-cast button").count()) >= 2);
+  await page.locator(".kinetic-gallery-launch").click();
+  assert.equal(await page.locator(".kinetic-library-grid button").count(), 12);
+  await page.screenshot({ path: path.join(output, "screenshots/kinetic-signature-gallery.png") });
+  await page.getByRole("button", { name: "All 24" }).click();
+  assert.equal(await page.locator(".kinetic-library-grid button").count(), 24);
+  await page.screenshot({
+    path: path.join(output, "screenshots/kinetic-gallery.png"),
+  });
+  await page.getByRole("button", { name: /Equinox garden/ }).click();
+  assert.equal(await page.locator(".kinetic-cast button").count(), 12);
+  assert.equal(await page.locator(".kinetic-check.pass").count(), 1);
+  await page.screenshot({ path: path.join(output, "screenshots/kinetic-equinox.png") });
+  await page.getByRole("slider", { name: "Opening angle" }).fill("145");
+  await page.screenshot({ path: path.join(output, "screenshots/kinetic-equinox-open.png") });
+  await page.getByRole("button", { name: "Cut plan", exact: true }).click();
+  await page.getByRole("button", { name: "Next sheet" }).click();
+  await page.locator("svg.print-page").waitFor();
+  await page.getByRole("button", { name: "Live object", exact: true }).click();
   await page.getByRole("button", { name: "Undo" }).click();
   assert.ok((await page.locator(".kinetic-cast button").count()) >= 6);
 });

@@ -125,8 +125,8 @@ def project_issues(project: dict) -> set[str]:
 def validate_catalog(data: dict) -> None:
     if set(data) != {"schemaVersion", "license", "provenance", "sources", "starters", "repairCases"} or data["schemaVersion"] != 1:
         raise ValueError("Unsupported catalog")
-    if len(data["starters"]) != 12 or len(data["repairCases"]) < 2:
-        raise ValueError("Twelve original starters and two repair cases required")
+    if len(data["starters"]) < 24 or len(data["repairCases"]) < 2:
+        raise ValueError("At least 24 original projects and two repair cases required")
     ids = set()
     for source in data["sources"]:
         if set(source) != {"id", "label", "url", "citation"} or not source["url"].startswith("https://"):

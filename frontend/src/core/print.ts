@@ -25,6 +25,23 @@ export const DEFAULT_PRINT_OPTIONS: PrintOptions = {
   allowQuarterTurn: true,
   oversize: "reject",
 };
+/** Large complete compositions use registered, actual-size A4 transfer tiles. */
+export function projectPrintOptions(
+  project: Project,
+  purpose: PrintOptions["purpose"] = "fabrication",
+): PrintOptions {
+  const sheet = DEFAULT_PRINT_OPTIONS.sheet;
+  const contentWidth = sheet.width - 2 * sheet.margin;
+  const contentHeight = sheet.height - 2 * sheet.margin - 14;
+  return {
+    ...DEFAULT_PRINT_OPTIONS,
+    purpose,
+    oversize:
+      2 * project.card.W > contentWidth || project.card.H > contentHeight
+        ? "tile-transfer-pattern"
+        : "reject",
+  };
+}
 const face = (
   id: string,
   polygon: readonly Vec2[],

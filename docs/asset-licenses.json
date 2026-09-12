@@ -29,8 +29,8 @@
     },
     {
       "path": "data/sources/projects.json",
-      "bytes": 36965,
-      "sha256": "4957329bbfa947d85302fe4a655acdc229b27884b0d167de100cf5c324b3256a",
+      "bytes": 101468,
+      "sha256": "f944a19dd7a5daba68dcd5862690172f245cb59b3e6a59f636d00a47a741dc7e",
       "license": "MIT",
       "origin": "Original parameterized PLEGA starters and repair fixtures."
     },
@@ -43,15 +43,15 @@
     },
     {
       "path": "data/artifacts/integrity.json",
-      "bytes": 1232,
-      "sha256": "df7327fcd41cccbe3743d9df62a721025b1a6e78345209f9ed3dd7a7709cbb4d",
+      "bytes": 1234,
+      "sha256": "52ba731715f1f4ca5efd4f3c42b8361f391bb77d032d589ff1804713eeb73b3a",
       "license": "MIT",
       "origin": "Deterministic derivatives and integrity index of original PLEGA data."
     },
     {
       "path": "data/artifacts/projects.json",
-      "bytes": 36965,
-      "sha256": "4957329bbfa947d85302fe4a655acdc229b27884b0d167de100cf5c324b3256a",
+      "bytes": 101468,
+      "sha256": "f944a19dd7a5daba68dcd5862690172f245cb59b3e6a59f636d00a47a741dc7e",
       "license": "MIT",
       "origin": "Deterministic derivatives and integrity index of original PLEGA data."
     },
