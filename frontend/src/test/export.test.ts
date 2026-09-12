@@ -10,7 +10,7 @@ import {
   PDFRawStream,
   decodePDFRawStream,
 } from "pdf-lib";
-import { makePrintPlan, STARTERS } from "../core/index";
+import { makePrintPlan, projectPrintOptions, STARTERS } from "../core/index";
 import type { PrintOptions, PrintPlan, Project } from "../core/types";
 import {
   bundleFiles,
@@ -414,16 +414,20 @@ describe("fabrication serialization from actual engine plans", () => {
   it("exports every actual starter with readable font-backed labels", async () => {
     for (const starter of STARTERS) {
       const file = pass(
-        await serializePdf(starter.project, plan(starter.project), {
-          lang: "en",
-          fontBytes,
-        }),
+        await serializePdf(
+          starter.project,
+          plan(starter.project, projectPrintOptions(starter.project)),
+          {
+            lang: "en",
+            fontBytes,
+          },
+        ),
       );
       expect(file.bytes.length).toBeGreaterThan(10000);
       if (starter.id === "mountain-greeting")
         save("starter-mountain.pdf", file);
     }
-  }, 20000);
+  }, 60000);
   it("keeps a valid blank project printable without inventing a mechanism", async () => {
     const p = { ...step, title: "Blank card", modules: [] };
     const file = pass(

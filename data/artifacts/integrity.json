@@ -3,14 +3,14 @@
   "method": "deterministic-original-design-compiler-v1",
   "compiler": {
     "path": "data-pipeline/run.py",
-    "bytes": 13317,
-    "sha256": "7d544aef045fa9f9d3e159599206c849a57e9d5312797248dc2c24a62be10429"
+    "bytes": 13321,
+    "sha256": "16b190939861ab49ae92495899c1d499286b2461a762345ab74ac15892381c4c"
   },
   "sources": [
     {
       "path": "data/sources/projects.json",
-      "bytes": 36965,
-      "sha256": "4957329bbfa947d85302fe4a655acdc229b27884b0d167de100cf5c324b3256a"
+      "bytes": 101468,
+      "sha256": "f944a19dd7a5daba68dcd5862690172f245cb59b3e6a59f636d00a47a741dc7e"
     },
     {
       "path": "data/sources/fixtures.json",
@@ -21,8 +21,8 @@
   "artifacts": [
     {
       "path": "data/artifacts/projects.json",
-      "bytes": 36965,
-      "sha256": "4957329bbfa947d85302fe4a655acdc229b27884b0d167de100cf5c324b3256a"
+      "bytes": 101468,
+      "sha256": "f944a19dd7a5daba68dcd5862690172f245cb59b3e6a59f636d00a47a741dc7e"
     },
     {
       "path": "data/artifacts/fixtures.json",
@@ -31,8 +31,8 @@
     },
     {
       "path": "frontend/src/core/starters.ts",
-      "bytes": 19627,
-      "sha256": "98bee637c50670c73ad7e3b08072636fadbd8504f4d6f95bfc8665c13c5680b4"
+      "bytes": 49362,
+      "sha256": "e4818e96679dfb51618b9bf888406800e81e780eeda0a3e9f5d851692274211d"
     }
   ],
   "claims": [
