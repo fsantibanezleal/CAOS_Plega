@@ -1,6 +1,6 @@
 @font-face {
   font-family: KineticNoto;
-  src: url("../export/assets/NotoSans-Regular.ttf") format("truetype");
+  src: url("./export/assets/NotoSans-Regular.ttf") format("truetype");
   font-display: swap;
 }
 :root {

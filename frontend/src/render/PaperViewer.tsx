@@ -17,7 +17,7 @@ type Props = {
   camera: "perspective" | "top" | "front";
   reset: number;
   dimensions: boolean;
-  framing: "sculpture" | "card";
+  framing: "selected" | "sculpture" | "card";
   project: Project;
   editable: boolean;
   onPreview: (project: Project | null) => void;
@@ -165,7 +165,7 @@ export function PaperViewer(props: Props) {
   >(() =>
     props.framing === "card"
       ? "card"
-      : matchMedia("(max-width: 620px)").matches
+      : props.framing === "selected"
         ? "selected"
         : "composition",
   );
@@ -508,21 +508,21 @@ export function PaperViewer(props: Props) {
     let renderer: T.WebGLRenderer;
     try {
       renderer = new T.WebGLRenderer({
-        antialias: true,
+        antialias: false,
         alpha: true,
-        preserveDrawingBuffer: true,
+        preserveDrawingBuffer: false,
+        powerPreference: "low-power",
       });
     } catch {
       setFailed(true);
       return;
     }
-    renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 1.25));
     renderer.setClearColor(0, 0);
     renderer.outputColorSpace = T.SRGBColorSpace;
     renderer.toneMapping = T.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.25;
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = T.PCFSoftShadowMap;
+    renderer.shadowMap.enabled = false;
     renderer.domElement.tabIndex = 0;
     renderer.domElement.setAttribute("role", "img");
     element.appendChild(renderer.domElement);
@@ -533,8 +533,8 @@ export function PaperViewer(props: Props) {
     scene.add(new T.HemisphereLight(0xffffff, 0x79728d, 2.1));
     const light = new T.DirectionalLight(0xfff1dd, 3.2);
     light.position.set(-200, 360, 180);
-    light.castShadow = true;
-    light.shadow.mapSize.set(2048, 2048);
+    light.castShadow = false;
+    light.shadow.mapSize.set(512, 512);
     light.shadow.camera.left = -350;
     light.shadow.camera.right = 350;
     light.shadow.camera.top = 350;
@@ -707,8 +707,11 @@ export function PaperViewer(props: Props) {
       ray.setFromCamera(pointer, camera);
       return ray
         .intersectObjects(group.children)
-        .find((hit) => hit.object instanceof T.Mesh)?.object.userData
-        .moduleId as string | undefined;
+        .find(
+          (hit) =>
+            hit.object instanceof T.Mesh &&
+            typeof hit.object.userData.moduleId === "string",
+        )?.object.userData.moduleId as string | undefined;
     };
     const pointerDown = (event: PointerEvent) => {
       down = { x: event.clientX, y: event.clientY };
@@ -768,11 +771,17 @@ export function PaperViewer(props: Props) {
       setFailed(true);
       element.dataset.rendered = "false";
     };
+    const restored = () => {
+      contextLost = false;
+      setFailed(false);
+      draw();
+    };
     renderer.domElement.addEventListener("pointerdown", pointerDown);
     renderer.domElement.addEventListener("pointerup", pointerUp);
     renderer.domElement.addEventListener("pointermove", pointerMove);
     renderer.domElement.addEventListener("keydown", keyDown);
     renderer.domElement.addEventListener("webglcontextlost", lost);
+    renderer.domElement.addEventListener("webglcontextrestored", restored);
     return () => {
       disposed = true;
       cancelAnimationFrame(frame);
@@ -791,6 +800,7 @@ export function PaperViewer(props: Props) {
       (ground.material as T.Material).dispose();
       light.shadow.map?.dispose();
       renderer.domElement.removeEventListener("webglcontextlost", lost);
+      renderer.domElement.removeEventListener("webglcontextrestored", restored);
       renderer.dispose();
       renderer.forceContextLoss();
       renderer.domElement.remove();
@@ -827,11 +837,10 @@ export function PaperViewer(props: Props) {
       );
       geometry.setIndex(panel.triangles.flatMap((tri) => [...tri]));
       geometry.computeVertexNormals();
-      const material = new T.MeshStandardMaterial({
+      const material = new T.MeshPhongMaterial({
         color: panel.color,
         side: T.DoubleSide,
-        roughness: 0.94,
-        metalness: 0,
+        shininess: 8,
         emissive: panel.moduleId === props.selected ? panel.color : "#000000",
         emissiveIntensity: panel.moduleId === props.selected ? 0.065 : 0,
       });
@@ -874,13 +883,15 @@ export function PaperViewer(props: Props) {
   useEffect(() => {
     if (previousFraming.current !== props.framing) {
       previousFraming.current = props.framing;
-      setFrameMode(props.framing === "card" ? "card" : "composition");
+      setFrameMode(
+        props.framing === "card"
+          ? "card"
+          : props.framing === "selected"
+            ? "selected"
+            : "composition",
+      );
     }
   }, [props.framing]);
-  useEffect(() => {
-    if (matchMedia("(max-width: 620px)").matches && props.editable)
-      setFrameMode("selected");
-  }, [props.selected]);
   useEffect(() => {
     runtime.current?.fit(props.camera);
   }, [
@@ -892,6 +903,9 @@ export function PaperViewer(props: Props) {
     props.selected,
     props.editable,
   ]);
+  useEffect(() => {
+    if (!failed) runtime.current?.draw();
+  }, [failed]);
   return (
     <div className="paper-viewer" ref={host} data-rendered="false">
       {props.scene && !failed && props.editable && (

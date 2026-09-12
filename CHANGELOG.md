@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.04.000
+
+Rebuilt Kinetic Studio as a viewport workbench with independently scrollable part navigation and inspector. Every part can now be framed from the cast or a position-accurate card map, including on phones; the 3D viewer keeps the selected handles available after a WebGL context recovery. The edit surface now includes part naming, color, duplication, card dimensions, and live cutout density and material-web controls. Original working compositions are accessible as reversible starting points. The renderer uses a lighter paper lighting pass, and browser acceptance exercises direct 3D editing and all-part reachability.
+
 ## 0.03.000
 
 Reframed the workshop as Kinetic Studio: a multi-part paper choreography with six cutwork voices, a motion map, continuous opening control, direct part inspector, connected live object and print plan views, and a responsive fixed workbench. The previous workshop remains available at `?legacy=1` and all original projects and geometry are preserved.
