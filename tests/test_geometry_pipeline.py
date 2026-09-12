@@ -33,9 +33,11 @@ class GeometryPipelineTests(unittest.TestCase):
     def catalog(self):
         return PIPE.read_json(self.root/PIPE.SOURCES[0])
 
-    def test_twelve_complete_starters_and_two_specific_diagnoses(self):
+    def test_rich_complete_projects_and_two_specific_diagnoses(self):
         data = self.catalog()
         PIPE.validate_catalog(data)
+        self.assertGreaterEqual(len(data["starters"]), 24)
+        self.assertGreaterEqual(sum(len(item["project"]["modules"]) >= 8 for item in data["starters"]), 12)
         for item in data["starters"]:
             self.assertFalse(PIPE.project_issues(item["project"]))
         self.assertIn("CLOSED_WIDTH", PIPE.project_issues(data["repairCases"][0]["project"]))

@@ -6,6 +6,9 @@ PLEGA is a static application with a deterministic offline data compiler. Pure T
 |---|---|
 | [ADR 0001: restricted rigid-paper model](0001-restricted-paper-model.md) | Explicit supported mechanisms, millimetres and separate failure/uncertified states |
 | [ADR 0002: exact static publication and offline use](0002-static-publication-and-offline.md) | One tested Pages artifact, source identity, scoped cache and explicit updates |
+| [ADR 0003: cut-paper sculpture](0003-cut-paper-sculptures.md) | Profiled panels and direct editing retain parent hinges and print geometry |
+| [ADR 0004: kinetic choreography](0004-kinetic-choreography.md) | Multi-part motion in a connected workbench |
+| [ADR 0005: reachable workbench](0005-reachable-workbench.md) | Every part is framed and editable across desktop and phone layouts |
 
 The [geometry API](../geometry-api.md) defines core interfaces; [fabrication validation](../fabrication-validation.md) defines independent export checks. The [pipeline](../../data-pipeline/README.md) owns original source-to-generated data. There is no backend, training pipeline or installable internal package.
 

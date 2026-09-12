@@ -27,8 +27,8 @@ import {
 import {
   analyzeProject,
   createModule,
-  DEFAULT_PRINT_OPTIONS,
   makePrintPlan,
+  projectPrintOptions,
   poseProject,
   STARTERS,
   type Cutwork,
@@ -48,6 +48,7 @@ import {
 import { PaperViewer } from "./render/PaperViewer";
 import { PrintViewer } from "./render/PrintViewer";
 import "./kinetic.css";
+import "./kinetic-workbench.css";
 
 type Stage = "compose" | "motion" | "make";
 type Motif = {
@@ -163,6 +164,72 @@ function IconButton({
   );
 }
 
+function ProjectThumbnail({ project }: { project: Project }) {
+  const { W, H } = project.card;
+  return (
+    <svg
+      className="kinetic-project-preview"
+      viewBox={`0 0 ${H} ${W}`}
+      preserveAspectRatio="xMidYMid meet"
+      aria-hidden="true"
+    >
+      <rect x="0" y="0" width={H} height={W} fill={project.card.color} />
+      <line
+        x1="0"
+        x2={H}
+        y1={W / 2}
+        y2={W / 2}
+        stroke="#645460"
+        strokeWidth="1"
+        strokeDasharray="4 3"
+      />
+      {project.modules.map((part) => {
+        const span =
+          part.kind === "P" ? part.params.width : part.params.r * 0.9;
+        const reach =
+          part.kind === "P"
+            ? part.params.a + part.params.b
+            : part.params.h * 0.75;
+        const x = part.y;
+        const y = (W - reach) / 2;
+        return (
+          <g key={part.id}>
+            {part.kind === "P" ? (
+              <rect
+                x={x}
+                y={y}
+                width={span}
+                height={reach}
+                rx="2"
+                fill={part.color}
+                stroke="#443343"
+                strokeWidth="0.7"
+              />
+            ) : (
+              <path
+                d={`M ${x} ${W / 2} L ${x + span * 0.48} ${y} L ${x + span} ${W / 2} L ${x + span * 0.48} ${y + reach} Z`}
+                fill={part.color}
+                stroke="#443343"
+                strokeWidth="0.7"
+              />
+            )}
+            {part.cutwork && (
+              <line
+                x1={x + span * 0.3}
+                x2={x + span * 0.7}
+                y1={W / 2}
+                y2={W / 2}
+                stroke={project.card.color}
+                strokeWidth="2"
+              />
+            )}
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
+
 export default function KineticStudio() {
   const initial = useRef<ReturnType<typeof readWorkspace> | null>(null);
   if (!initial.current) initial.current = readWorkspace();
@@ -182,16 +249,23 @@ export default function KineticStudio() {
   const [opening, setOpening] = useState(92);
   const [playing, setPlaying] = useState(false);
   const [view, setView] = useState<"model" | "pattern">("model");
+  const [printPage, setPrintPage] = useState(0);
   const [camera, setCamera] = useState<"perspective" | "top" | "front">(
     "perspective",
   );
-  const [framing, setFraming] = useState<"sculpture" | "card">("sculpture");
+  const [framing, setFraming] = useState<"selected" | "sculpture" | "card">(
+    "sculpture",
+  );
   const [reset, setReset] = useState(0);
   const [past, setPast] = useState<Project[]>([]);
   const [future, setFuture] = useState<Project[]>([]);
   const [draft, setDraft] = useState<Project | null>(null);
   const [notice, setNotice] = useState("");
   const [showMotifs, setShowMotifs] = useState(false);
+  const [showLibrary, setShowLibrary] = useState(false);
+  const [projectFilter, setProjectFilter] = useState<
+    "signature" | "all" | "quick"
+  >("signature");
   const [showSources, setShowSources] = useState(false);
   const project = workspace.project;
   const t = (en: string, es: string) => (lang === "es" ? es : en);
@@ -207,15 +281,23 @@ export default function KineticStudio() {
   }, [displayed, opening]);
   const planResult = useMemo(
     () =>
-      makePrintPlan(displayed, {
-        ...DEFAULT_PRINT_OPTIONS,
-        purpose: displayedAnalysis.canFinalPrint ? "fabrication" : "draft",
-      }),
+      makePrintPlan(
+        displayed,
+        projectPrintOptions(
+          displayed,
+          displayedAnalysis.canFinalPrint ? "fabrication" : "draft",
+        ),
+      ),
     [displayed, displayedAnalysis.canFinalPrint],
   );
   const plan = planResult.ok ? planResult.value : null;
   const selectedPart =
     displayed.modules.find((m) => m.id === selected) ?? displayed.modules[0];
+  const focusPart = (id: string) => {
+    setSelected(id);
+    setFraming("selected");
+    setView("model");
+  };
   const phase = opening < 45 ? 0 : opening < 95 ? 1 : opening < 145 ? 2 : 3;
   const phaseNames = [
     ["Gather", "Reunir"],
@@ -346,6 +428,61 @@ export default function KineticStudio() {
     };
     commit(next);
   };
+  const updateSurface = (field: "detail" | "web", value: number) => {
+    if (!selectedPart?.cutwork || !Number.isFinite(value)) return;
+    commit({
+      ...project,
+      modules: project.modules.map((part) =>
+        part.id === selectedPart.id && part.cutwork
+          ? { ...part, cutwork: { ...part.cutwork, [field]: value } }
+          : part,
+      ),
+    });
+  };
+  const updateCard = (field: "W" | "H" | "margin" | "gap", value: number) => {
+    if (!Number.isFinite(value) || value <= 0) return;
+    commit({ ...project, card: { ...project.card, [field]: value } });
+  };
+  const duplicatePart = () => {
+    if (!selectedPart) return;
+    const created = createModule(
+      project,
+      selectedPart.kind,
+      `${selectedPart.label} II`,
+      selectedPart.color,
+    );
+    if (!created.ok) {
+      setNotice(
+        t(
+          "No checked lane is available for a copy.",
+          "No hay una zona comprobada para la copia.",
+        ),
+      );
+      return;
+    }
+    const withSurface = {
+      ...created.project,
+      modules: created.project.modules.map((part) =>
+        part.id === created.moduleId && selectedPart.cutwork
+          ? { ...part, cutwork: selectedPart.cutwork }
+          : part,
+      ),
+    };
+    const sameShape = {
+      ...withSurface,
+      modules: withSurface.modules.map((part) =>
+        part.id === created.moduleId
+          ? ({ ...part, params: selectedPart.params } as Mechanism)
+          : part,
+      ),
+    };
+    commit(
+      analyzeProject(sameShape).certificate === "pass"
+        ? sameShape
+        : withSurface,
+    );
+    focusPart(created.moduleId);
+  };
   const remove = () => {
     if (!selectedPart || project.modules.length <= 1) return;
     const next = {
@@ -360,7 +497,9 @@ export default function KineticStudio() {
     setSelected(starter.project.modules[0]?.id ?? "");
     setOpening(92);
     setStage("compose");
+    setFraming("sculpture");
     setNotice(t(`${starter.title.en} loaded`, `${starter.title.es} cargado`));
+    setShowLibrary(false);
   };
   const share = async () => {
     const link = encodeShare(project);
@@ -394,6 +533,13 @@ export default function KineticStudio() {
         <div className="kinetic-header-actions">
           <button
             className="kinetic-text-button"
+            onClick={() => setShowLibrary(true)}
+          >
+            <Layers3 size={16} />
+            {t(`${STARTERS.length} projects`, `${STARTERS.length} proyectos`)}
+          </button>
+          <button
+            className="kinetic-text-button"
             onClick={() => setShowSources(true)}
           >
             <Eye size={16} />
@@ -421,18 +567,20 @@ export default function KineticStudio() {
           <h1>{t("Make the fold move.", "Haz que el pliegue se mueva.")}</h1>
           <p>
             {t(
-              "Compose a mechanism, change its rhythm, and watch every part answer in the same space. Plega keeps the design, motion, and cut plan connected.",
-              "Compón un mecanismo, cambia su ritmo y mira cómo cada pieza responde en el mismo espacio. Plega conecta el diseño, el movimiento y el plan de corte.",
+              "Shape the paper directly. Every edit changes the motion and the cut plan.",
+              "Transforma el papel directamente. Cada edición cambia el movimiento y el plan de corte.",
             )}
           </p>
         </div>
-        <div className="kinetic-intro-stat">
-          <strong>{project.modules.length}</strong>
-          <span>{t("active parts", "piezas activas")}</span>
-          <small>
-            {t("one shared choreography", "una coreografía compartida")}
-          </small>
-        </div>
+        <button
+          className="kinetic-intro-projects"
+          onClick={() => setShowLibrary(true)}
+        >
+          <strong>{STARTERS.length}</strong>
+          <span>{t("Complete projects", "Proyectos completos")}</span>
+          <small>{t("Open the gallery", "Abrir la galería")}</small>
+          <ChevronRight size={18} />
+        </button>
       </section>
       <nav
         className="kinetic-stage-nav"
@@ -492,6 +640,34 @@ export default function KineticStudio() {
       )}
       <main className="kinetic-workbench">
         <aside className="kinetic-rail">
+          <button
+            className="kinetic-gallery-launch"
+            onClick={() => setShowLibrary(true)}
+          >
+            <span className="kinetic-kicker">
+              {t("PROJECT GALLERY", "GALERIA DE PROYECTOS")}
+            </span>
+            <strong>
+              {t(
+                "Start with a complete design",
+                "Empieza con un diseno completo",
+              )}
+            </strong>
+            <small>
+              {t(
+                `${STARTERS.length} editable structures`,
+                `${STARTERS.length} estructuras editables`,
+              )}
+            </small>
+            <span className="kinetic-gallery-colors" aria-hidden="true">
+              {STARTERS.slice(-8).map((starter) => (
+                <i
+                  key={starter.id}
+                  style={{ background: starter.project.modules[0].color }}
+                />
+              ))}
+            </span>
+          </button>
           <div className="kinetic-rail-heading">
             <div>
               <span className="kinetic-kicker">
@@ -512,7 +688,7 @@ export default function KineticStudio() {
               <button
                 key={m.id}
                 className={selectedPart?.id === m.id ? "selected" : ""}
-                onClick={() => setSelected(m.id)}
+                onClick={() => focusPart(m.id)}
               >
                 <span className="cast-index">
                   {String(index + 1).padStart(2, "0")}
@@ -558,37 +734,39 @@ export default function KineticStudio() {
               <span>{t("MOTION MAP", "MAPA DE MOVIMIENTO")}</span>
               <Layers3 size={15} />
             </div>
-            <svg
-              viewBox="0 0 240 122"
-              role="img"
+            <div
+              className="kinetic-lane-track"
+              role="group"
               aria-label={t(
-                "Motion lanes for every part",
-                "Zonas de movimiento de cada pieza",
+                "Parts by position on the card",
+                "Piezas según su posición en la tarjeta",
               )}
+              style={{
+                height: Math.max(220, Math.min(520, displayed.card.H * 1.65)),
+              }}
             >
-              <path d="M20 15v92M20 107h205" />
-              <path className="lane-guide" d="M20 88h205M20 62h205M20 36h205" />
-              {displayed.modules.slice(0, 8).map((m, i) => (
-                <g key={m.id}>
-                  <rect
-                    x={25 + (i % 3) * 65}
-                    y={83 - (i % 4) * 23}
-                    width={42 + (i % 2) * 10}
-                    height="12"
-                    rx="6"
-                    style={{ fill: m.color }}
-                    opacity={selectedPart?.id === m.id ? 1 : 0.55}
-                  />
-                  <text x={29 + (i % 3) * 65} y={92 - (i % 4) * 23}>
-                    {i + 1}
-                  </text>
-                </g>
+              {displayed.modules.map((m, i) => (
+                <button
+                  key={m.id}
+                  className={selectedPart?.id === m.id ? "selected" : ""}
+                  style={{
+                    top: `${Math.max(3, Math.min(97, (m.y / displayed.card.H) * 100))}%`,
+                    borderColor: m.color,
+                  }}
+                  onClick={() => focusPart(m.id)}
+                  title={`${m.label} · ${m.y.toFixed(1)} mm`}
+                >
+                  <span style={{ background: m.color }} />
+                  <b>{String(i + 1).padStart(2, "0")}</b>
+                  <strong>{m.label}</strong>
+                  <small>{m.y.toFixed(1)}</small>
+                </button>
               ))}
-            </svg>
+            </div>
             <small>
               {t(
-                "The bands stay separated across the full opening.",
-                "Las bandas permanecen separadas durante toda la apertura.",
+                "Every part is shown at its actual position in millimetres. Choose one to frame and edit it.",
+                "Cada pieza aparece en su posición real en milímetros. Elige una para encuadrarla y editarla.",
               )}
             </small>
           </div>
@@ -674,7 +852,7 @@ export default function KineticStudio() {
                 height={displayed.card.H}
                 width={displayed.card.W}
                 selected={selectedPart?.id ?? ""}
-                onSelect={setSelected}
+                onSelect={focusPart}
                 theme={theme}
                 lang={lang}
                 camera={camera}
@@ -684,9 +862,43 @@ export default function KineticStudio() {
               />
             ) : (
               <div className="kinetic-print-wrap">
+                {plan && plan.pages.length > 1 && (
+                  <div className="kinetic-print-pagination">
+                    <button
+                      onClick={() =>
+                        setPrintPage((value) => Math.max(0, value - 1))
+                      }
+                      disabled={printPage <= 0}
+                    >
+                      {t("Previous sheet", "Hoja anterior")}
+                    </button>
+                    <span>
+                      {t("Sheet", "Hoja")}{" "}
+                      {Math.min(printPage + 1, plan.pages.length)} /{" "}
+                      {plan.pages.length}
+                      {plan.pages[Math.min(printPage, plan.pages.length - 1)]
+                        ?.transferOnly
+                        ? ` · ${t("transfer tile", "mosaico de transferencia")}`
+                        : ""}
+                    </span>
+                    <button
+                      onClick={() =>
+                        setPrintPage((value) =>
+                          Math.min(plan.pages.length - 1, value + 1),
+                        )
+                      }
+                      disabled={printPage >= plan.pages.length - 1}
+                    >
+                      {t("Next sheet", "Hoja siguiente")}
+                    </button>
+                  </div>
+                )}
                 <PrintViewer
                   plan={plan}
-                  pageIndex={0}
+                  pageIndex={Math.min(
+                    printPage,
+                    Math.max(0, (plan?.pages.length ?? 1) - 1),
+                  )}
                   selected={selectedPart?.id ?? ""}
                   onSelect={setSelected}
                   lang={lang}
@@ -713,16 +925,22 @@ export default function KineticStudio() {
                 {t("Front", "Frontal")}
               </button>
               <span />
-              <button
-                onClick={() => {
-                  setFraming(framing === "sculpture" ? "card" : "sculpture");
-                  setReset((value) => value + 1);
-                }}
-              >
-                {framing === "sculpture"
-                  ? t("Fit card", "Encuadrar tarjeta")
-                  : t("Focus object", "Enfocar objeto")}
-              </button>
+              {(["selected", "sculpture", "card"] as const).map((mode) => (
+                <button
+                  key={mode}
+                  className={framing === mode ? "active" : ""}
+                  onClick={() => {
+                    setFraming(mode);
+                    setReset((value) => value + 1);
+                  }}
+                >
+                  {mode === "selected"
+                    ? t("Part", "Pieza")
+                    : mode === "sculpture"
+                      ? t("All parts", "Todas")
+                      : t("Card", "Tarjeta")}
+                </button>
+              ))}
               <button onClick={() => setReset((value) => value + 1)}>
                 <RotateCcw size={14} />
               </button>
@@ -788,6 +1006,16 @@ export default function KineticStudio() {
                   t("Select a part", "Selecciona una pieza")}
               </h2>
               <button
+                onClick={duplicatePart}
+                disabled={!selectedPart || project.modules.length >= 16}
+                aria-label={t(
+                  "Duplicate selected part",
+                  "Duplicar pieza seleccionada",
+                )}
+              >
+                <Plus size={16} />
+              </button>
+              <button
                 onClick={remove}
                 disabled={!selectedPart || project.modules.length <= 1}
                 aria-label={t(
@@ -809,6 +1037,49 @@ export default function KineticStudio() {
                     "Selecciona una pieza del reparto o directamente en el objeto.",
                   )}
             </p>
+          </div>
+          {displayedAnalysis.certificate !== "pass" && (
+            <div className="kinetic-diagnostics" role="status">
+              <strong>
+                {t("What needs attention", "Qué necesita atención")}
+              </strong>
+              {displayedAnalysis.diagnostics
+                .filter((d) => d.severity === "error")
+                .slice(0, 3)
+                .map((diagnostic) => (
+                  <p key={diagnostic.id}>{diagnostic.message[lang]}</p>
+                ))}
+            </div>
+          )}
+          <div className="kinetic-inspector-section">
+            <div className="inspector-section-title">
+              <span>{t("Canvas size", "Tamaño del lienzo")}</span>
+              <small>mm</small>
+            </div>
+            <div className="dimension-grid">
+              {(["W", "H", "margin", "gap"] as const).map((field) => (
+                <label key={field}>
+                  <span>
+                    {field === "W"
+                      ? t("Half width", "Medio ancho")
+                      : field === "H"
+                        ? t("Height", "Alto")
+                        : field === "margin"
+                          ? t("Margin", "Margen")
+                          : t("Lane gap", "Separación")}
+                  </span>
+                  <input
+                    type="number"
+                    min="1"
+                    step="0.5"
+                    value={project.card[field]}
+                    onChange={(event) =>
+                      updateCard(field, Number(event.target.value))
+                    }
+                  />
+                </label>
+              ))}
+            </div>
           </div>
           <div className="kinetic-inspector-section">
             <div className="inspector-section-title">
@@ -842,6 +1113,46 @@ export default function KineticStudio() {
               <div className="inspector-section-title">
                 <span>{t("Dimensions", "Dimensiones")}</span>
                 <small>mm</small>
+              </div>
+              <div className="kinetic-identity-grid">
+                <label>
+                  <span>{t("Part name", "Nombre de la pieza")}</span>
+                  <input
+                    key={selectedPart.id}
+                    type="text"
+                    maxLength={40}
+                    defaultValue={selectedPart.label}
+                    onBlur={(event) => {
+                      const label = event.target.value.trim();
+                      if (label && label !== selectedPart.label)
+                        commit({
+                          ...project,
+                          modules: project.modules.map((part) =>
+                            part.id === selectedPart.id
+                              ? { ...part, label }
+                              : part,
+                          ),
+                        });
+                    }}
+                  />
+                </label>
+                <label>
+                  <span>{t("Paper color", "Color del papel")}</span>
+                  <input
+                    type="color"
+                    value={selectedPart.color}
+                    onChange={(event) =>
+                      commit({
+                        ...project,
+                        modules: project.modules.map((part) =>
+                          part.id === selectedPart.id
+                            ? { ...part, color: event.target.value }
+                            : part,
+                        ),
+                      })
+                    }
+                  />
+                </label>
               </div>
               <div className="dimension-grid">
                 {(selectedPart.kind === "P"
@@ -942,6 +1253,38 @@ export default function KineticStudio() {
                 ),
               )}
             </div>
+            {selectedPart?.cutwork && (
+              <div className="kinetic-surface-controls">
+                <label>
+                  <span>{t("Aperture density", "Densidad de huecos")}</span>
+                  <input
+                    type="range"
+                    min="1"
+                    max="6"
+                    step="1"
+                    value={selectedPart.cutwork.detail}
+                    onChange={(event) =>
+                      updateSurface("detail", Number(event.target.value))
+                    }
+                  />
+                  <output>{selectedPart.cutwork.detail}</output>
+                </label>
+                <label>
+                  <span>{t("Protected paper web", "Nervadura protegida")}</span>
+                  <input
+                    type="range"
+                    min="1"
+                    max="5"
+                    step="0.1"
+                    value={selectedPart.cutwork.web}
+                    onChange={(event) =>
+                      updateSurface("web", Number(event.target.value))
+                    }
+                  />
+                  <output>{selectedPart.cutwork.web.toFixed(1)} mm</output>
+                </label>
+              </div>
+            )}
           </div>
           <div className="kinetic-inspector-section inspector-insight">
             <Sparkles size={17} />
@@ -985,6 +1328,84 @@ export default function KineticStudio() {
           </button>
         </span>
       </footer>
+      {showLibrary && (
+        <div
+          className="kinetic-modal-backdrop"
+          onClick={() => setShowLibrary(false)}
+        >
+          <section
+            className="kinetic-modal kinetic-library"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="kinetic-library-title"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <header>
+              <div>
+                <span className="kinetic-kicker">
+                  {t("WORKING COMPOSITIONS", "COMPOSICIONES ACTIVAS")}
+                </span>
+                <h2 id="kinetic-library-title">
+                  {t(
+                    "Choose a structure to transform",
+                    "Elige una estructura para transformar",
+                  )}
+                </h2>
+              </div>
+              <button
+                onClick={() => setShowLibrary(false)}
+                aria-label={t("Close", "Cerrar")}
+              >
+                <X size={18} />
+              </button>
+            </header>
+            <p>
+              {t(
+                "Each composition is an editable mechanical starting point. Loading one replaces the canvas; Undo restores your previous work.",
+                "Cada composición es un punto de partida mecánico editable. Al cargarla se reemplaza el lienzo; Deshacer restaura tu trabajo anterior.",
+              )}
+            </p>
+            <div
+              className="kinetic-library-filters"
+              aria-label={t("Project groups", "Grupos de proyectos")}
+            >
+              {(["signature", "all", "quick"] as const).map((group) => (
+                <button
+                  key={group}
+                  className={projectFilter === group ? "active" : ""}
+                  onClick={() => setProjectFilter(group)}
+                >
+                  {group === "signature"
+                    ? t("Signature 12", "Destacados 12")
+                    : group === "all"
+                      ? t(`All ${STARTERS.length}`, `Todos ${STARTERS.length}`)
+                      : t("Quick studies", "Estudios breves")}
+                </button>
+              ))}
+            </div>
+            <div className="kinetic-library-grid">
+              {STARTERS.filter(
+                (starter) =>
+                  projectFilter === "all" ||
+                  (projectFilter === "signature"
+                    ? starter.project.modules.length >= 8
+                    : starter.project.modules.length < 8),
+              ).map((starter) => (
+                <button key={starter.id} onClick={() => loadStarter(starter)}>
+                  <ProjectThumbnail project={starter.project} />
+                  <strong>{starter.title[lang]}</strong>
+                  <small>
+                    {starter.project.modules.length} {t("parts", "piezas")} ·{" "}
+                    {starter.project.card.W} × {starter.project.card.H} mm
+                  </small>
+                  <span>{starter.description[lang]}</span>
+                  <em>{starter.learning[lang]}</em>
+                </button>
+              ))}
+            </div>
+          </section>
+        </div>
+      )}
       {showSources && (
         <div
           className="kinetic-modal-backdrop"
