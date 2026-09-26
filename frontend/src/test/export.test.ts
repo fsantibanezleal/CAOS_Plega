@@ -22,6 +22,10 @@ import {
 } from "../export/index";
 import type { ExportFile, ExportResult } from "../export/types";
 
+// A glyph the print font does not carry, built from its code point so that the source holds no emoji
+// literal (ADR-0067).
+const UNSUPPORTED_GLYPH = String.fromCodePoint(0x1f33a);
+
 const fontBytes = new Uint8Array(
   readFileSync(
     new URL("../export/assets/NotoSans-Regular.ttf", import.meta.url),
@@ -342,8 +346,8 @@ describe("fabrication serialization from actual engine plans", () => {
     ).toBe(true);
   });
   it("preserves unsupported Unicode in JSON and reports missing print glyphs explicitly", async () => {
-    const p = { ...step, title: "Hello 🌺" };
-    expect(chars(pass(serializeProject(p)))).toContain("🌺");
+    const p = { ...step, title: `Hello ${UNSUPPORTED_GLYPH}` };
+    expect(chars(pass(serializeProject(p)))).toContain(UNSUPPORTED_GLYPH);
     const result = await serializePdf(p, plan(p), { lang: "en", fontBytes });
     expect(result.ok).toBe(false);
     if (!result.ok)
@@ -476,7 +480,7 @@ describe("fabrication serialization from actual engine plans", () => {
       {
         name: "café.json",
         mime: "application/json",
-        bytes: new TextEncoder().encode('{"label":"🌺"}\n'),
+        bytes: new TextEncoder().encode(`{"label":"${UNSUPPORTED_GLYPH}"}\n`),
       },
       {
         name: "piece.fold",
