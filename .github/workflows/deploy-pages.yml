@@ -56,6 +56,7 @@ jobs:
         run: |
           .venv/bin/python scripts/project.py test
           npm --prefix frontend run format:check
+          python3 scripts/check_content_standards.py
       - name: Build exact Pages artifact
         run: |
           .venv/bin/python scripts/project.py build --require-clean --revision "$GITHUB_SHA"
