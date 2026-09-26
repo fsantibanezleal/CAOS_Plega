@@ -325,7 +325,7 @@ PERFORMANCE OF THIS SOFTWARE.
 
 These notices are retained from the installed `@pdf-lib/fontkit/dist/fontkit.es.js`; they are not separate application dependencies in the lockfile.
 
-### Node string decoder — MIT
+### Node string decoder: MIT
 
 ```text
 Copyright Joyent, Inc. and other Node contributors.
@@ -350,11 +350,11 @@ OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
-### base64-arraybuffer — MIT
+### base64-arraybuffer: MIT
 
 Copyright (c) 2012 Niklas von Hertzen. The bundled source explicitly states MIT; the MIT permission text above applies. Source project: https://github.com/niklasvh/base64-arraybuffer.
 
-### Brotli decoder — Apache-2.0
+### Brotli decoder: Apache-2.0
 
 ```text
 Copyright 2013 Google Inc. All Rights Reserved.
@@ -399,7 +399,7 @@ freely, subject to the following restrictions:
 3. This notice may not be removed or altered from any source distribution.
 ```
 
-## Noto Sans Regular — SIL Open Font License 1.1
+## Noto Sans Regular: SIL Open Font License 1.1
 
 Pinned upstream revision and file hashes are recorded in [font provenance](https://github.com/fsantibanezleal/CAOS_Plega/blob/main/frontend/src/export/assets/provenance.json) and [asset licenses](https://github.com/fsantibanezleal/CAOS_Plega/blob/main/docs/asset-licenses.json). The unchanged font binary is self-hosted. PDF export embeds a subset; standalone SVG embeds the font and retains the complete license in its XML metadata. Generated project text and artwork do not inherit the font license solely from using the font.
 
