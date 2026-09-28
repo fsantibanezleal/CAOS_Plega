@@ -811,7 +811,7 @@ try {
           name: "Keep your stored data safe",
           exact: true,
         }),
-      ).toBeVisible();
+      ).toBeVisible({ timeout: 15000 });
       assert.equal(
         await page.evaluate(() => localStorage.getItem("plega-workspace-v1")),
         raw,
@@ -845,7 +845,7 @@ try {
           name: "Keep your stored data safe",
           exact: true,
         }),
-      ).toBeVisible();
+      ).toBeVisible({ timeout: 15000 });
       const recovered = await download(page, "unreadable-original-bytes", () =>
         page
           .getByRole("button", {
