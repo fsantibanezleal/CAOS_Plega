@@ -17,7 +17,6 @@
     "test:browser": "node verify-guide.mjs && node verify-origami.mjs && node verify-kinetic.mjs && node verify-workshop.mjs"
   },
   "dependencies": {
-    "@foldlab/fold-viewer": "0.1.0",
     "@pdf-lib/fontkit": "1.1.1",
     "lucide-react": "0.577.0",
     "pdf-lib": "1.17.1",

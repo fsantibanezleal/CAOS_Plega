@@ -3,8 +3,8 @@ import {
   FoldViewer,
   type FoldDocument,
   type FoldViewerHandle,
-} from "@foldlab/fold-viewer";
-import "@foldlab/fold-viewer/styles.css";
+} from "../vendor/fold-viewer";
+import "../vendor/fold-viewer/styles.css";
 import {
   ArrowRight,
   BookOpen,

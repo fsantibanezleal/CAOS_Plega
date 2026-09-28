@@ -27,6 +27,16 @@ class PublicAssetTests(unittest.TestCase):
                 self.assertEqual(step["animation"], "not-applicable")
                 self.assertFalse(step["runs"])
 
+    def test_viewer_pins_the_exact_public_lesson(self):
+        lesson = (ROOT / "frontend/public/lessons/crane/crane.fold.json").read_bytes()
+        viewer = (ROOT / "frontend/src/vendor/fold-viewer/validation.ts").read_text(encoding="utf-8")
+        self.assertIn(hashlib.sha256(lesson).hexdigest(), viewer)
+        self.assertIn("source.url !== LESSON_URL", viewer)
+        self.assertIn("crypto.subtle.digest('SHA-256'", viewer)
+        self.assertNotIn("new Function", viewer)
+        self.assertEqual((ROOT / "frontend/src/vendor/fold-viewer/LICENSE").read_bytes(),
+                         (ROOT / "frontend/public/licenses/fold-viewer.LICENSE").read_bytes())
+
     def test_external_file_links_have_a_reviewed_reachability_snapshot(self):
         index = json.loads((ROOT / "data/guide/origami-plan-index.json").read_text(encoding="utf-8"))
         health = json.loads((ROOT / "data/guide/origami-plan-health.json").read_text(encoding="utf-8"))
