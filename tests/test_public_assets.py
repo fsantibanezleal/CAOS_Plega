@@ -3,12 +3,30 @@ from pathlib import Path
 import hashlib
 import json
 import re
+import runpy
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 class PublicAssetTests(unittest.TestCase):
+    def test_public_model_library_has_a_complete_resolved_lesson(self):
+        source = (ROOT / "data/guide/foldspec/crane-source.fold.json").read_bytes()
+        public = (ROOT / "frontend/public/lessons/crane/crane.fold.json").read_bytes()
+        transform = runpy.run_path(str(ROOT / "scripts/import_foldspec_crane.py"))["viewing_copy"]
+        self.assertEqual(public, transform(source))
+        lesson = json.loads((ROOT / "frontend/public/lessons/crane/crane.fold.json").read_text(encoding="utf-8"))
+        self.assertEqual(lesson["status"], "resolved")
+        self.assertEqual(lesson["geometry"]["status"], "complete")
+        self.assertEqual(len(lesson["instructions"]["steps"]), 44)
+        self.assertEqual(len(lesson["geometry"]["operations"]), 40)
+        for step in lesson["instructions"]["steps"]:
+            if step["animation"] == "resolved":
+                self.assertTrue(step["runs"], step["id"])
+            else:
+                self.assertEqual(step["animation"], "not-applicable")
+                self.assertFalse(step["runs"])
+
     def test_external_file_links_have_a_reviewed_reachability_snapshot(self):
         index = json.loads((ROOT / "data/guide/origami-plan-index.json").read_text(encoding="utf-8"))
         health = json.loads((ROOT / "data/guide/origami-plan-health.json").read_text(encoding="utf-8"))

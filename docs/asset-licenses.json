@@ -3,9 +3,37 @@
   "codeLicense": "Apache-2.0",
   "originalDesignDataLicense": "MIT",
   "fontProvenance": "frontend/src/export/assets/provenance.json",
-  "researchBoundary": "Only the individually licensed Commons and Tavin diagram assets inventoried below are redistributed; other third-party plans remain links at source.",
+  "researchBoundary": "The pinned MIT Fold Spec crane lesson and the individually licensed Commons and Tavin diagram assets inventoried below are redistributed; other third-party plans are not model-library entries.",
   "systemFonts": "Self-hosted unmodified OFL UI fonts; system fonts are fallback lookups only. The original Noto Sans print font remains bundled separately.",
   "assets": [
+    {
+      "path": "frontend/public/licenses/fold-viewer.LICENSE",
+      "bytes": 1077,
+      "sha256": "92727545c591964d91d5178680590054d52751e9f90dd641fcf562afb42f2710",
+      "license": "MIT",
+      "origin": "Unmodified Fold Viewer MIT license from the v0.1.0 tag commit 0dbda54af4b0b3d1f46b5e7f01f6e20451c869ca."
+    },
+    {
+      "path": "data/guide/foldspec/crane-source.fold.json",
+      "bytes": 4669413,
+      "sha256": "a929fd12bac4d89bd050f643d66408cb8421d94842cf13dbc1e4bdde215c9995",
+      "license": "MIT",
+      "origin": "Unmodified resolved crane lesson by Fold Spec contributors at commit 0ee55e1b748e46101b9bb20e7b285fcaaa07e30f."
+    },
+    {
+      "path": "frontend/public/lessons/crane/crane.fold.json",
+      "bytes": 1266910,
+      "sha256": "3bf38559fab7965059aae413ac2ba93876e2eb117e2dbe6a5bcff7f6ea2f4bc4",
+      "license": "MIT",
+      "origin": "PLEGA viewing copy deterministically derived by scripts/import_foldspec_crane.py from the pinned MIT crane source. Only late-step camera targets and span change; geometry and instructions stay identical."
+    },
+    {
+      "path": "frontend/public/lessons/crane/LICENSE",
+      "bytes": 1079,
+      "sha256": "19208ee3fa17ecdf6bef52577084b37f14e5e8b3de1cae90b90bb7c4ccfb3915",
+      "license": "MIT",
+      "origin": "Unmodified Fold Spec MIT license at commit 0ee55e1b748e46101b9bb20e7b285fcaaa07e30f."
+    },
     {
       "path": "frontend/src/export/assets/NotoSans-Regular.ttf",
       "bytes": 569208,

@@ -1,5 +1,13 @@
 # Public repository security and license audit
 
+## Animation-first guide update: 2026-09-28
+
+This update replaces the public source-link catalog with one complete 44-step animated crane lesson. The full upstream Fold Spec source and MIT license are pinned to a commit and SHA-256 values; `scripts/import_foldspec_crane.py` verifies both and deterministically produces the public viewing copy. That copy changes only late-step camera framing. The public asset inventory records the source, derived lesson, license and the Fold Viewer license from its v0.1.0 tag. Static diagram assets remain in the repository but no longer qualify as model-library entries.
+
+The frontend has no login, backend, runtime credential or automatic third-party request for the lesson. The app fetches its lesson from the same origin; the optional companion PDF is also same-origin. The npm lock records 174 installed package entries, all with license declarations; `docs/dependency-licenses.json` matches its exact SHA-256. A clean `npm ci` was verified in an isolated directory using the committed `.npmrc`. That setting allows Fold Viewer 0.1.0's narrow Three.js peer declaration while keeping Three.js 0.185.1, which the existing cutwork geometry requires. The combined application requires the source, browser and release-artifact checks before publication.
+
+A pattern scan of the changed source, scripts, document data and license files found no recognized private-key header, provider token prefix, assigned client secret or bearer credential. This is a bounded scan, not proof that unknown secrets cannot exist. The exact-revision artifact and live Pages endpoint remain separate release gates.
+
 ## Guide addition: 2026-09-27
 
 The public folding-guide addition was checked separately from the historical audit below. The guide has no account, backend, runtime key or user-uploaded media. Its source indexes contain only short labels and public links; 32 redistributed diagram sheets have per-file author, source, license, change description, byte count and SHA-256 entries in `docs/asset-licenses.json` and `data/guide`. Fifteen Tavin PDFs and their previews were individually reviewed for visible Creative Commons notices and traditional-model design credit; seventeen Commons assets use their individual file-page licenses. The original design-data compiler retains its strict three-file canonical artifact directory; guide snapshots live separately in `data/guide`.

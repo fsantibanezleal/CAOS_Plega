@@ -1,4 +1,4 @@
-/** Browser acceptance for the public, rights-aware folding guide. */
+/** Browser acceptance for the animation-first origami experience. */
 import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import path from "node:path";
@@ -12,125 +12,107 @@ await fs.mkdir(output, { recursive: true });
 const browser = await chromium.launch({ headless: true });
 const errors = [];
 for (const viewport of [
-  { width: 1440, height: 900 },
+  { width: 1280, height: 720 },
   { width: 390, height: 844 },
 ]) {
   const page = await browser.newPage({ viewport });
   page.on("pageerror", (error) => errors.push(String(error)));
-  await page.goto(base, { waitUntil: "networkidle" });
-  await page.locator(".guide-app").waitFor();
-  if (viewport.width > 500)
-    await page.getByRole("heading", { name: "Library." }).waitFor();
-  const total = await page.locator(".guide-total strong").textContent();
+  await page.goto(base, { waitUntil: "domcontentloaded" });
+  await page.getByRole("heading", { name: "Origami library." }).waitFor();
+  await page
+    .locator(".fold-spinner")
+    .waitFor({ state: "hidden", timeout: 20000 });
+  assert.equal(await page.locator(".plega-model-card").count(), 1);
+  assert.equal(await page.locator(".plega-model-card canvas").count(), 0);
+  assert.equal(await page.locator(".plega-step-list button").count(), 44);
+  assert.equal(await page.locator(".fold-viewport canvas").count(), 1);
+  assert.equal(await page.locator(".guide-diagram-scroll").count(), 0);
+  const initialImage = await page.locator(".fold-viewport canvas").screenshot();
   assert.ok(
-    Number(total.replaceAll(",", "")) > 2000,
-    "catalog should contain the audited source links",
+    await page.evaluate(
+      () => document.documentElement.scrollHeight > innerHeight,
+    ),
+    "the full lesson must scroll in the page",
   );
-  assert.equal(await page.locator(".guide-paper-svg").count(), 1);
-  const before = await page
-    .locator(".guide-paper-svg polygon")
-    .last()
-    .getAttribute("points");
-  await page.getByRole("button", { name: "Play fold" }).click();
-  await page.waitForTimeout(500);
-  const after = await page
-    .locator(".guide-paper-svg polygon")
-    .last()
-    .getAttribute("points");
-  assert.notEqual(after, before, "paper geometry should animate");
-  await page.waitForTimeout(750);
-  await page.getByRole("button", { name: "Next fold" }).click();
-  await page.getByRole("heading", { name: "Second corner" }).waitFor();
-  assert.equal(
-    await page.evaluate(() => document.documentElement.scrollWidth),
-    viewport.width,
+  const response = await page.request.get(
+    new URL("lessons/crane/crane.fold.json", base).href,
   );
-  assert.equal(
-    await page.evaluate(() => document.documentElement.scrollHeight),
-    viewport.height,
+  assert.equal(response.status(), 200);
+  const lesson = await response.json();
+  assert.equal(lesson.status, "resolved");
+  assert.equal(lesson.instructions.steps.length, 44);
+  assert.equal(lesson.geometry.operations.length, 40);
+  await page.getByRole("button", { name: "Play from start to finish" }).click();
+  await page
+    .locator(".plega-step-list button.active")
+    .filter({ hasText: "Make the first diagonal" })
+    .waitFor({ timeout: 15000 });
+  await page.locator(".plega-step-list button").last().scrollIntoViewIfNeeded();
+  assert.ok(
+    await page.evaluate(() => scrollY > 0),
+    "the last step must be reachable with page scroll",
+  );
+  await page.locator(".plega-step-list button").last().click();
+  await page
+    .getByRole("heading", { name: "Check the completed crane" })
+    .waitFor();
+  await page.waitForTimeout(900);
+  const finishedImage = await page
+    .locator(".fold-viewport canvas")
+    .screenshot();
+  assert.notDeepEqual(
+    finishedImage,
+    initialImage,
+    "the completed model must differ from the starting square",
+  );
+  await page.locator(".plega-viewer-wrap").scrollIntoViewIfNeeded();
+  assert.ok(
+    await page
+      .getByRole("button", { name: "Play from start to finish" })
+      .isVisible(),
   );
   await page.screenshot({
-    path: path.join(output, `${viewport.width}-guide.png`),
+    path: path.join(output, `${viewport.width}-crane.png`),
   });
   if (viewport.width > 500) {
+    await page.getByRole("button", { name: "EN", exact: true }).click();
     await page
-      .getByRole("combobox", { name: "Plan format" })
-      .selectOption("diagram");
-    await page.locator(".guide-list-item").first().click();
-    await page.getByRole("link", { name: "Download diagram" }).waitFor();
-    await page.getByRole("button", { name: "Zoom in" }).click();
-    assert.ok(
-      Number(
-        (await page.locator(".guide-zoom output").textContent()).replace(
-          "%",
-          "",
-        ),
-      ) > 100,
-    );
-    await page.screenshot({ path: path.join(output, "licensed-diagram.png") });
-    await page.goto(
-      new URL("?model=tavin%3A%2Fguide%2Ftavin%2F846.png", base).href,
-    );
-    await page.getByRole("heading", { name: "Crane" }).first().waitFor();
-    assert.equal(
-      await page
-        .getByRole("link", { name: "Download diagram" })
-        .getAttribute("href"),
-      "/guide/tavin/846.pdf",
-    );
-    const pdf = await page.request.get(
-      new URL("guide/tavin/846.pdf", base).href,
-    );
-    assert.equal(pdf.status(), 200);
-    assert.equal((await pdf.body()).subarray(0, 4).toString(), "%PDF");
-    await page.screenshot({ path: path.join(output, "tavin-crane.png") });
-    await page
-      .getByRole("combobox", { name: "Plan format" })
-      .selectOption("external");
-    await page.locator(".guide-list-item").first().click();
-    await page
-      .getByRole("link", { name: /Open at source/ })
-      .first()
+      .getByRole("heading", { name: "Biblioteca de origami." })
       .waitFor();
-    assert.equal(
-      await page.locator(".guide-paper-svg").count(),
-      0,
-      "external plans must not claim an on-site animation",
+    await page.getByRole("button", { name: "ES", exact: true }).click();
+    await page.getByRole("button", { name: "Fold basics" }).click();
+    await page.getByRole("heading", { name: "Fold basics." }).waitFor();
+    await page.getByRole("button", { name: "Next step" }).click();
+    await page.getByRole("button", { name: "Next step" }).click();
+    await page.getByRole("button", { name: "Next step" }).click();
+    await page.getByRole("button", { name: /Open envelope/ }).click();
+    await page.getByRole("heading", { name: "Left flap" }).waitFor();
+    assert.equal(await page.locator(".plega-basic-paper svg").count(), 1);
+    await page.goto(new URL("?model=guided%3Aopen-envelope", base).href, {
+      waitUntil: "domcontentloaded",
+    });
+    await page.getByRole("heading", { name: "Left flap" }).waitFor();
+    await page.goto(
+      new URL(
+        "?model=diagram%3A%2Fguide%2Fcommons%2Forigami-paper-popper-type4.png",
+        base,
+      ).href,
+      { waitUntil: "domcontentloaded" },
     );
-    await page
-      .getByRole("combobox", { name: "Plan source" })
-      .selectOption("Paper Kawaii");
-    assert.match(
-      await page.locator(".guide-result-count").textContent(),
-      /^400 results$/,
-    );
-    await page.locator(".guide-list-item").first().click();
-    assert.match(
-      await page.locator(".guide-instructions").textContent(),
-      /Paper Kawaii/,
-    );
+    await page.getByRole("heading", { name: "Origami library." }).waitFor();
+    assert.equal(await page.locator(".guide-diagram-scroll").count(), 0);
   } else {
-    await page
-      .getByRole("button", { name: /Library/ })
-      .first()
-      .click();
-    await page
-      .getByRole("combobox", { name: "Plan format" })
-      .selectOption("diagram");
-    await page.locator(".guide-list-item").first().click();
-    assert.equal(await page.locator(".guide-library.open").count(), 0);
-    await page.screenshot({ path: path.join(output, "390-diagram.png") });
+    assert.equal(
+      await page.evaluate(() => document.documentElement.scrollWidth),
+      viewport.width,
+    );
   }
   await page.close();
 }
 const old = await browser.newPage();
-await old.goto(base + "?sections=1", { waitUntil: "networkidle" });
-assert.equal(
-  await old.locator(".origami-atlas-page").count(),
-  1,
-  "previous sections atlas remains reachable",
-);
+await old.goto(base + "?sections=1", { waitUntil: "domcontentloaded" });
+await old.locator(".origami-atlas-page").waitFor();
 await old.close();
 await browser.close();
 assert.deepEqual(errors, []);
-console.log("Guide browser acceptance passed");
+console.log("Origami experience browser acceptance passed");
