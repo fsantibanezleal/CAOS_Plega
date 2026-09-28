@@ -67,6 +67,10 @@ def setup():
 
 def verify_data():
     run([python(), ROOT / 'data-pipeline/run.py', 'verify'])
+    for name in ['build_origami_club_index.py', 'build_origami_index.py',
+                 'check_origami_plan_links.py', 'build_community_tutorials.py',
+                 'import_commons_diagrams.py', 'import_tavin_diagrams.py']:
+        run([python(), ROOT / 'data-pipeline' / name, 'verify'])
 
 
 def test():

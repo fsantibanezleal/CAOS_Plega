@@ -10,7 +10,11 @@ import { PDFDocument } from "pdf-lib";
 import { verifyCanvasEdits } from "./verify-canvas.mjs";
 
 const frontend = path.dirname(fileURLToPath(import.meta.url));
-const url = process.env.PLEGA_QA_URL || "http://127.0.0.1:4903/";
+const workshopUrl = new URL(
+  process.env.PLEGA_QA_URL || "http://127.0.0.1:4903/",
+);
+workshopUrl.searchParams.set("legacy", "1");
+const url = workshopUrl.href;
 const output = path.resolve(
   process.env.PLEGA_QA_OUTPUT || path.join(frontend, "../build/browser-qa"),
 );
@@ -427,23 +431,26 @@ try {
     await close(page, context);
   });
 
-  await group("Twelve original projects and supported checks", async () => {
-    const { page, context } = await pageFor();
-    assert.equal(catalog.starters.length, 12);
-    for (const starter of catalog.starters) {
-      await openStarter(page, starter.title.en);
-      await expect(
-        page.getByRole("textbox", { name: "Project title", exact: true }),
-      ).toHaveValue(starter.project.title);
-      await stage(page, "Check");
-      await expect(page.locator(".check-verdict")).toContainText(
-        "Supported geometry passes",
-      );
-      await capture(page, "starter-" + starter.id);
-    }
-    await close(page, context);
-    return { starters: catalog.starters.map((item) => item.id) };
-  });
+  await group(
+    "Twenty-four original projects and supported checks",
+    async () => {
+      const { page, context } = await pageFor();
+      assert.equal(catalog.starters.length, 24);
+      for (const starter of catalog.starters) {
+        await openStarter(page, starter.title.en);
+        await expect(
+          page.getByRole("textbox", { name: "Project title", exact: true }),
+        ).toHaveValue(starter.project.title);
+        await stage(page, "Check");
+        await expect(page.locator(".check-verdict")).toContainText(
+          "Supported geometry passes",
+        );
+        await capture(page, "starter-" + starter.id);
+      }
+      await close(page, context);
+      return { starters: catalog.starters.map((item) => item.id) };
+    },
+  );
 
   await group(
     "Two invalid cases and explicit repair preview apply undo",
@@ -930,7 +937,9 @@ try {
         page.getByRole("button", { name: "Play motion", exact: true }),
       ).toBeVisible();
       await page.getByRole("button", { name: "Projects", exact: true }).tap();
-      await expect(page.locator(".starter-card")).toHaveCount(14);
+      await expect(page.locator(".starter-card")).toHaveCount(
+        catalog.starters.length + catalog.repairCases.length,
+      );
       await capture(page, "phone-project-library");
       await page.keyboard.press("Escape");
       await close(page, context);

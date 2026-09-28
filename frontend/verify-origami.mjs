@@ -5,7 +5,10 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "@playwright/test";
 
-const base = process.env.PLEGA_QA_URL || "http://127.0.0.1:4903/";
+const base = (process.env.PLEGA_QA_URL || "http://127.0.0.1:4903/").replace(
+  /\/?(?:\?.*)?$/,
+  "/?sections=1",
+);
 const output = path.resolve(
   process.env.PLEGA_QA_OUTPUT ||
     path.join(
