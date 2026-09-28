@@ -9,6 +9,18 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class PublicAssetTests(unittest.TestCase):
+    def test_external_file_links_have_a_reviewed_reachability_snapshot(self):
+        index = json.loads((ROOT / "data/guide/origami-plan-index.json").read_text(encoding="utf-8"))
+        health = json.loads((ROOT / "data/guide/origami-plan-health.json").read_text(encoding="utf-8"))
+        urls = {entry["planUrl"] for entry in index["entries"]}
+        checked = {record["url"] for record in health["records"]}
+        self.assertEqual(urls, checked)
+        self.assertGreater(sum(record["available"] for record in health["records"]), 200)
+        for record in health["records"]:
+            if record["available"]:
+                self.assertEqual(record["status"], 200)
+                self.assertIn(record["contentType"], {"application/pdf", "image/gif", "image/jpeg", "image/png", "image/svg+xml", "application/octet-stream"})
+
     def test_every_listed_asset_matches_its_license_inventory(self):
         manifest = json.loads((ROOT / "docs/asset-licenses.json").read_text(encoding="utf-8"))
         for item in manifest["assets"]:
@@ -17,7 +29,19 @@ class PublicAssetTests(unittest.TestCase):
             data = target.read_bytes()
             self.assertEqual(len(data), item["bytes"], item["path"])
             self.assertEqual(hashlib.sha256(data).hexdigest(), item["sha256"], item["path"])
-            self.assertIn(item["license"], {"MIT", "Apache-2.0", "OFL-1.1"})
+            self.assertIn(item["license"], {"MIT", "Apache-2.0", "OFL-1.1", "Public domain", "CC0", "CC BY 3.0", "CC BY-SA 3.0", "CC BY-SA 4.0"})
+        commons = json.loads((ROOT / "data/guide/commons-diagrams.json").read_text(encoding="utf-8"))
+        paths = {item["path"] for item in manifest["assets"]}
+        for record in commons["records"]:
+            self.assertIn("frontend/public" + record["asset"], paths)
+            self.assertTrue(record["sourcePage"].startswith("https://commons.wikimedia.org/wiki/File:"))
+            self.assertTrue(record["licenseUrl"].startswith("https://"))
+        tavin = json.loads((ROOT / "data/guide/tavin-diagrams.json").read_text(encoding="utf-8"))
+        for record in tavin["records"]:
+            self.assertIn("frontend/public" + record["asset"], paths)
+            self.assertIn("frontend/public" + record["download"], paths)
+            self.assertTrue(record["sourceFile"].startswith("https://tavinsorigami.com/"))
+            self.assertIn(record["license"], {"CC BY 3.0", "CC BY-SA 3.0"})
 
     def test_interface_fonts_retain_pinned_upstream_bytes_and_complete_licenses(self):
         folder = ROOT / "frontend/public/fonts"
