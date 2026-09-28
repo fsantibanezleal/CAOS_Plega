@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.06.000
+
+Made a rights-aware origami folding guide the public entry. It combines four original bilingual animated elementary lessons, 32 locally hosted and individually attributed illustrated sheets (including fifteen original downloadable PDFs), and a categorized link-only catalog of 2,006 external free tutorial pages or file links. Search, source filters, saved models, reading progress and mobile layouts are available without an account. The previous Origami Sections atlas and both paper workbenches remain accessible as separate areas. New source pipelines retain per-file license evidence and hashes; external links are never presented as hosted animations.
+
 ## 0.05.000
 
 Replaced the public entry with Origami Sections: an atlas and spatial lab for eight distinct fold topologies (tessellation, bases, radial sculpture, polyhedra and saddle surfaces). Each study has an authored facet mesh, named vertices/creases/layers, a crease-map view, continuous folded motion, exploded layers and a four-step fold sequence. The atlas is a real entry surface with family filters and geometry-derived pattern previews; the lab keeps selection synchronized across the 3D surface, inspector and field notes.

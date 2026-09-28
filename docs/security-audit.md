@@ -1,5 +1,11 @@
 # Public repository security and license audit
 
+## Guide addition: 2026-09-27
+
+The public folding-guide addition was checked separately from the historical audit below. The guide has no account, backend, runtime key or user-uploaded media. Its source indexes contain only short labels and public links; 32 redistributed diagram sheets have per-file author, source, license, change description, byte count and SHA-256 entries in `docs/asset-licenses.json` and `data/guide`. Fifteen Tavin PDFs and their previews were individually reviewed for visible Creative Commons notices and traditional-model design credit; seventeen Commons assets use their individual file-page licenses. The original design-data compiler retains its strict three-file canonical artifact directory; guide snapshots live separately in `data/guide`.
+
+The direct-file index was checked for signed redirects. Five public listing links resolved to expiring CDN token URLs and were excluded from the displayed catalog. The committed guide data stores no signed redirect URL or token query parameter. A source and staged-artifact pattern scan found no candidate private key, provider credential, private local path or recognizable token prefix in the newly added text files. `.env`, dependencies and build output are ignored by Git. These checks are bounded pattern and provenance reviews, not a guarantee against every unknown credential or future third-party link change.
+
 Audit snapshot: 2026-09-09 UTC. This review covers the implemented public workshop, all reachable Git history, the locked dependency update and an actual staged Pages artifact. It is a bounded inspection, not a claim that every possible vulnerability or license issue has been ruled out.
 
 ## Scope and results

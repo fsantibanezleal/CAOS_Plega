@@ -1,0 +1,2491 @@
+{
+  "schema": 1,
+  "checkedAtUtc": "2026-09-28T02:00:38+00:00",
+  "method": "HTTP GET headers; a 200 image/PDF response is eligible for display, not a permanent availability guarantee",
+  "records": [
+    {
+      "url": "http://1.bp.blogspot.com/_ABLkdM4mpoY/S7y_bBHqGsI/AAAAAAAACYQ/dBCUxOEDDLc/s1600/Iguanodonte.jpg",
+      "available": true,
+      "status": 200,
+      "contentType": "image/jpeg",
+      "resolvedHost": "1.bp.blogspot.com",
+      "reason": ""
+    },
+    {
+      "url": "http://cdn.makezine.com/make/wp_origami_ponoko.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "cdn.makezine.com",
+      "reason": ""
+    },
+    {
+      "url": "http://commons.wikimedia.org/wiki/Image:Sternla_basteln.jpg",
+      "available": false,
+      "status": 200,
+      "contentType": "text/html",
+      "resolvedHost": "commons.wikimedia.org",
+      "reason": ""
+    },
+    {
+      "url": "http://dicedame.com/graphics/misc/cube.jpg",
+      "available": true,
+      "status": 200,
+      "contentType": "image/jpeg",
+      "resolvedHost": "dicedame.com",
+      "reason": ""
+    },
+    {
+      "url": "http://ekofman.github.io/origami/ratInstructions.jpg",
+      "available": false,
+      "error": "HTTPError"
+    },
+    {
+      "url": "http://farm5.static.flickr.com/4057/4680120066_c66f4fc6ab_b.jpg",
+      "available": true,
+      "status": 200,
+      "contentType": "image/jpeg",
+      "resolvedHost": "farm5.static.flickr.com",
+      "reason": ""
+    },
+    {
+      "url": "http://fc00.deviantart.net/fs48/f/2009/150/2/d/Origami_Pliosaur_Instructions_by_DonyaQuick.jpg",
+      "available": false,
+      "status": 200,
+      "contentType": "image/jpeg",
+      "resolvedHost": "images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com",
+      "reason": "signed redirect excluded"
+    },
+    {
+      "url": "http://fc03.deviantart.net/fs70/i/2010/246/4/3/origami_t_rex_instructions_by_donyaquick-d2xuhun.jpg",
+      "available": false,
+      "status": 200,
+      "contentType": "image/jpeg",
+      "resolvedHost": "images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com",
+      "reason": "signed redirect excluded"
+    },
+    {
+      "url": "http://fc03.deviantart.net/fs71/i/2010/245/e/4/origami_iguanodon_instructions_by_donyaquick-d2xuhbz.jpg",
+      "available": false,
+      "status": 200,
+      "contentType": "image/jpeg",
+      "resolvedHost": "images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com",
+      "reason": "signed redirect excluded"
+    },
+    {
+      "url": "http://fc05.deviantart.net/fs70/i/2010/011/5/5/Simple_Origami_Brachiosaurus_by_DonyaQuick.jpg",
+      "available": false,
+      "status": 200,
+      "contentType": "image/jpeg",
+      "resolvedHost": "images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com",
+      "reason": "signed redirect excluded"
+    },
+    {
+      "url": "http://fc06.deviantart.net/fs70/f/2010/155/3/c/Origami_Parasaurolophus_Instr__by_DonyaQuick.pdf",
+      "available": false,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com",
+      "reason": "signed redirect excluded"
+    },
+    {
+      "url": "http://flappingbird.com/images/content/pdf/bull.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "flappingbird.com",
+      "reason": ""
+    },
+    {
+      "url": "http://freedomi.brinkster.net/Sy/Diagram/Email.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "freedomi.brinkster.net",
+      "reason": ""
+    },
+    {
+      "url": "http://freedomi.brinkster.net/Sy/Photos/jpg/SealedKiss.jpg",
+      "available": true,
+      "status": 200,
+      "contentType": "image/jpeg",
+      "resolvedHost": "freedomi.brinkster.net",
+      "reason": ""
+    },
+    {
+      "url": "http://freedomi.startlogic.com/Sy/Diagram/cup.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "freedomi.startlogic.com",
+      "reason": ""
+    },
+    {
+      "url": "http://ftp.funet.fi/pub/misc/origami/rugcis.rug.nl/models/boxes/pyracntn.gif",
+      "available": true,
+      "status": 200,
+      "contentType": "image/gif",
+      "resolvedHost": "ftp.funet.fi",
+      "reason": ""
+    },
+    {
+      "url": "http://ftp.funet.fi/pub/misc/origami/rugcis.rug.nl/models/furnitur/beker.gif",
+      "available": true,
+      "status": 200,
+      "contentType": "image/gif",
+      "resolvedHost": "ftp.funet.fi",
+      "reason": ""
+    },
+    {
+      "url": "http://ftp.funet.fi/pub/misc/origami/rugcis.rug.nl/models/toys/trumpet.gif",
+      "available": true,
+      "status": 200,
+      "contentType": "image/gif",
+      "resolvedHost": "ftp.funet.fi",
+      "reason": ""
+    },
+    {
+      "url": "http://gallery.origami.free.fr/Auteurs/france/boudias/creation/avion/avion-plane%20by%20C%20boudias.gif",
+      "available": true,
+      "status": 200,
+      "contentType": "image/gif",
+      "resolvedHost": "gallery.origami.free.fr",
+      "reason": ""
+    },
+    {
+      "url": "http://gallery.origami.free.fr/Auteurs/france/boudias/creation/colibri/Colibri.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "gallery.origami.free.fr",
+      "reason": ""
+    },
+    {
+      "url": "http://gallery.origami.free.fr/angel-iranzo/raton/raton.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "gallery.origami.free.fr",
+      "reason": ""
+    },
+    {
+      "url": "http://giangdinh.com/pdfs/dreaming-bear.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "giangdinh.com",
+      "reason": ""
+    },
+    {
+      "url": "http://giangdinh.com/pdfs/fox-container.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "giangdinh.com",
+      "reason": ""
+    },
+    {
+      "url": "http://hugo.pereira.free.fr/Origami_Diagrams/Dragon.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "hugo.pereira.free.fr",
+      "reason": ""
+    },
+    {
+      "url": "http://hugo.pereira.free.fr/Origami_Diagrams/Triceratops.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "hugo.pereira.free.fr",
+      "reason": ""
+    },
+    {
+      "url": "http://i25.photobucket.com/albums/c89/swirls123/origami365-2007/origami125.jpg",
+      "available": true,
+      "status": 200,
+      "contentType": "image/jpeg",
+      "resolvedHost": "i25.photobucket.com",
+      "reason": ""
+    },
+    {
+      "url": "http://i25.photobucket.com/albums/c89/swirls123/origami365-2007/origami137.jpg",
+      "available": true,
+      "status": 200,
+      "contentType": "image/jpeg",
+      "resolvedHost": "i25.photobucket.com",
+      "reason": ""
+    },
+    {
+      "url": "http://i25.photobucket.com/albums/c89/swirls123/origami365-2007/origami138.jpg",
+      "available": true,
+      "status": 200,
+      "contentType": "image/jpeg",
+      "resolvedHost": "i25.photobucket.com",
+      "reason": ""
+    },
+    {
+      "url": "http://i25.photobucket.com/albums/c89/swirls123/origami365-2007/origami145.jpg",
+      "available": true,
+      "status": 200,
+      "contentType": "image/jpeg",
+      "resolvedHost": "i25.photobucket.com",
+      "reason": ""
+    },
+    {
+      "url": "http://i25.photobucket.com/albums/c89/swirls123/origami365-2007/origami198.jpg",
+      "available": true,
+      "status": 200,
+      "contentType": "image/jpeg",
+      "resolvedHost": "i25.photobucket.com",
+      "reason": ""
+    },
+    {
+      "url": "http://josephwu.com/Files/PDF/doyourselfafavour.pdf",
+      "available": false,
+      "error": "TimeoutError"
+    },
+    {
+      "url": "http://make-origami.com/AnitaBarbour/fourbird.gif",
+      "available": true,
+      "status": 200,
+      "contentType": "image/gif",
+      "resolvedHost": "make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "http://make-origami.com/AnitaBarbour/woodcock.gif",
+      "available": true,
+      "status": 200,
+      "contentType": "image/gif",
+      "resolvedHost": "make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "http://make-origami.com/images/pdf/origami-piano-template.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "http://make-origami.com/scaffold/scaffold-1.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "http://make-origami.com/scaffold/scaffold-11.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "http://make-origami.com/scaffold/scaffold-12.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "http://make-origami.com/scaffold/scaffold-2.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "http://make-origami.com/scaffold/scaffold-3.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "http://make-origami.com/scaffold/scaffold-6.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "http://make-origami.com/scaffold/scaffold-7.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "http://make-origami.com/scaffold/scaffold-v2-1-April.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "http://make-origami.com/scaffold/scaffold-v2-1-March.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "http://make-origami.com/scaffold/scaffold-v2-4-May.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "http://mulqseven.files.wordpress.com/2012/10/origamibear.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "mulqseven.wordpress.com",
+      "reason": ""
+    },
+    {
+      "url": "http://ori500.free.fr/diagrams/local_pdf/CABALLO_v.1.PDF",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "ori500.free.fr",
+      "reason": ""
+    },
+    {
+      "url": "http://ori500.free.fr/diagrams/local_pdf/CAMEL.PDF",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "ori500.free.fr",
+      "reason": ""
+    },
+    {
+      "url": "http://ori500.free.fr/diagrams/local_pdf/CHINESE_FLYING_CRANE_ENG.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "ori500.free.fr",
+      "reason": ""
+    },
+    {
+      "url": "http://ori500.free.fr/diagrams/local_pdf/Rabbit%20HTQuyet.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "ori500.free.fr",
+      "reason": ""
+    },
+    {
+      "url": "http://ori500.free.fr/diagrams/local_pdf/SQUARE%20BOX.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "ori500.free.fr",
+      "reason": ""
+    },
+    {
+      "url": "http://ori500.free.fr/diagrams/local_pdf/buffalo%20%28huy%20pham%29.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "ori500.free.fr",
+      "reason": ""
+    },
+    {
+      "url": "http://ori500.free.fr/diagrams/local_pdf/chimpanzee%20head%20%28%20Quentin%20Trollip%20%29.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "ori500.free.fr",
+      "reason": ""
+    },
+    {
+      "url": "http://ori500.free.fr/diagrams/local_pdf/heart-ring.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "ori500.free.fr",
+      "reason": ""
+    },
+    {
+      "url": "http://ori500.free.fr/diagrams/local_pdf/small_plane.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "ori500.free.fr",
+      "reason": ""
+    },
+    {
+      "url": "http://origami-art.org/albums/leafybox.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origami-art.org",
+      "reason": ""
+    },
+    {
+      "url": "http://origami.artists.free.fr/Eric/lotus/EricsLotus.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origami.artists.free.fr",
+      "reason": ""
+    },
+    {
+      "url": "http://origami.artists.free.fr/maya/horse/Mi%20Caballo.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origami.artists.free.fr",
+      "reason": ""
+    },
+    {
+      "url": "http://origami.happymagpie.com/diagrams/pterodactyl.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origami.happymagpie.com",
+      "reason": ""
+    },
+    {
+      "url": "http://origami.oschene.com/cp/O3%20Rose%200.9.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origami.oschene.com",
+      "reason": ""
+    },
+    {
+      "url": "http://origami.oschene.com/cp/Spiral_Data_Tato_Fitful_Flog.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origami.oschene.com",
+      "reason": ""
+    },
+    {
+      "url": "http://pajarita.org/wp-content/uploads/2021/05/diagrama-avion2-4.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://pajarita.org/wp-content/uploads/2021/05/diagrama-avion3-4.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://pajarita.org/wp-content/uploads/2021/05/diagrama-cangrejo_ehara.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://pajarita.org/wp-content/uploads/2021/05/diagrama-espa15-3.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://pajarita.org/wp-content/uploads/2021/05/diagrama-espa9-3.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://pajarita.org/wp-content/uploads/2021/05/diagrama-espa9-4.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://pajarita.org/wp-content/uploads/2021/05/diagrama-intern1-2.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://pajarita.org/wp-content/uploads/2021/05/diagrama-intern2-3.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://pajarita.org/wp-content/uploads/2021/05/diagrama-intern5-1.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://pajarita.org/wp-content/uploads/2021/05/diagrama-modular2-2.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://pajarita.org/wp-content/uploads/2021/05/diagrama-modular3-4.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://pajarita.org/wp-content/uploads/2021/05/diagrama-tradi2-2.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://pajarita.org/wp-content/uploads/2021/05/diagrama-tradi6-1.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://paperunlimited.files.wordpress.com/2010/06/littleterrier_fcaboblanco.jpg",
+      "available": true,
+      "status": 200,
+      "contentType": "image/jpeg",
+      "resolvedHost": "paperunlimited.wordpress.com",
+      "reason": ""
+    },
+    {
+      "url": "http://papierfalten.de/documents/faltanleitungen/dragon.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "papierfalten.de",
+      "reason": ""
+    },
+    {
+      "url": "http://papierfalten.de/documents/faltanleitungen/hase.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "papierfalten.de",
+      "reason": ""
+    },
+    {
+      "url": "http://vaseto.info/files/folders/origami/octopus.png",
+      "available": true,
+      "status": 200,
+      "contentType": "image/png",
+      "resolvedHost": "vaseto.info",
+      "reason": ""
+    },
+    {
+      "url": "http://www.activityvillage.co.uk/sites/default/files/downloads/origami_cat_instructions.pdf",
+      "available": false,
+      "error": "HTTPError"
+    },
+    {
+      "url": "http://www.activityvillage.co.uk/sites/default/files/downloads/origami_dog_instructions.pdf",
+      "available": false,
+      "error": "HTTPError"
+    },
+    {
+      "url": "http://www.activityvillage.co.uk/sites/default/files/downloads/origami_fox_instructions.pdf",
+      "available": false,
+      "error": "HTTPError"
+    },
+    {
+      "url": "http://www.activityvillage.co.uk/sites/default/files/downloads/origami_koala_instructions.pdf",
+      "available": false,
+      "error": "HTTPError"
+    },
+    {
+      "url": "http://www.activityvillage.co.uk/sites/default/files/pdf/origami_tulip_instructions.pdf",
+      "available": false,
+      "error": "HTTPError"
+    },
+    {
+      "url": "http://www.avnertheeccentric.com/bunny_bill.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.avnertheeccentric.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.bboxbbs.ch/home/tanjit/images/arroplan.gif",
+      "available": false,
+      "error": "URLError"
+    },
+    {
+      "url": "http://www.bboxbbs.ch/home/tanjit/images/bfplane.gif",
+      "available": false,
+      "error": "URLError"
+    },
+    {
+      "url": "http://www.bboxbbs.ch/home/tanjit/images/envelope.gif",
+      "available": false,
+      "error": "URLError"
+    },
+    {
+      "url": "http://www.bboxbbs.ch/home/tanjit/images/letter2.gif",
+      "available": false,
+      "error": "URLError"
+    },
+    {
+      "url": "http://www.bboxbbs.ch/home/tanjit/images/matt3000.gif",
+      "available": false,
+      "error": "URLError"
+    },
+    {
+      "url": "http://www.bboxbbs.ch/home/tanjit/images/mazeplane.gif",
+      "available": false,
+      "error": "URLError"
+    },
+    {
+      "url": "http://www.bboxbbs.ch/home/tanjit/images/sailboat.gif",
+      "available": false,
+      "error": "URLError"
+    },
+    {
+      "url": "http://www.bboxbbs.ch/home/tanjit/images/simpleton.gif",
+      "available": false,
+      "error": "URLError"
+    },
+    {
+      "url": "http://www.bboxbbs.ch/home/tanjit/images/starbox.gif",
+      "available": false,
+      "error": "URLError"
+    },
+    {
+      "url": "http://www.cattail.nu/origami/box_fold.gif",
+      "available": true,
+      "status": 200,
+      "contentType": "image/gif",
+      "resolvedHost": "www.cattail.nu",
+      "reason": ""
+    },
+    {
+      "url": "http://www.cibercuentos.org/images/Papiroflexia/Dinosaurios/Diplodocus/Diplodocus/Dinosaurio.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.cibercuentos.org",
+      "reason": ""
+    },
+    {
+      "url": "http://www.fishgoth.com/origami/diagrams/allosaurus.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.fishgoth.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.fishgoth.com/origami/diagrams/anatosaurus.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.fishgoth.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.fishgoth.com/origami/diagrams/ankylosaurus.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.fishgoth.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.fishgoth.com/origami/diagrams/atlas_beetle.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.fishgoth.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.fishgoth.com/origami/diagrams/badger.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.fishgoth.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.fishgoth.com/origami/diagrams/bear.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.fishgoth.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.fishgoth.com/origami/diagrams/coelophysis.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.fishgoth.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.fishgoth.com/origami/diagrams/compsognathus.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.fishgoth.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.fishgoth.com/origami/diagrams/crow.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.fishgoth.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.fishgoth.com/origami/diagrams/deinonychus.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.fishgoth.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.fishgoth.com/origami/diagrams/horse.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.fishgoth.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.fishgoth.com/origami/diagrams/iguanadon.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.fishgoth.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.fishgoth.com/origami/diagrams/lambeosaurus.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.fishgoth.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.fishgoth.com/origami/diagrams/melanorosaurus.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.fishgoth.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.fishgoth.com/origami/diagrams/old_beetle.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.fishgoth.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.fishgoth.com/origami/diagrams/old_cow.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.fishgoth.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.fishgoth.com/origami/diagrams/old_daffodil.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.fishgoth.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.fishgoth.com/origami/diagrams/old_dragon.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.fishgoth.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.fishgoth.com/origami/diagrams/old_grasshopper.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.fishgoth.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.fishgoth.com/origami/diagrams/old_hare.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.fishgoth.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.fishgoth.com/origami/diagrams/pig.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.fishgoth.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.fishgoth.com/origami/diagrams/procompsognathus.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.fishgoth.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.fishgoth.com/origami/diagrams/saurolophus.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.fishgoth.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.fishgoth.com/origami/diagrams/stegosaurus.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.fishgoth.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.fishgoth.com/origami/diagrams/styracosaurus.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.fishgoth.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.fishgoth.com/origami/diagrams/triceratops.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.fishgoth.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.fishgoth.com/origami/diagrams/vase.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.fishgoth.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.fishgoth.com/origami/diagrams/velociraptor.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.fishgoth.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.geocities.ws/orimtl/diagrammes/cardinal.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.geocities.ws",
+      "reason": ""
+    },
+    {
+      "url": "http://www.geocities.ws/orimtl/diagrammes/chienassis.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.geocities.ws",
+      "reason": ""
+    },
+    {
+      "url": "http://www.geocities.ws/orimtl/diagrammes/orchidee.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.geocities.ws",
+      "reason": ""
+    },
+    {
+      "url": "http://www.giladorigami.com/D_SingingFish.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.giladorigami.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.giladorigami.com/swami/POP/dart.jpg",
+      "available": true,
+      "status": 200,
+      "contentType": "image/jpeg",
+      "resolvedHost": "www.giladorigami.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.giladorigami.com/swami/POP/glider.jpg",
+      "available": true,
+      "status": 200,
+      "contentType": "image/jpeg",
+      "resolvedHost": "www.giladorigami.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.giladorigami.com/swami/pennystree.jpg",
+      "available": true,
+      "status": 200,
+      "contentType": "image/jpeg",
+      "resolvedHost": "www.giladorigami.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.giladorigami.com/swami/plane.gif",
+      "available": true,
+      "status": 200,
+      "contentType": "image/gif",
+      "resolvedHost": "www.giladorigami.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.happyfolding.com/files/Esseltine-Bunny_Money_0.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.happyfolding.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.happyfolding.com/files/Esseltine-Dragon_in_Flight_2.5-Spitting_Fire_0.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.happyfolding.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.happyfolding.com/files/Esseltine-Finny_Freestyle_Flier_0.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.happyfolding.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.happyfolding.com/files/Esseltine-VW_Bug-1.5_0.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.happyfolding.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.happyfolding.com/files/Guth-Eifel_Star_0.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.happyfolding.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.happyfolding.com/files/Joisel-Rat_0.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.happyfolding.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.happyfolding.com/files/Orme-Dragon_0.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.happyfolding.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.happyfolding.com/files/Sonobe-Primula_0.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.happyfolding.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.lsi.upc.edu/~marc/Origami/beetle.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.cs.upc.edu",
+      "reason": ""
+    },
+    {
+      "url": "http://www.lsi.upc.edu/~marc/Origami/camaleo.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.cs.upc.edu",
+      "reason": ""
+    },
+    {
+      "url": "http://www.lsi.upc.edu/~marc/Origami/cranc.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.cs.upc.edu",
+      "reason": ""
+    },
+    {
+      "url": "http://www.lsi.upc.edu/~marc/Origami/drac-serp.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.cs.upc.edu",
+      "reason": ""
+    },
+    {
+      "url": "http://www.lsi.upc.edu/~marc/Origami/gosPatras.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.cs.upc.edu",
+      "reason": ""
+    },
+    {
+      "url": "http://www.lsi.upc.edu/~marc/Origami/octaedre.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.cs.upc.edu",
+      "reason": ""
+    },
+    {
+      "url": "http://www.lsi.upc.edu/~marc/Origami/rata.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.cs.upc.edu",
+      "reason": ""
+    },
+    {
+      "url": "http://www.make-origami.com/AnitaBarbour/postpup.gif",
+      "available": true,
+      "status": 200,
+      "contentType": "image/gif",
+      "resolvedHost": "www.make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.make-origami.com/AnitaBarbour/pteranod.gif",
+      "available": true,
+      "status": 200,
+      "contentType": "image/gif",
+      "resolvedHost": "www.make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami-cdo.it/modelli/pdf/MyFiore8petali.pdf",
+      "available": false,
+      "error": "URLError"
+    },
+    {
+      "url": "http://www.origami-cdo.it/modelli/pdf/MyScatolaastella4.pdf",
+      "available": false,
+      "error": "URLError"
+    },
+    {
+      "url": "http://www.origami-cdo.it/modelli/pdf/Topolino-FS.pdf",
+      "available": false,
+      "error": "URLError"
+    },
+    {
+      "url": "http://www.origami-cdo.it/ospiti/pdf/000-colibri.pdf",
+      "available": false,
+      "error": "URLError"
+    },
+    {
+      "url": "http://www.origami-cdo.it/ospiti/pdf/000-hummingbird.pdf",
+      "available": false,
+      "error": "URLError"
+    },
+    {
+      "url": "http://www.origami-cdo.it/ospiti/pdf/2000-05.pdf",
+      "available": false,
+      "error": "URLError"
+    },
+    {
+      "url": "http://www.origami-cdo.it/ospiti/pdf/Brachiosaurus.pdf",
+      "available": false,
+      "error": "URLError"
+    },
+    {
+      "url": "http://www.origami-cdo.it/ospiti/pdf/My%20Fiore%204%20petali.pdf",
+      "available": false,
+      "error": "URLError"
+    },
+    {
+      "url": "http://www.origami-cdo.it/ospiti/pdf/Velociraptor_StefanoBachis.pdf",
+      "available": false,
+      "error": "URLError"
+    },
+    {
+      "url": "http://www.origami-cdo.it/ospiti/pdf/envelopeA4_CD.pdf",
+      "available": false,
+      "error": "URLError"
+    },
+    {
+      "url": "http://www.origami-cdo.it/ospiti/pdf/envelope_CD.pdf",
+      "available": false,
+      "error": "URLError"
+    },
+    {
+      "url": "http://www.origami-usa.org/files/atsushi-cup.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origamiusa.org",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami-usa.org/files/atsushi-rowboat-dragonhead.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origamiusa.org",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami-usa.org/files/ousa-sailboat.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origamiusa.org",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami.at/diagrams/cd_case.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origami.at",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami.at/diagrams/flower.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origami.at",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami.at/diagrams/horse.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origami.at",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami.cz/Bin/aardvark.gif",
+      "available": true,
+      "status": 200,
+      "contentType": "image/gif",
+      "resolvedHost": "www.origami.cz",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami.cz/Bin/glider.gif",
+      "available": true,
+      "status": 200,
+      "contentType": "image/gif",
+      "resolvedHost": "www.origami.cz",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami.cz/Bin/prasatko.gif",
+      "available": true,
+      "status": 200,
+      "contentType": "image/gif",
+      "resolvedHost": "www.origami.cz",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami.cz/Bin/puppydog.gif",
+      "available": true,
+      "status": 200,
+      "contentType": "image/gif",
+      "resolvedHost": "www.origami.cz",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami.cz/Bin/rosav.jpg",
+      "available": true,
+      "status": 200,
+      "contentType": "image/jpeg",
+      "resolvedHost": "www.origami.cz",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami.cz/Pdf/badger.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origami.cz",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami.cz/Pdf/bee.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origami.cz",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami.cz/Pdf/biplane.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origami.cz",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami.cz/Pdf/bowlvcnz.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origami.cz",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami.cz/Pdf/brontik.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origami.cz",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami.cz/Pdf/broucek.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origami.cz",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami.cz/Pdf/caterpillar.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origami.cz",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami.cz/Pdf/dragon.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origami.cz",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami.cz/Pdf/edelweiss.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origami.cz",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami.cz/Pdf/f-102.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origami.cz",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami.cz/Pdf/firelizd.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origami.cz",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami.cz/Pdf/flapbird.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origami.cz",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami.cz/Pdf/flapbird2.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origami.cz",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami.cz/Pdf/four_legged_crane.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origami.cz",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami.cz/Pdf/grasshopper.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origami.cz",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami.cz/Pdf/jazvecik.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origami.cz",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami.cz/Pdf/kosik.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origami.cz",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami.cz/Pdf/mantis.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origami.cz",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami.cz/Pdf/pterodac.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origami.cz",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami.cz/Pdf/tbear.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origami.cz",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origami.cz/Pdf/triceratops.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origami.cz",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origamiaustria.at/diagrams/blossoming_flower.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origamiaustria.at",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origamiaustria.at/diagrams/rearing_dragon.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origamiaustria.at",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origamiaustria.at/diagrams/seahorse.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origamiaustria.at",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origamichile.cl/gui/diagramas/pdf/cerdito%20perrito%20y%20toro.pdf",
+      "available": false,
+      "status": 200,
+      "contentType": "text/html",
+      "resolvedHost": "origamichile.cl",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origamiheaven.com/pdfs/tematebako.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origamiheaven.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origamiseiten.de/diagrams/Krimskrams-Box.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origamiseiten.de",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origamiseiten.de/diagrams/gudrun.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origamiseiten.de",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origamiseiten.de/forcher/boxer.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origamiseiten.de",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origamiseiten.de/forcher/einfmaus.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origamiseiten.de",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origamiseiten.de/forcher/hund.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origamiseiten.de",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origamiseiten.de/forcher/maus.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origamiseiten.de",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origamiseiten.de/forcher/scottish.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origamiseiten.de",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origamiusa.org/files/article_gray_Origamian%20Rohm%20Star.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origamiusa.org",
+      "reason": ""
+    },
+    {
+      "url": "http://www.origamiusa.org/files/tulip-traditional.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origamiusa.org",
+      "reason": ""
+    },
+    {
+      "url": "http://www.orihouse.com/until2012/myroom/diagrams/a4enveloppe_pversnick.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.orihouse.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.pajarita.org/wp-content/uploads/2021/05/diagrama-Dos_En_Uno.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://www.pajarita.org/wp-content/uploads/2021/05/diagrama-avion2-2.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://www.pajarita.org/wp-content/uploads/2021/05/diagrama-avion3-2.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://www.pajarita.org/wp-content/uploads/2021/05/diagrama-avion4-4.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://www.pajarita.org/wp-content/uploads/2021/05/diagrama-avion5-2.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://www.pajarita.org/wp-content/uploads/2021/05/diagrama-avion5-4.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://www.pajarita.org/wp-content/uploads/2021/05/diagrama-espa12-4.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://www.pajarita.org/wp-content/uploads/2021/05/diagrama-espa13-3.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://www.pajarita.org/wp-content/uploads/2021/05/diagrama-espa2-2.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://www.pajarita.org/wp-content/uploads/2021/05/diagrama-espa7-3.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://www.pajarita.org/wp-content/uploads/2021/05/diagrama-intern3-1.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://www.pajarita.org/wp-content/uploads/2021/05/diagrama-modular2-4.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://www.pajarita.org/wp-content/uploads/2021/05/diagrama-tigre-alado-anibal-voyer.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://www.pajarita.org/wp-content/uploads/2021/05/diagrama-tradi1-1.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://www.pajarita.org/wp-content/uploads/2021/05/diagrama-tradi2-3.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://www.pajarita.org/wp-content/uploads/2021/05/diagrama-tradi4-3.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://www.pajarita.org/wp-content/uploads/2021/05/diagrama-tradi5-4.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "http://www.papercrane.org/articles/abcTV/tri-plane.gif",
+      "available": true,
+      "status": 200,
+      "contentType": "image/gif",
+      "resolvedHost": "www.papercrane.org",
+      "reason": ""
+    },
+    {
+      "url": "http://www.papercrane.org/articles/gareth/concord.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.papercrane.org",
+      "reason": ""
+    },
+    {
+      "url": "http://www.papierfalten.de/documents/faltanleitungen/herrnhuter_stern_de.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.papierfalten.de",
+      "reason": ""
+    },
+    {
+      "url": "http://www.papierfalten.de/documents/faltanleitungen/schwein.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.papierfalten.de",
+      "reason": ""
+    },
+    {
+      "url": "http://www.papierfalten.de/documents/faltanleitungen/seepferdchen.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.papierfalten.de",
+      "reason": ""
+    },
+    {
+      "url": "http://www.progonos.com/furuti/Origami/Cart/Img/jmCube-pf.png",
+      "available": true,
+      "status": 200,
+      "contentType": "image/png",
+      "resolvedHost": "www.progonos.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.rmccurdy.com/origami/candy_wrapper_dragon.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.rmccurdy.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.rmccurdy.com/origami/starkusd.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.rmccurdy.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.shoko-origami.com/archive/fish.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.shoko-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.shoko-origami.com/archive/grandpiano_gcard.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.shoko-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.spitenet.com/origami/pdf/8PetalFlower.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.spitenet.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.spitenet.com/origami/pdf/HeartDish-Vass.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.spitenet.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.spitenet.com/origami/pdf/Jellyfish.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.spitenet.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.spitenet.com/origami/pdf/OrigamiMoney-LG.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.spitenet.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.spitenet.com/origami/pdf/TanakaMouse.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.spitenet.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.tavinsorigami.com/diagram/simpleMonkey.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.tavinsorigami.com",
+      "reason": ""
+    },
+    {
+      "url": "http://www.tgries.de/origami/CD-A4-Thomas-Hull.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.tgries.de",
+      "reason": ""
+    },
+    {
+      "url": "https://images.template.net/wp-content/uploads/2015/09/04224706/Make-Paper-Box-Template.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "images.template.net",
+      "reason": ""
+    },
+    {
+      "url": "https://irp-cdn.multiscreensite.com/e8be63e6/files/uploaded/Kissy-Fish001.pdf",
+      "available": false,
+      "error": "HTTPError"
+    },
+    {
+      "url": "https://make-origami.com/AnitaBarbour//afbcol.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "https://make-origami.com/AnitaBarbour/dragfly.gif",
+      "available": true,
+      "status": 200,
+      "contentType": "image/gif",
+      "resolvedHost": "make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "https://make-origami.com/AnitaBarbour/ladybrac.gif",
+      "available": true,
+      "status": 200,
+      "contentType": "image/gif",
+      "resolvedHost": "make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "https://make-origami.com/AnitaBarbour/ladybud.gif",
+      "available": true,
+      "status": 200,
+      "contentType": "image/gif",
+      "resolvedHost": "make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "https://make-origami.com/AnitaBarbour/ladyleaf.gif",
+      "available": true,
+      "status": 200,
+      "contentType": "image/gif",
+      "resolvedHost": "make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "https://make-origami.com/AnitaBarbour/ladystem.gif",
+      "available": true,
+      "status": 200,
+      "contentType": "image/gif",
+      "resolvedHost": "make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "https://make-origami.com/BARF/QueenCube.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "https://make-origami.com/BARF/WarriorCrane2.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "https://make-origami.com/BARF/a_violinp1.gif",
+      "available": true,
+      "status": 200,
+      "contentType": "image/gif",
+      "resolvedHost": "make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "https://make-origami.com/scaffold/scaffold-6.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "https://nickorigami.com/wp-content/uploads/2018/02/diag_crab.gif",
+      "available": true,
+      "status": 200,
+      "contentType": "image/gif",
+      "resolvedHost": "nickorigami.com",
+      "reason": ""
+    },
+    {
+      "url": "https://nickorigami.com/wp-content/uploads/2018/02/diag_noddog.gif",
+      "available": true,
+      "status": 200,
+      "contentType": "image/gif",
+      "resolvedHost": "nickorigami.com",
+      "reason": ""
+    },
+    {
+      "url": "https://nickorigami.com/wp-content/uploads/2018/02/diag_wentworth-bowl3.gif",
+      "available": true,
+      "status": 200,
+      "contentType": "image/gif",
+      "resolvedHost": "nickorigami.com",
+      "reason": ""
+    },
+    {
+      "url": "https://oozeq.com/origami/Oozeq-Octahedron-Box.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "oozeq.com",
+      "reason": ""
+    },
+    {
+      "url": "https://oozeq.com/origami/Oozeq-Tetrahedron.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "oozeq.com",
+      "reason": ""
+    },
+    {
+      "url": "https://origami-resource-center.com//wp-content/uploads/diagrams/coffee_cup.gif",
+      "available": true,
+      "status": 200,
+      "contentType": "image/gif",
+      "resolvedHost": "origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://origami-resource-center.com/wp-content/uploads/diagrams/AnturiumSSC.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://origami-resource-center.com/wp-content/uploads/diagrams/BusinessCardPuppy.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://origami-resource-center.com/wp-content/uploads/diagrams/Diplodocus-Rodriguez.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://origami-resource-center.com/wp-content/uploads/diagrams/DollarFrogWonPark.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://origami-resource-center.com/wp-content/uploads/diagrams/DollarKoiFish.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://origami-resource-center.com/wp-content/uploads/diagrams/OmegaStar2Units.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://origami-resource-center.com/wp-content/uploads/diagrams/buckTheBunny.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://origami-resource-center.com/wp-content/uploads/diagrams/caboblanco-priramide.jpg",
+      "available": true,
+      "status": 200,
+      "contentType": "image/jpeg",
+      "resolvedHost": "origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://origami-resource-center.com/wp-content/uploads/diagrams/cello.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://origami-resource-center.com/wp-content/uploads/diagrams/cherryblossomssc.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://origami-resource-center.com/wp-content/uploads/diagrams/corriedragon24it.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://origami-resource-center.com/wp-content/uploads/diagrams/diagramCherryBlossomHelp.jpg",
+      "available": true,
+      "status": 200,
+      "contentType": "image/jpeg",
+      "resolvedHost": "origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://origami-resource-center.com/wp-content/uploads/diagrams/diagramConallyVase.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://origami-resource-center.com/wp-content/uploads/diagrams/diagramRabbit1a.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://origami-resource-center.com/wp-content/uploads/diagrams/diagramsEnvelope2CDs.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://origami-resource-center.com/wp-content/uploads/diagrams/diagramtrex.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://origami-resource-center.com/wp-content/uploads/diagrams/diamondring.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://origami-resource-center.com/wp-content/uploads/diagrams/dollarArmadillo.jpg",
+      "available": true,
+      "status": 200,
+      "contentType": "image/jpeg",
+      "resolvedHost": "origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://origami-resource-center.com/wp-content/uploads/diagrams/evron-base.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://origami-resource-center.com/wp-content/uploads/diagrams/fishSquidRobinson.jpg",
+      "available": true,
+      "status": 200,
+      "contentType": "image/jpeg",
+      "resolvedHost": "origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://origami-resource-center.com/wp-content/uploads/diagrams/origami-rabbit-cy-hung.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://origami-resource-center.com/wp-content/uploads/diagrams/origami_cd-flower.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://origami-resource-center.com/wp-content/uploads/diagrams/t-rex-rodriguez.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://origami-resource-center.com/wp-content/uploads/diagrams/tamandua.gif",
+      "available": true,
+      "status": 200,
+      "contentType": "image/gif",
+      "resolvedHost": "origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://origamiusa.org/files/2016_annual_gift_brontosaurus.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origamiusa.org",
+      "reason": ""
+    },
+    {
+      "url": "https://origamiusa.org/system/files/thefold/thefold024_mukerji.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "origamiusa.org",
+      "reason": ""
+    },
+    {
+      "url": "https://pajarita.org/wp-content/uploads/2021/05/diagrama-espa1-1.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "https://pajarita.org/wp-content/uploads/2021/05/diagrama-espa10-2.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "https://pajarita.org/wp-content/uploads/2021/05/diagrama-espa14-1.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "https://pajarita.org/wp-content/uploads/2021/05/diagrama-espa4-2.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "https://pajarita.org/wp-content/uploads/2021/05/diagrama-intern3-4.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "https://pajarita.org/wp-content/uploads/2021/05/diagrama-intern5-2.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "https://pajarita.org/wp-content/uploads/2021/05/diagrama-rana%20juan%20pablo.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "https://papercrane.org/articles/gareth/Bassist001.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "papercrane.org",
+      "reason": ""
+    },
+    {
+      "url": "https://smilingbagel.files.wordpress.com/2013/04/dsc06433.jpg?w=584&h=541",
+      "available": true,
+      "status": 200,
+      "contentType": "image/jpeg",
+      "resolvedHost": "smilingbagel.wordpress.com",
+      "reason": ""
+    },
+    {
+      "url": "https://vallebird.files.wordpress.com/2014/05/new-horse-diagrams.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "brilliantorigami.com",
+      "reason": ""
+    },
+    {
+      "url": "https://www.cs.upc.edu/~marc/Origami/pencilpot.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.cs.upc.edu",
+      "reason": ""
+    },
+    {
+      "url": "https://www.make-origami.com/BARF/Hzenv.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "https://www.make-origami.com/BARF/Peacering.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "https://www.make-origami.com/BARF/StarDavid.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "https://www.make-origami.com/BARF/crosev.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "https://www.make-origami.com/BARF/frogp1.gif",
+      "available": true,
+      "status": 200,
+      "contentType": "image/gif",
+      "resolvedHost": "www.make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "https://www.make-origami.com/BARF/maldenv.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "https://www.make-origami.com/BARF/pyramid.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.make-origami.com",
+      "reason": ""
+    },
+    {
+      "url": "https://www.origami-resource-center.com/wp-content/uploads/diagrams/ICU-OrigamiClub-fish.gif",
+      "available": true,
+      "status": 200,
+      "contentType": "image/gif",
+      "resolvedHost": "www.origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://www.origami-resource-center.com/wp-content/uploads/diagrams/caboblanco-gamba.jpg",
+      "available": true,
+      "status": 200,
+      "contentType": "image/jpeg",
+      "resolvedHost": "www.origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://www.origami-resource-center.com/wp-content/uploads/diagrams/caterpillar.jpg",
+      "available": true,
+      "status": 200,
+      "contentType": "image/jpeg",
+      "resolvedHost": "www.origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://www.origami-resource-center.com/wp-content/uploads/diagrams/cluster-plane.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://www.origami-resource-center.com/wp-content/uploads/diagrams/fish-printout.jpg",
+      "available": true,
+      "status": 200,
+      "contentType": "image/jpeg",
+      "resolvedHost": "www.origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://www.origami-resource-center.com/wp-content/uploads/diagrams/fries.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://www.origami-resource-center.com/wp-content/uploads/diagrams/heart.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origami-resource-center.com",
+      "reason": ""
+    },
+    {
+      "url": "https://www.origami.cz/Pdf/pyramid.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origami.cz",
+      "reason": ""
+    },
+    {
+      "url": "https://www.origamidauria.it/wp-content/uploads/2016/10/Ape-car.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origamidauria.it",
+      "reason": ""
+    },
+    {
+      "url": "https://www.origamidauria.it/wp-content/uploads/2016/10/Branzino.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origamidauria.it",
+      "reason": ""
+    },
+    {
+      "url": "https://www.origamidauria.it/wp-content/uploads/2016/10/BranzinoCheNuota.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origamidauria.it",
+      "reason": ""
+    },
+    {
+      "url": "https://www.origamidauria.it/wp-content/uploads/2016/10/Cavalli.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origamidauria.it",
+      "reason": ""
+    },
+    {
+      "url": "https://www.origamidauria.it/wp-content/uploads/2016/10/Geco.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origamidauria.it",
+      "reason": ""
+    },
+    {
+      "url": "https://www.origamidauria.it/wp-content/uploads/2016/10/Margherita.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origamidauria.it",
+      "reason": ""
+    },
+    {
+      "url": "https://www.origamidauria.it/wp-content/uploads/2016/10/Rana.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origamidauria.it",
+      "reason": ""
+    },
+    {
+      "url": "https://www.origamidauria.it/wp-content/uploads/2016/10/Rosa.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.origamidauria.it",
+      "reason": ""
+    },
+    {
+      "url": "https://www.pajarita.org/wp-content/uploads/2021/05/diagrama-intern5-3.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "https://www.pajarita.org/wp-content/uploads/2021/05/diagrama-tradi2-4.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "https://www.pajarita.org/wp-content/uploads/2021/05/diagrama-tradi4-4.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.pajarita.org",
+      "reason": ""
+    },
+    {
+      "url": "https://www.rmccurdy.com/origami/boat.pdf",
+      "available": true,
+      "status": 200,
+      "contentType": "application/pdf",
+      "resolvedHost": "www.rmccurdy.com",
+      "reason": ""
+    }
+  ]
+}

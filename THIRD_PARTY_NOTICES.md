@@ -2,7 +2,7 @@
 
 PLEGA original application code is licensed under Apache-2.0 in [LICENSE](LICENSE). Original starter and repair data are declared MIT. Third-party software, fonts and data keep their own terms. This file preserves the notices for runtime dependencies and the bundled print font; development dependency declarations are inventoried in [docs/dependency-licenses.json](https://github.com/fsantibanezleal/CAOS_Plega/blob/main/docs/dependency-licenses.json).
 
-No third-party research figure, printable template or artwork is redistributed. Primary research is linked for context and does not become part of the project license. System font names in the UI request locally installed fonts; no proprietary system-font binary is included.
+The folding guide includes individually licensed origami diagrams from Wikimedia Commons and Tavin's Origami. Their authors, source URLs, license URLs, changes and file hashes are listed in [docs/asset-licenses.json](docs/asset-licenses.json) and the two guide manifests under `data/guide`. Tavin's original PDFs retain their on-page license and diagram credit; the PNG previews are rendered from those PDFs. Other external plans remain links at their creators' sites. Primary research is linked for context and does not become part of the project license. System font names in the UI request locally installed fonts; no proprietary system-font binary is included.
 
 The package versions below are pinned in the npm lockfile. Upstream dependencies are used without source modifications; bundling and minification do not claim authorship. Notices are copied from the installed published packages unless a different source is explicitly stated.
 
