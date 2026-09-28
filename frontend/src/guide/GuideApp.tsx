@@ -426,6 +426,12 @@ export default function GuideApp() {
   }, [query, category, source, kind]);
 
   const select = (item: CatalogItem) => {
+    // A shorter recipe must not render with the previous recipe's step index.
+    // Its saved position is restored by the selection effect after this render.
+    setStep(0);
+    setFoldProgress(0);
+    setPlaying(false);
+    setPlaySequence(false);
     setSelectedId(item.id);
     setMobileCatalog(false);
     const url = new URL(location.href);

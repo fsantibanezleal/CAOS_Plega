@@ -21,10 +21,20 @@ from __future__ import annotations
 
 import subprocess
 import sys
+import hashlib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SELF = "scripts/check_content_standards.py"
+
+# Licensed lesson bytes are preserved verbatim for source and derived-asset
+# integrity. This exception applies only while each reviewed hash matches.
+PINNED_THIRD_PARTY = {
+    "data/guide/foldspec/crane-source.fold.json":
+        "a929fd12bac4d89bd050f643d66408cb8421d94842cf13dbc1e4bdde215c9995",
+    "frontend/public/lessons/crane/crane.fold.json":
+        "3bf38559fab7965059aae413ac2ba93876e2eb117e2dbe6a5bcff7f6ea2f4bc4",
+}
 
 BANNED_DASHES = {0x2014, 0x2015}  # em dash, horizontal bar
 EMOJI_SELECTOR = 0xFE0F
@@ -51,6 +61,11 @@ def main() -> int:
     hits: list[str] = []
     for rel in tracked_files():
         if rel == SELF or Path(rel).suffix.lower() not in TEXT_SUFFIXES:
+            continue
+        if rel in PINNED_THIRD_PARTY:
+            actual = hashlib.sha256((ROOT / rel).read_bytes()).hexdigest()
+            if actual != PINNED_THIRD_PARTY[rel]:
+                hits.append(f"  {rel}  pinned third-party bytes changed")
             continue
         try:
             lines = (ROOT / rel).read_text(encoding="utf-8").splitlines()

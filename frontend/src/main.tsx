@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
 import { createRoot } from "react-dom/client";
-import GuideApp from "./guide/GuideApp";
+import GuideExperience from "./guide/GuideExperience";
 import "./style.css";
 
 const App = lazy(() => import("./App"));
@@ -26,7 +26,7 @@ createRoot(document.getElementById("root")!).render(
     ) : sections ? (
       <OrigamiAtlas />
     ) : (
-      <GuideApp />
+      <GuideExperience />
     )}
   </Suspense>,
 );

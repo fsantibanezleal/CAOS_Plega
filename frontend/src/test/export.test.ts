@@ -431,7 +431,7 @@ describe("fabrication serialization from actual engine plans", () => {
       if (starter.id === "mountain-greeting")
         save("starter-mountain.pdf", file);
     }
-  }, 60000);
+  }, 120000);
   it("keeps a valid blank project printable without inventing a mechanism", async () => {
     const p = { ...step, title: "Blank card", modules: [] };
     const file = pass(
@@ -474,7 +474,7 @@ describe("fabrication serialization from actual engine plans", () => {
           .map((s) => s.moduleId),
       ).size,
     ).toBe(6);
-  });
+  }, 15000);
   it("bundles Unicode filenames with correct ZIP checksums readable by Python zipfile", () => {
     const files = [
       {

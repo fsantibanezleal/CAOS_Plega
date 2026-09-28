@@ -1,0 +1,408 @@
+.fold-viewer {
+  --fold-accent: #1768e5;
+  --fold-background: #f3f6f9;
+  --fold-panel: #fff;
+  --fold-foreground: #172033;
+  --fold-muted: #697386;
+  --fold-radius: 14px;
+  box-sizing: border-box;
+  container: fold-viewer / inline-size;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  min-width: 280px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--fold-foreground) 12%, transparent);
+  border-radius: var(--fold-radius);
+  background: var(--fold-background);
+  color: var(--fold-foreground);
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  line-height: 1.5;
+  isolation: isolate;
+}
+
+.fold-viewer *,
+.fold-viewer *::before,
+.fold-viewer *::after {
+  box-sizing: border-box;
+}
+.fold-stage {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  background: radial-gradient(
+    circle at 48% 42%,
+    #fff 0,
+    #f4f7fa 48%,
+    #e8edf2 100%
+  );
+}
+.fold-viewport {
+  position: absolute;
+  inset: 0;
+}
+.fold-viewport canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: grab;
+  outline: none;
+  touch-action: none;
+}
+.fold-viewport canvas:active {
+  cursor: grabbing;
+}
+.fold-viewport canvas:focus-visible {
+  outline: 3px solid var(--fold-accent);
+  outline-offset: -4px;
+}
+.fold-view-reset {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+}
+.fold-view-reset,
+.fold-icon-button {
+  width: 36px;
+  height: 36px;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--fold-foreground) 14%, transparent);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--fold-panel) 90%, transparent);
+  color: var(--fold-foreground);
+  cursor: pointer;
+}
+.fold-view-reset svg,
+.fold-icon-button svg,
+.fold-settings svg {
+  width: 18px;
+  height: 18px;
+}
+.fold-instructions {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 2;
+  width: min(330px, calc(100% - 36px));
+  max-height: calc(100% - 36px);
+  overflow: auto;
+  padding: 18px 20px;
+  border: 1px solid color-mix(in srgb, var(--fold-foreground) 10%, transparent);
+  border-radius: calc(var(--fold-radius) - 2px);
+  background: color-mix(in srgb, var(--fold-panel) 94%, transparent);
+  box-shadow: 0 12px 32px rgb(20 31 50 / 0.09);
+  backdrop-filter: blur(14px);
+}
+.fold-step-meta {
+  display: flex;
+  justify-content: space-between;
+  color: var(--fold-accent);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+.fold-instructions h2,
+.fold-text-view h3 {
+  margin: 10px 0 6px;
+  font-size: clamp(18px, 3cqi, 23px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.fold-instructions > p,
+.fold-text-view > p {
+  margin: 0;
+  color: var(--fold-muted);
+  font-size: 14px;
+}
+.fold-tactile {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid
+    color-mix(in srgb, var(--fold-foreground) 10%, transparent);
+  font-size: 13px;
+}
+.fold-tactile p {
+  margin: 5px 0 0;
+  color: var(--fold-muted);
+}
+.fold-controls {
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 64px;
+  padding: 10px 12px;
+  border-top: 1px solid
+    color-mix(in srgb, var(--fold-foreground) 10%, transparent);
+  background: var(--fold-panel);
+}
+.fold-controls button,
+.fold-controls select,
+.fold-settings summary {
+  font: inherit;
+}
+.fold-controls button:focus-visible,
+.fold-controls select:focus-visible,
+.fold-controls input:focus-visible,
+.fold-settings summary:focus-visible,
+.fold-view-reset:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--fold-accent) 40%, transparent);
+  outline-offset: 2px;
+}
+.fold-controls button:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+.fold-play-button {
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--fold-accent);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 3px 10px color-mix(in srgb, var(--fold-accent) 25%, transparent);
+}
+.fold-play-button svg {
+  width: 17px;
+  height: 17px;
+  fill: currentColor;
+}
+.fold-scrubber {
+  flex: 1;
+  min-width: 90px;
+  display: flex;
+  padding: 0 4px;
+}
+.fold-scrubber input {
+  --fold-progress: 0%;
+  width: 100%;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--fold-accent);
+  cursor: pointer;
+}
+.fold-speed select {
+  height: 36px;
+  padding: 0 28px 0 10px;
+  border: 1px solid color-mix(in srgb, var(--fold-foreground) 14%, transparent);
+  border-radius: 9px;
+  background: var(--fold-panel);
+  color: var(--fold-foreground);
+}
+.fold-segmented {
+  display: inline-flex;
+  padding: 3px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--fold-foreground) 6%, transparent);
+}
+.fold-segmented button {
+  height: 30px;
+  padding: 0 11px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--fold-muted);
+  cursor: pointer;
+  font-size: 13px;
+}
+.fold-segmented button[aria-pressed='true'] {
+  background: var(--fold-panel);
+  color: var(--fold-foreground);
+  box-shadow: 0 1px 3px rgb(20 31 50 / 0.12);
+}
+.fold-settings {
+  position: relative;
+}
+.fold-settings summary {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 10px;
+  border: 1px solid color-mix(in srgb, var(--fold-foreground) 14%, transparent);
+  border-radius: 10px;
+  cursor: pointer;
+  list-style: none;
+  font-size: 13px;
+}
+.fold-settings summary::-webkit-details-marker {
+  display: none;
+}
+.fold-settings-panel {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 12px);
+  width: 240px;
+  display: grid;
+  gap: 11px;
+  padding: 15px;
+  border: 1px solid color-mix(in srgb, var(--fold-foreground) 12%, transparent);
+  border-radius: 12px;
+  background: var(--fold-panel);
+  box-shadow: 0 14px 36px rgb(20 31 50 / 0.16);
+}
+.fold-settings-panel label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 13px;
+}
+.fold-settings-panel input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--fold-accent);
+}
+.fold-status,
+.fold-text-view {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 32px;
+  text-align: center;
+}
+.fold-status--error strong {
+  color: #a62828;
+}
+.fold-status span,
+.fold-diagnostic {
+  color: var(--fold-muted);
+}
+.fold-spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid color-mix(in srgb, var(--fold-accent) 20%, transparent);
+  border-top-color: var(--fold-accent);
+  border-radius: 999px;
+  animation: fold-spin 0.8s linear infinite;
+}
+.fold-text-view {
+  max-width: 580px;
+  margin: auto;
+}
+.fold-eyebrow {
+  color: var(--fold-accent);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.fold-diagnostic {
+  max-width: 520px;
+  padding: 10px 12px;
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--fold-foreground) 5%, transparent);
+  font-size: 12px !important;
+}
+.fold-render-note {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  max-width: 390px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--fold-panel) 92%, transparent);
+  color: var(--fold-muted);
+  font-size: 11px;
+  box-shadow: 0 4px 16px rgb(20 31 50 / 0.08);
+}
+.fold-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+@keyframes fold-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@container fold-viewer (max-width: 720px) {
+  .fold-instructions {
+    top: 12px;
+    right: 12px;
+    width: min(290px, calc(100% - 24px));
+    padding: 14px 16px;
+  }
+  .fold-controls {
+    flex-wrap: wrap;
+  }
+  .fold-scrubber {
+    order: -1;
+    flex-basis: 100%;
+  }
+  .fold-settings summary span,
+  .fold-reset-button {
+    display: none;
+  }
+  .fold-settings summary {
+    width: 36px;
+    padding: 0;
+    justify-content: center;
+  }
+  .fold-segmented {
+    margin-left: auto;
+  }
+}
+@container fold-viewer (max-width: 460px) {
+  .fold-instructions {
+    left: 10px;
+    right: 10px;
+    width: auto;
+    top: 10px;
+  }
+  .fold-step-meta span:last-child,
+  .fold-play-button span,
+  .fold-speed {
+    display: none;
+  }
+  .fold-play-button {
+    width: 40px;
+    padding: 0;
+    justify-content: center;
+  }
+  .fold-controls {
+    gap: 6px;
+    padding: 8px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fold-spinner {
+    animation: none;
+  }
+}
+@media (forced-colors: active) {
+  .fold-viewer,
+  .fold-instructions,
+  .fold-controls,
+  .fold-settings-panel {
+    border: 1px solid CanvasText;
+  }
+  .fold-play-button {
+    background: Highlight;
+    color: HighlightText;
+  }
+}

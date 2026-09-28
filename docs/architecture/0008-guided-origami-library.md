@@ -2,7 +2,7 @@
 
 ## Status
 
-Accepted, 2026-09-27 for this user-directed redesign.
+Superseded for public model-library admission by [ADR 0009](0009-animation-first-library.md), 2026-09-28. Its source and rights inventory remains historical context.
 
 ## Context
 
