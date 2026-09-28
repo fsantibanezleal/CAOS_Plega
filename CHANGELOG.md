@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.07.000
+
+Replaced the misleading mixed-format root catalog with an animation-first model experience. The library now admits only complete, playable constructions and currently contains one: a pinned, MIT-licensed Fold Spec crane with 44 teaching steps and 40 resolved movements. Whole-sequence playback, individual step navigation, accompanying instructions and a finished pose are available in the on-site viewer. The four earlier elementary animations moved to Fold basics; static diagrams and external links are no longer selectable model cases. A licensed crane diagram remains optional companion reading. The prior indexes and assets remain in source for provenance.
+
+The page now scrolls through every step on desktop and phone; the player stays in view beside desktop navigation, and mobile step selection returns to the animation. The shorter-lesson selection crash is also covered. This release does not claim to deliver the requested thousand complete animated models or to certify physical paper folding.
+
 ## 0.06.000
 
 Made a rights-aware origami folding guide the public entry. It combines four original bilingual animated elementary lessons, 32 locally hosted and individually attributed illustrated sheets (including fifteen original downloadable PDFs), and a categorized link-only catalog of 2,006 external free tutorial pages or file links. Search, source filters, saved models, reading progress and mobile layouts are available without an account. The previous Origami Sections atlas and both paper workbenches remain accessible as separate areas. New source pipelines retain per-file license evidence and hashes; external links are never presented as hosted animations.
