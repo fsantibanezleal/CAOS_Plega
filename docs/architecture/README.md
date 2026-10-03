@@ -13,6 +13,7 @@ PLEGA is a static application with a deterministic offline data compiler. Pure T
 | [ADR 0007: origami sections](0007-origami-sections.md) | Distinct origami topologies, named sections and multi-state fold exploration remain available as a sub-area |
 | [ADR 0008: guided origami library](0008-guided-origami-library.md) | The public entry separates original animations, licensed hosted sheets and external source links |
 | [ADR 0009: animation-first library](0009-animation-first-library.md) | Only a complete, authored, playable construction qualifies as a model; diagrams and exercises are companions |
+| [ADR 0010: source-bound motion library](0010-source-bound-motion-library.md) | Exact replay, continuous operation compilation, per-model lessons and honest admission counts |
 
 The [geometry API](../geometry-api.md) defines core interfaces; [fabrication validation](../fabrication-validation.md) defines independent export checks. The [pipeline](../../data-pipeline/README.md) owns original source-to-generated data. There is no backend, training pipeline or installable internal package.
 

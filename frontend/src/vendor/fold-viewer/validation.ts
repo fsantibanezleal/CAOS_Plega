@@ -1,9 +1,8 @@
 import type { FoldDocument, FoldViewerError } from './types';
+import lessons from '../../guide/lesson-manifest.json';
 
-// PLEGA loads one pinned same-origin document. Release/build checks validate
-// its exact bytes, so browser playback does not need Ajv's eval-based compiler.
-const LESSON_URL = '/lessons/crane/crane.fold.json';
-const LESSON_SHA256 = '3bf38559fab7965059aae413ac2ba93876e2eb117e2dbe6a5bcff7f6ea2f4bc4';
+// The compiled release manifest pins all accepted same-origin lesson bytes.
+// Browser playback does not need Ajv's eval-based schema compiler.
 
 export const MAX_DOCUMENT_BYTES = 32 * 1024 * 1024;
 export const MAX_JSON_DEPTH = 64;
@@ -294,8 +293,9 @@ export async function loadFoldDocument(
   source: import('./types').FoldViewerSource,
   signal?: AbortSignal,
 ): Promise<FoldDocument> {
-  if (source.kind !== 'url' || source.url !== LESSON_URL)
-    throw new FoldDocumentError('unsupported-source', 'Only the pinned PLEGA crane lesson can be loaded');
+  const lesson = source.kind === 'url' ? lessons.find(item => item.url === source.url) : undefined;
+  if (source.kind !== 'url' || !lesson)
+    throw new FoldDocumentError('unsupported-source', 'Only reviewed same-origin PLEGA lessons can be loaded');
   let bytes: ArrayBuffer;
   {
     const response = await fetch(source.url, {
@@ -322,8 +322,8 @@ export async function loadFoldDocument(
     );
   const digest = await crypto.subtle.digest('SHA-256', bytes);
   const actual = Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, '0')).join('');
-  if (actual !== LESSON_SHA256)
-    throw new FoldDocumentError('asset-integrity', 'The crane lesson differs from the reviewed release asset');
+  if (actual !== lesson.sha256)
+    throw new FoldDocumentError('asset-integrity', 'The lesson differs from the reviewed release asset');
   let text: string;
   try {
     text = new TextDecoder('utf-8', { fatal: true }).decode(bytes);

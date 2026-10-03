@@ -30,9 +30,13 @@ def viewing_copy(data: bytes) -> bytes:
     steps = lesson["instructions"]["steps"]
     if len(steps) != 44 or len(lesson["geometry"]["operations"]) != 40:
         raise ValueError("Crane lesson no longer has 44 steps and 40 operations")
-    # A camera-only adjustment brings the finished, smaller bird into view.
-    # The mesh, operation paths, timing, instructions and license are unchanged.
+    # Geometry and English instructions remain the pinned upstream content.
+    # PLEGA adds a separately authored Spanish translation and camera framing.
+    translation = json.loads((ROOT / 'data/guide/foldspec/crane-es.json').read_bytes())
+    lesson['metadata']['title']['es'] = 'Grulla de papel'
     for index, step in enumerate(steps):
+        step['title']['es'] = translation[step['id']]['title']
+        step['body']['es'] = translation[step['id']]['body']
         if index < 30:
             continue
         fraction = (index - 29) / 14

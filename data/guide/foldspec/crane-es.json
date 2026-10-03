@@ -1,0 +1,178 @@
+{
+  "s01": {
+    "title": "Prepara el cuadrado",
+    "body": "Coloca el cuadrado con el lado A hacia arriba y un borde cerca de ti. Conserva las cuatro esquinas para marcar los pliegues iniciales."
+  },
+  "s02": {
+    "title": "Marca la primera diagonal",
+    "body": "Lleva la esquina posterior izquierda a la esquina delantera derecha. Alinea ambas esquinas y presiona el pliegue diagonal."
+  },
+  "s03": {
+    "title": "Abre la primera diagonal",
+    "body": "Devuelve la mitad plegada a su posición inicial. Conserva la marca diagonal."
+  },
+  "s04": {
+    "title": "Marca la segunda diagonal",
+    "body": "Lleva la esquina posterior derecha a la esquina delantera izquierda y presiona la segunda diagonal."
+  },
+  "s05": {
+    "title": "Abre la segunda diagonal",
+    "body": "Abre de nuevo el cuadrado. Las dos diagonales se cruzan en el centro."
+  },
+  "s06": {
+    "title": "Da la vuelta para los pliegues rectos",
+    "body": "Da la vuelta al cuadrado de izquierda a derecha. El lado B queda hacia arriba."
+  },
+  "s07": {
+    "title": "Lleva el borde posterior al delantero",
+    "body": "Levanta la mitad posterior y alinea su borde exterior con el borde delantero. Presiona el pliegue central horizontal."
+  },
+  "s08": {
+    "title": "Abre el pliegue horizontal",
+    "body": "Devuelve la capa superior al lado posterior. Conserva el nuevo pliegue central."
+  },
+  "s09": {
+    "title": "Lleva el borde izquierdo al derecho",
+    "body": "Levanta la mitad izquierda y alinéala con el borde derecho. Presiona el pliegue central vertical."
+  },
+  "s10": {
+    "title": "Abre el pliegue vertical",
+    "body": "Abre por completo el cuadrado. Dos pliegues rectos y dos diagonales se cruzan ahora en el centro."
+  },
+  "s11": {
+    "title": "Vuelve al lado A",
+    "body": "Da la vuelta al cuadrado de izquierda a derecha sin hacer un nuevo pliegue."
+  },
+  "begin-base": {
+    "title": "Empieza la base cuadrada",
+    "body": "Sujeta el centro y empieza a doblar los paneles laterales hacia dentro sobre los pliegues existentes."
+  },
+  "guide-pockets": {
+    "title": "Guía los bolsillos laterales hacia dentro",
+    "body": "Acerca los dos bolsillos laterales entre sí. Varios paneles se mueven juntos porque siguen unidos."
+  },
+  "lower-panel": {
+    "title": "Baja el panel superior",
+    "body": "Acerca el panel superior al inferior mientras mantienes los bolsillos laterales encajados dentro."
+  },
+  "flatten-base": {
+    "title": "Aplana la base cuadrada",
+    "body": "Cierra y aplana suavemente el rombo de varias capas. Mantén juntas las esquinas abiertas en el extremo cercano."
+  },
+  "check-base": {
+    "title": "Comprueba la base cuadrada",
+    "body": "Busca un rombo con la punta posterior cerrada y las puntas delanteras abiertas. Comprueba que haya dos solapas exteriores en cada lado."
+  },
+  "s13": {
+    "title": "Marca el borde delantero derecho",
+    "body": "En la solapa superior, lleva el borde inclinado inferior derecho a la línea central. Mantén quietas las capas inferiores."
+  },
+  "s14": {
+    "title": "Abre el pliegue guía derecho",
+    "body": "Abre solo la solapa que acabas de mover. Conserva la nueva marca guía."
+  },
+  "s15": {
+    "title": "Marca el borde delantero izquierdo",
+    "body": "Lleva el borde inferior izquierdo de la solapa superior a la misma línea central. Mantén fijas las capas inferiores."
+  },
+  "s16": {
+    "title": "Abre el pliegue guía izquierdo",
+    "body": "Abre solo el pliegue guía izquierdo. Conserva las dos marcas guía."
+  },
+  "s17": {
+    "title": "Marca la bisagra superior",
+    "body": "Pliega la punta superior cerrada hacia abajo atravesando los extremos superiores de las dos marcas guía."
+  },
+  "s18": {
+    "title": "Abre la marca de bisagra",
+    "body": "Devuelve la punta superior a su posición anterior. Conserva el pliegue transversal corto como bisagra del pétalo."
+  },
+  "s19": {
+    "title": "Abre y cierra el pétalo delantero",
+    "body": "Levanta solo la esquina cercana de la solapa superior. Guía los dos lados hacia dentro sobre sus marcas y eleva la solapa hasta formar un rombo largo. Es un movimiento acoplado: no separes un solo lado de la hoja."
+  },
+  "s20": {
+    "title": "Da la vuelta a la segunda cara",
+    "body": "Da la vuelta al modelo completo sin intercambiar sus extremos cercano y lejano. Trabaja en la cara aún sin formar."
+  },
+  "s21": {
+    "title": "Marca el segundo borde izquierdo",
+    "body": "Lleva el borde inferior izquierdo de la nueva cara superior a la línea central."
+  },
+  "s22": {
+    "title": "Abre esa guía izquierda",
+    "body": "Devuelve la solapa a su posición anterior y conserva el pliegue."
+  },
+  "s23": {
+    "title": "Marca el segundo borde derecho",
+    "body": "Lleva el borde inferior derecho de esta cara superior a la línea central."
+  },
+  "s24": {
+    "title": "Abre esa guía derecha",
+    "body": "Devuelve la solapa derecha a su posición anterior y conserva el pliegue guía."
+  },
+  "s25": {
+    "title": "Abre y cierra el segundo pétalo",
+    "body": "Levanta la esquina cercana de esta solapa superior. Guía sus lados hacia dentro sobre las marcas hasta formar un segundo rombo largo."
+  },
+  "s26": {
+    "title": "Orienta la base de ave",
+    "body": "Devuelve el modelo a su primera cara. Mantén las dos puntas estrechas y separadas hacia ti."
+  },
+  "s27": {
+    "title": "Estrecha la primera punta izquierda",
+    "body": "Pliega el borde inferior izquierdo de la cara superior hacia el hueco central. Mantén separadas las dos puntas inferiores."
+  },
+  "s28": {
+    "title": "Estrecha la primera punta derecha",
+    "body": "Pliega el borde inferior derecho hacia el hueco central. No pegues ni unas las dos puntas."
+  },
+  "s29": {
+    "title": "Da la vuelta al reverso",
+    "body": "Da la vuelta al modelo completo y conserva las puntas separadas hacia ti."
+  },
+  "s30": {
+    "title": "Estrecha el borde izquierdo del reverso",
+    "body": "Pliega el borde inferior izquierdo de esta cara hacia la línea central."
+  },
+  "s31": {
+    "title": "Estrecha el borde derecho del reverso",
+    "body": "Pliega el borde inferior derecho correspondiente hacia la línea central."
+  },
+  "s32": {
+    "title": "Vuelve al frente",
+    "body": "Devuelve el modelo a la primera cara. Las dos puntas inferiores estrechas formarán el cuello y la cola."
+  },
+  "s33": {
+    "title": "Levanta la punta del cuello",
+    "body": "Separa suavemente las capas que rodean una punta inferior e inviértela hacia arriba entre las alas. La demostración aproxima este pliegue inverso interior con una bisagra de dos capas."
+  },
+  "s34": {
+    "title": "Levanta la punta de la cola",
+    "body": "Invierte la otra punta inferior hacia arriba en el lado opuesto y sujeta las capas de las alas. Su movimiento también es una aproximación de dos capas."
+  },
+  "s35": {
+    "title": "Forma la cabeza",
+    "body": "Abre ligeramente el extremo del cuello, invierte la punta hacia dentro y cierra las capas que la rodean para formar un pico orientado hacia abajo."
+  },
+  "s36": {
+    "title": "Extiende el ala delantera",
+    "body": "Sujeta el cuerpo y baja la solapa delantera ancha hacia fuera. No tires del cuello."
+  },
+  "s37": {
+    "title": "Extiende el ala trasera",
+    "body": "Baja la otra solapa ancha hacia el lado opuesto mientras sigues sujetando el cuerpo."
+  },
+  "s38": {
+    "title": "Levanta la grulla para mostrarla",
+    "body": "Levanta toda la grulla hasta su posición de presentación sin añadir otro pliegue."
+  },
+  "s39": {
+    "title": "Abre suavemente el cuerpo",
+    "body": "Sujeta el cuerpo y separa suavemente las raíces de las alas para dar profundidad a las capas centrales. No fuerces el cuello ni la cola. Esta apertura muestra geometría facetada, no una simulación de presión o colisiones."
+  },
+  "s40": {
+    "title": "Comprueba la grulla terminada",
+    "body": "Comprueba que tenga dos alas anchas, una cola estrecha elevada y un cuello que termina en pico. Ajusta el papel con suavidad: el ejemplo digital no certifica el plegado físico."
+  }
+}

@@ -492,6 +492,7 @@ html:has(.plega-origami-app) #root {
   }
   .plega-header {
     height: auto;
+    flex-basis: auto;
     min-height: 58px;
     flex-wrap: wrap;
     padding: 8px 12px;

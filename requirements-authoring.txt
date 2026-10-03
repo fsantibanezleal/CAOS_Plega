@@ -1,0 +1,6 @@
+# Optional simulator authoring environment; never used by runtime or release CI.
+numpy==2.2.6
+networkx==3.7
+matplotlib==3.11.2
+plotly==7.1.0
+pillow==12.3.0
