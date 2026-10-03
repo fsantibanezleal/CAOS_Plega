@@ -214,7 +214,7 @@ def compile_model(source):
     xmin,xmax = min(p[0] for p in all_positions),max(p[0] for p in all_positions)
     ymin,ymax = min(p[1] for p in all_positions),max(p[1] for p in all_positions)
     center = [(xmin+xmax)/2,(ymin+ymax)/2,0]
-    camera = {'projection':'orthographic','positionMm':[center[0],center[1],500],'targetMm':center,'up':[0,1,0],'verticalSpanMm':max(xmax-xmin,ymax-ymin)*1.35,'transitionMs':0}
+    camera = {'projection':'orthographic','positionMm':[center[0]+160,center[1]-200,500],'targetMm':center,'up':[0,1,0],'verticalSpanMm':max(xmax-xmin,ymax-ymin)*1.35,'transitionMs':0}
     for step in steps:step['camera']=camera
     document = {'format':'fold-spec','specVersion':'1.0.0-draft.1','id':identity,'revision':1,'defaultLocale':'en','status':'resolved',
                 'metadata':{'title':{'en':en,'es':es},'summary':{'en':f'Build the {en.lower()} with {len(operations)} continuous movements.','es':f'Construye este modelo con {len(operations)} movimientos continuos.'},'source':source['sourceUrl'],'license':'CC-BY-SA-4.0'},
