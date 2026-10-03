@@ -8,6 +8,10 @@
 | `frontend/src/workspace.ts` | Project state, local recovery and share/import boundaries |
 | `frontend/src/test/` | Independent numerical, safety, print and export regressions |
 | `frontend/src/guide/` | Rights-aware guide, original elementary fold motion and bilingual instruction interface |
+| `data/guide/motion-sources/` | Sanitized licensed action trajectories, source hashes and exact replayed states |
+| `data-pipeline/build_motion_lessons.py` | Offline continuous-motion compiler, geometric checks, model previews and runtime manifest |
+| `frontend/public/lessons/` | Complete compiled model lessons and geometric previews |
+| `scripts/replay_motion_sources.py` | Explicit offline simulator replay with separate authoring dependencies |
 | `frontend/public/guide/` | Licensed illustrated sheets and PDF originals with per-asset provenance |
 | `frontend/verify-guide.mjs` | Folding-guide desktop/phone browser acceptance |
 | `frontend/verify-workshop.mjs` | Actual built-application browser acceptance |

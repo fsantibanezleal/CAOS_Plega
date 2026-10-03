@@ -508,3 +508,17 @@ The locked build toolchain includes `caniuse-lite` 1.0.30001810, under CC-BY-4.0
 ## Plega v0.02 interface fonts
 
 Unmodified Space Grotesk and IBM Plex Sans are redistributed under the SIL Open Font License 1.1. Complete upstream copyright and license texts accompany the fonts at `frontend/public/fonts/SpaceGrotesk-OFL.txt` and `frontend/public/fonts/IBMPlexSans-OFL.txt`. The pinned Google Fonts revision, source URLs and file hashes are recorded in `frontend/public/fonts/provenance.json`. They are served from the application origin; no external font service is contacted. Noto Sans remains the separate, previously licensed print-export font.
+
+## Reconstructed origami motion data
+
+Sanitized action trajectories and derived lesson documents/previews are adapted
+from the [FoldingAgent project results](https://maya-moriya.github.io/origami-page/FoldingAgentResults/overview.html).
+The source project credits Maya Moriya, Sigal Raab, Yael Vinker and Tali Dekel.
+Its website declares CC BY-SA 4.0. PLEGA retains source URLs and source hashes,
+converts geometry to millimetres, resolves continuous hinge/rigid motion and adds
+EN/ES teaching instructions, illustrations and checks. Adapted data and previews
+remain CC BY-SA 4.0, separately from PLEGA code and original workshop designs.
+The [public attribution notice](frontend/public/licenses/motion-sources.txt)
+records the license and changes. No photographs, videos or inference prose are
+redistributed. The optional offline simulator is MIT, pinned at
+`f6d4fc6aaf4dfa2c82a8b5f7274c198498f4f122`, and is not a browser dependency.

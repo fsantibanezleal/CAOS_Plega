@@ -16,6 +16,7 @@
 *.LICENSE text eol=lf
 VERSION text eol=lf
 frontend/public/lessons/crane/LICENSE text eol=lf
+frontend/src/vendor/fold-viewer/LICENSE text eol=lf
 *.ttf binary
 *.png binary
 *.pdf binary

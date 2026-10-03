@@ -1,0 +1,28 @@
+PLEGA reconstructed origami motion data
+
+Source: FoldingAgent project results
+https://maya-moriya.github.io/origami-page/FoldingAgentResults/overview.html
+https://maya-moriya.github.io/origami-page/
+Attribution: FoldingAgent project contributors, Maya Moriya, Sigal Raab,
+Yael Vinker and Tali Dekel. See the source project for its author credits.
+
+The source website declares Creative Commons Attribution-ShareAlike 4.0
+International (CC BY-SA 4.0):
+https://creativecommons.org/licenses/by-sa/4.0/
+https://creativecommons.org/licenses/by-sa/4.0/legalcode.en
+
+PLEGA adaptations: final action histories are replayed with a pinned geometric
+simulator; only geometric actions, parameters and states are retained. Data is
+converted to millimetres, triangulated and compiled into continuous rigid and
+hinge operations. PLEGA adds English/Spanish teaching text, diagrams, previews,
+checks and a source-to-operation map. Source URL and SHA-256 are retained for
+each model. No source photographs, videos or inference prose are included.
+
+The adapted motion data, lesson documents and previews are distributed under
+CC BY-SA 4.0. This does not change the separate licenses for PLEGA code, the
+MIT Fold Spec crane, or the optional companion diagrams.
+
+You may share and adapt this material, including commercially, subject to
+attribution, a link to the license, indication of changes and ShareAlike.
+See the linked license for the complete terms. No additional restrictions
+are imposed. No physical foldability or collision-free simulation is certified.

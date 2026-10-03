@@ -21,6 +21,7 @@ export class FoldViewerStore {
   private abort?: AbortController;
   private frame = 0;
   private previousTime = 0;
+  private advanceAt: number | null = null;
   private autoAdvance = false;
   private callbacks: FoldViewerCallbacks = {};
   private controlledStep = false;
@@ -115,9 +116,7 @@ export class FoldViewerStore {
       );
       const step = requiredTextExtension ? null : authoredStep;
       const hasMotion = Boolean(
-        document.geometry &&
-        authoredStep?.animation === 'resolved' &&
-        authoredStep.runs.length,
+        document.geometry?.status === 'complete' && authoredStep,
       );
       const hasLocalLayers = authoredStep?.runs.some(
         (run) =>
@@ -177,6 +176,7 @@ export class FoldViewerStore {
   togglePlayback = (): void =>
     this.snapshot.playing ? this.pause() : this.play();
   seek = (progress: number): void => {
+    this.advanceAt = null;
     const next = Math.min(1, Math.max(0, progress));
     this.update({ progress: next });
     this.callbacks.onProgressChange?.(next);
@@ -205,6 +205,7 @@ export class FoldViewerStore {
   };
 
   private selectIndex(index: number): void {
+    this.advanceAt = null;
     const document = this.snapshot.document;
     if (!document) return;
     const bounded = Math.min(
@@ -220,9 +221,7 @@ export class FoldViewerStore {
     );
     const step = requiredTextExtension ? null : authoredStep;
     const canRenderAnimation = Boolean(
-      document.geometry &&
-      authoredStep.animation === 'resolved' &&
-      authoredStep.runs.length &&
+      document.geometry?.status === 'complete' &&
       !requiredPlaybackExtension,
     );
     const hasLocalLayers = authoredStep.runs.some(
@@ -281,14 +280,17 @@ export class FoldViewerStore {
       this.snapshot.progress +
       (elapsed * this.snapshot.playbackRate) / duration;
     if (next >= 1) {
-      this.seek(1);
-      this.setPlaying(false);
+      if (this.snapshot.progress < 1) this.seek(1);
       if (
         this.autoAdvance &&
         this.snapshot.stepIndex <
           this.snapshot.document.instructions.steps.length - 1
-      )
-        this.next();
+      ) {
+        if (this.advanceAt === null)
+          this.advanceAt = time + (this.snapshot.step?.pauseAfterMs ?? 0) / this.snapshot.playbackRate;
+        if (time >= this.advanceAt) {this.next();this.play();}
+        else this.frame = requestAnimationFrame(this.tick);
+      } else this.setPlaying(false);
       return;
     }
     this.seek(next);

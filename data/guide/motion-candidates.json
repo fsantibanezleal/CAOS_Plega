@@ -1,0 +1,196 @@
+{
+  "reviewed": "2026-10-03",
+  "candidateCount": 27,
+  "retainedCount": 16,
+  "records": [
+    {
+      "name": "how-to-make-an-origami-heart",
+      "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how-to-make-an-origami-heart/agent_log.jsonl",
+      "sourceSha256": "4d93554b95391f7b34b7871fa52d05d0e1feab1a282f7ad873166127dc73062f",
+      "status": "exact-replay",
+      "reason": "All retained actions replay exactly"
+    },
+    {
+      "name": "easy_origami_walrus_instructions",
+      "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/easy_origami_walrus_instructions/agent_log.jsonl",
+      "sourceSha256": "b4592b89c58b6bbc4c4fbe9fe79b3455468cba24052e03c5ce9bb5bfee11c98f",
+      "status": "excluded",
+      "reason": "Final comparator history not resolved"
+    },
+    {
+      "name": "easy_origami_cat_face",
+      "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/easy_origami_cat_face/agent_log.jsonl",
+      "sourceSha256": "4e3a8ae6e23c708600f18531070ed10b540543ca1a9fb4616e18764d4e695c85",
+      "status": "exact-replay",
+      "reason": "All retained actions replay exactly"
+    },
+    {
+      "name": "how_to_make_an_origami_horse_head",
+      "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_make_an_origami_horse_head/agent_log.jsonl",
+      "sourceSha256": "0dd8d76c6da94ea1b4146d0b1cdc685b75eb54f858e635b4404199d8c1afd7e3",
+      "status": "exact-replay",
+      "reason": "All retained actions replay exactly"
+    },
+    {
+      "name": "how_to_fold_an_easy_origami_snake",
+      "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_fold_an_easy_origami_snake/agent_log.jsonl",
+      "sourceSha256": "eaca6ebf95b687b7db0cad259d89412157eb79dbc530cce59d627ba83bb3bad8",
+      "status": "excluded",
+      "reason": "Replay differs from recorded endpoint"
+    },
+    {
+      "name": "easy_origami_gift_card_holder_instructions",
+      "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/easy_origami_gift_card_holder_instructions/agent_log.jsonl",
+      "sourceSha256": "c6119a679f504ddc88bc39ede5c8c6603a2a16eee066d8912d716ceab913a3e1",
+      "status": "exact-replay",
+      "reason": "All retained actions replay exactly"
+    },
+    {
+      "name": "easy_origami_rabbit_head_v2",
+      "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/easy_origami_rabbit_head_v2/agent_log.jsonl",
+      "sourceSha256": "580c3b0c8ecdb2f08620d6a7d27d3e09a58f074335679d403eb3671ff8bc96f5",
+      "status": "excluded",
+      "reason": "Replay differs from recorded endpoint"
+    },
+    {
+      "name": "very_easy_origami_fox_head",
+      "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/very_easy_origami_fox_head/agent_log.jsonl",
+      "sourceSha256": "30a04aabc0a6295a9cbaa56be70e24e19f0c2d8b852fdb8eef7ce0687fba429f",
+      "status": "excluded",
+      "reason": "Final action history references an unavailable vertex"
+    },
+    {
+      "name": "how_to_make_an_origami_cup",
+      "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_make_an_origami_cup/agent_log.jsonl",
+      "sourceSha256": "9ff4b7a64b8726e0e536d05ef13e8d33bc2f8f5c986ba5870eefe9e8ed2997eb",
+      "status": "exact-replay",
+      "reason": "All retained actions replay exactly"
+    },
+    {
+      "name": "very_easy_origami_santa_hat_instructions",
+      "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/very_easy_origami_santa_hat_instructions/agent_log.jsonl",
+      "sourceSha256": "b1bcbc62aef1f4f1a8b032e08d2bf3f55e9b920f3a78a64fd84bcf2f529775b3",
+      "status": "excluded",
+      "reason": "Final comparator history not resolved"
+    },
+    {
+      "name": "how_to_make_an_easy_origami_tulip",
+      "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_make_an_easy_origami_tulip/agent_log.jsonl",
+      "sourceSha256": "554183dbbb6ee58855208531c97a098cc3a0e38af74e01df208525a1e97ff0c4",
+      "status": "exact-replay",
+      "reason": "All retained actions replay exactly"
+    },
+    {
+      "name": "very_easy_origami_sloth_instructions",
+      "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/very_easy_origami_sloth_instructions/agent_log.jsonl",
+      "sourceSha256": "860ddc8560b2fc6096d70751150d03bf4262a58a9dc08efc569be25384ddf346",
+      "status": "exact-replay",
+      "reason": "All retained actions replay exactly"
+    },
+    {
+      "name": "how_to_make_an_easy_origami_penguin",
+      "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_make_an_easy_origami_penguin/agent_log.jsonl",
+      "sourceSha256": "4dcbe53c515eb10058e672ecb93ad2a76e18749b568c7abf2c4b31c24b406223",
+      "status": "exact-replay",
+      "reason": "All retained actions replay exactly"
+    },
+    {
+      "name": "how_to_make_a_medieval_origami_shield",
+      "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_make_a_medieval_origami_shield/agent_log.jsonl",
+      "sourceSha256": "76cdf887b22e03f03850ed5e38b154ab78f2ab5470a754c64da972223e965abf",
+      "status": "exact-replay",
+      "reason": "All retained actions replay exactly"
+    },
+    {
+      "name": "easy_origami_cat_instructions_for_kids",
+      "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/easy_origami_cat_instructions_for_kids/agent_log.jsonl",
+      "sourceSha256": "3afd8b91d72f57b26a2fd92817a64db1736ec0d1c8191d4394aedce40925acb5",
+      "status": "exact-replay",
+      "reason": "All retained actions replay exactly"
+    },
+    {
+      "name": "how_to_make_an_easy_origami_girl",
+      "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_make_an_easy_origami_girl/agent_log.jsonl",
+      "sourceSha256": "0bdcf371ef6ce8502b0951b38b9057d863d3b55e92a05e2b5b1cbf56510a7fae",
+      "status": "excluded",
+      "reason": "Final comparator history not resolved"
+    },
+    {
+      "name": "how_to_make_an_easy_origami_car",
+      "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_make_an_easy_origami_car/agent_log.jsonl",
+      "sourceSha256": "7d73692b811e825985855d109303990d6630706d6620fa3673292378783d5d73",
+      "status": "exact-replay",
+      "reason": "All retained actions replay exactly"
+    },
+    {
+      "name": "easy_origami_yacht_instructions",
+      "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/easy_origami_yacht_instructions/agent_log.jsonl",
+      "sourceSha256": "352883a2a6ed8c057fe7d7d850764b0ef3c65e413cad2b54e0c13df4293b7668",
+      "status": "exact-replay",
+      "reason": "All retained actions replay exactly"
+    },
+    {
+      "name": "easy_origami_dog_instructions_for_kids",
+      "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/easy_origami_dog_instructions_for_kids/agent_log.jsonl",
+      "sourceSha256": "861a2d917c30aa705982b46c230b76eae74186d66d6c4d596070ad7eaf2a6903",
+      "status": "excluded",
+      "reason": "Replay differs from recorded endpoint"
+    },
+    {
+      "name": "how_to_make_an_easy_origami_sunflower",
+      "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_make_an_easy_origami_sunflower/agent_log.jsonl",
+      "sourceSha256": "1b463e59562eea027f3e82af98a417ce43c2e9dd59a8166952725cdcc77ad032",
+      "status": "exact-replay",
+      "reason": "All retained actions replay exactly"
+    },
+    {
+      "name": "how_to_make_a_very_easy_origami_pig",
+      "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_make_a_very_easy_origami_pig/agent_log.jsonl",
+      "sourceSha256": "247a62eebbcfa2900b94edb8593af61527c8696734609ed103a1b3a0d91f6a5c",
+      "status": "exact-replay",
+      "reason": "All retained actions replay exactly"
+    },
+    {
+      "name": "cute_and_easy_origami_ladybug",
+      "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/cute_and_easy_origami_ladybug/agent_log.jsonl",
+      "sourceSha256": "604788ddebf5510644761554e2ca3e24ad5ec9c5fc13a4a100c2b60d5d652c86",
+      "status": "excluded",
+      "reason": "Replay differs from recorded endpoint"
+    },
+    {
+      "name": "how_to_make_an_easy_origami_tulip_stem",
+      "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_make_an_easy_origami_tulip_stem/agent_log.jsonl",
+      "sourceSha256": "8d28020247dde317778fa2ccef6030152f774185bc0ea060c8180db0dab379e5",
+      "status": "exact-replay",
+      "reason": "All retained actions replay exactly"
+    },
+    {
+      "name": "origami_paper_bird",
+      "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/origami_paper_bird/agent_log.jsonl",
+      "sourceSha256": "badd64f8d91538559615ba5878a445a441e9aa5d8f269c9c9b6092ffd4d640b1",
+      "status": "excluded",
+      "reason": "Final comparator history not resolved"
+    },
+    {
+      "name": "how_to_make_a_very_simple_origami_bird",
+      "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_make_a_very_simple_origami_bird/agent_log.jsonl",
+      "sourceSha256": "fec42853d1ca8242dd743461db98a7bbbf486a014b08b2bfa3c713d3eb4f41c3",
+      "status": "excluded",
+      "reason": "Final comparator history not resolved"
+    },
+    {
+      "name": "easy_realistic_origami_rocket",
+      "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/easy_realistic_origami_rocket/agent_log.jsonl",
+      "sourceSha256": "98ebc2a5660e787c10aca0e196a76afefbebbb89d2d554247227cfd046e94c74",
+      "status": "excluded",
+      "reason": "Final comparator history not resolved"
+    },
+    {
+      "name": "easy_origami_rabbit_head_v1",
+      "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/easy_origami_rabbit_head_v1/agent_log.jsonl",
+      "sourceSha256": "e12a132d0f0f61d4927dc3a2eef2476bf84bdf05bf01e61773fd2b9239023ddb",
+      "status": "exact-replay",
+      "reason": "All retained actions replay exactly"
+    }
+  ]
+}

@@ -1,0 +1,274 @@
+[
+  {
+    "id": "crane",
+    "title": {
+      "en": "Paper crane",
+      "es": "Grulla de papel"
+    },
+    "category": "animals",
+    "steps": 44,
+    "movements": 40,
+    "difficulty": "intermediate",
+    "url": "/lessons/crane/crane.fold.json",
+    "source": "https://github.com/FoldLab/fold-spec/tree/main/examples/crane",
+    "license": "MIT",
+    "sha256": "bb49ec800f1a336f31a5aee4d95206e681dc0ac0d1abbe628d68ab818ef80fad",
+    "preview": "/lessons/crane/preview.svg"
+  },
+  {
+    "id": "cat-face",
+    "title": {
+      "en": "Cat face",
+      "es": "Cara de gato"
+    },
+    "category": "animals",
+    "steps": 20,
+    "movements": 18,
+    "difficulty": "beginner",
+    "url": "/lessons/cat-face/cat-face.fold.json",
+    "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/easy_origami_cat_face/agent_log.jsonl",
+    "license": "CC-BY-SA-4.0",
+    "sha256": "07299b1d09bbe07cba37d651bffb4340cbdf16ebf2ba263805c97a6bf5f18023",
+    "preview": "/lessons/cat-face/preview.svg"
+  },
+  {
+    "id": "cat",
+    "title": {
+      "en": "Wide cat face",
+      "es": "Cara ancha de gato"
+    },
+    "category": "animals",
+    "steps": 14,
+    "movements": 12,
+    "difficulty": "beginner",
+    "url": "/lessons/cat/cat.fold.json",
+    "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/easy_origami_cat_instructions_for_kids/agent_log.jsonl",
+    "license": "CC-BY-SA-4.0",
+    "sha256": "af0ced38d5c10c068af393131238f5679c74d8481a2d9180fe9297de289d6e68",
+    "preview": "/lessons/cat/preview.svg"
+  },
+  {
+    "id": "gift-holder",
+    "title": {
+      "en": "Gift card holder",
+      "es": "Portatarjeta de regalo"
+    },
+    "category": "useful",
+    "steps": 18,
+    "movements": 16,
+    "difficulty": "beginner",
+    "url": "/lessons/gift-holder/gift-holder.fold.json",
+    "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/easy_origami_gift_card_holder_instructions/agent_log.jsonl",
+    "license": "CC-BY-SA-4.0",
+    "sha256": "e4d7112bcb9ca60131dd1e340d0137311b292ed31cbe13484a1ef32492438249",
+    "preview": "/lessons/gift-holder/preview.svg"
+  },
+  {
+    "id": "rabbit",
+    "title": {
+      "en": "Rabbit head",
+      "es": "Cabeza de conejo"
+    },
+    "category": "animals",
+    "steps": 17,
+    "movements": 15,
+    "difficulty": "beginner",
+    "url": "/lessons/rabbit/rabbit.fold.json",
+    "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/easy_origami_rabbit_head_v1/agent_log.jsonl",
+    "license": "CC-BY-SA-4.0",
+    "sha256": "afb5059fedaa751f8dcb199267b7842f932f57e128168e0f46ee8caf4a1b0d56",
+    "preview": "/lessons/rabbit/preview.svg"
+  },
+  {
+    "id": "yacht",
+    "title": {
+      "en": "Sailing yacht",
+      "es": "Velero"
+    },
+    "category": "transport",
+    "steps": 12,
+    "movements": 10,
+    "difficulty": "beginner",
+    "url": "/lessons/yacht/yacht.fold.json",
+    "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/easy_origami_yacht_instructions/agent_log.jsonl",
+    "license": "CC-BY-SA-4.0",
+    "sha256": "6ba6dcf40c1b665156d0d70985f11c3e7729b3e0b17f6a7f31a8189a783055a3",
+    "preview": "/lessons/yacht/preview.svg"
+  },
+  {
+    "id": "heart",
+    "title": {
+      "en": "Paper heart",
+      "es": "Corazón de papel"
+    },
+    "category": "decorations",
+    "steps": 19,
+    "movements": 17,
+    "difficulty": "beginner",
+    "url": "/lessons/heart/heart.fold.json",
+    "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how-to-make-an-origami-heart/agent_log.jsonl",
+    "license": "CC-BY-SA-4.0",
+    "sha256": "6ba9210a1b1a41daa7fb1693dd38c2c314942d97f0394a15cbc0f26b69a024a2",
+    "preview": "/lessons/heart/preview.svg"
+  },
+  {
+    "id": "shield",
+    "title": {
+      "en": "Medieval shield",
+      "es": "Escudo medieval"
+    },
+    "category": "decorations",
+    "steps": 16,
+    "movements": 14,
+    "difficulty": "beginner",
+    "url": "/lessons/shield/shield.fold.json",
+    "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_make_a_medieval_origami_shield/agent_log.jsonl",
+    "license": "CC-BY-SA-4.0",
+    "sha256": "38c777cef56fc9d15d0a70efbc9bfb3124bd11afe0215a1fe20b7269ad6a4428",
+    "preview": "/lessons/shield/preview.svg"
+  },
+  {
+    "id": "pig",
+    "title": {
+      "en": "Pig face",
+      "es": "Cara de cerdo"
+    },
+    "category": "animals",
+    "steps": 16,
+    "movements": 14,
+    "difficulty": "beginner",
+    "url": "/lessons/pig/pig.fold.json",
+    "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_make_a_very_easy_origami_pig/agent_log.jsonl",
+    "license": "CC-BY-SA-4.0",
+    "sha256": "673c7c5f3e49e896394df467cc5cc90cf6f4bea770d5198d2c9c7b1ae5c8b739",
+    "preview": "/lessons/pig/preview.svg"
+  },
+  {
+    "id": "car",
+    "title": {
+      "en": "Paper car",
+      "es": "Coche de papel"
+    },
+    "category": "transport",
+    "steps": 14,
+    "movements": 12,
+    "difficulty": "beginner",
+    "url": "/lessons/car/car.fold.json",
+    "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_make_an_easy_origami_car/agent_log.jsonl",
+    "license": "CC-BY-SA-4.0",
+    "sha256": "b766dcce534ab303b12d2ada32f48f183d4aefd994d52658de6c6e717cc45572",
+    "preview": "/lessons/car/preview.svg"
+  },
+  {
+    "id": "penguin",
+    "title": {
+      "en": "Penguin",
+      "es": "Pingüino"
+    },
+    "category": "animals",
+    "steps": 18,
+    "movements": 16,
+    "difficulty": "beginner",
+    "url": "/lessons/penguin/penguin.fold.json",
+    "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_make_an_easy_origami_penguin/agent_log.jsonl",
+    "license": "CC-BY-SA-4.0",
+    "sha256": "14b46202ab2c24d1c65712577bdf2580ee8569cd13f79c79b7b6e839b7ffd8dc",
+    "preview": "/lessons/penguin/preview.svg"
+  },
+  {
+    "id": "sunflower",
+    "title": {
+      "en": "Sunflower",
+      "es": "Girasol"
+    },
+    "category": "plants",
+    "steps": 15,
+    "movements": 13,
+    "difficulty": "beginner",
+    "url": "/lessons/sunflower/sunflower.fold.json",
+    "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_make_an_easy_origami_sunflower/agent_log.jsonl",
+    "license": "CC-BY-SA-4.0",
+    "sha256": "a43ede733d1649467b7186c36a4d4f00532be6b7c399c90d1b4768067a3e62c4",
+    "preview": "/lessons/sunflower/preview.svg"
+  },
+  {
+    "id": "tulip",
+    "title": {
+      "en": "Tulip flower",
+      "es": "Flor de tulipán"
+    },
+    "category": "plants",
+    "steps": 8,
+    "movements": 6,
+    "difficulty": "beginner",
+    "url": "/lessons/tulip/tulip.fold.json",
+    "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_make_an_easy_origami_tulip/agent_log.jsonl",
+    "license": "CC-BY-SA-4.0",
+    "sha256": "385bffbed5c9ad3d0d3f91bfae22601aa256cc90370251aca5bc4a5a610a1960",
+    "preview": "/lessons/tulip/preview.svg"
+  },
+  {
+    "id": "tulip-stem",
+    "title": {
+      "en": "Tulip stem and leaf",
+      "es": "Tallo y hoja de tulipán"
+    },
+    "category": "plants",
+    "steps": 10,
+    "movements": 8,
+    "difficulty": "beginner",
+    "url": "/lessons/tulip-stem/tulip-stem.fold.json",
+    "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_make_an_easy_origami_tulip_stem/agent_log.jsonl",
+    "license": "CC-BY-SA-4.0",
+    "sha256": "e1005cff2cd0dfd65d68e21c136f352b118a31ca1122f90de25e261bf91dc71b",
+    "preview": "/lessons/tulip-stem/preview.svg"
+  },
+  {
+    "id": "cup",
+    "title": {
+      "en": "Paper cup",
+      "es": "Vaso de papel"
+    },
+    "category": "useful",
+    "steps": 15,
+    "movements": 13,
+    "difficulty": "beginner",
+    "url": "/lessons/cup/cup.fold.json",
+    "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_make_an_origami_cup/agent_log.jsonl",
+    "license": "CC-BY-SA-4.0",
+    "sha256": "e19577ab835610c010f5a76c3603eb173aeee7335018c3d02c9383c79a6abe64",
+    "preview": "/lessons/cup/preview.svg"
+  },
+  {
+    "id": "horse",
+    "title": {
+      "en": "Horse head",
+      "es": "Cabeza de caballo"
+    },
+    "category": "animals",
+    "steps": 26,
+    "movements": 24,
+    "difficulty": "beginner",
+    "url": "/lessons/horse/horse.fold.json",
+    "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_make_an_origami_horse_head/agent_log.jsonl",
+    "license": "CC-BY-SA-4.0",
+    "sha256": "1ae1cf90112c84b9657092f16be18edf2ca5f3c996bcc15174288f986215006a",
+    "preview": "/lessons/horse/preview.svg"
+  },
+  {
+    "id": "sloth",
+    "title": {
+      "en": "Sloth",
+      "es": "Perezoso"
+    },
+    "category": "animals",
+    "steps": 17,
+    "movements": 15,
+    "difficulty": "beginner",
+    "url": "/lessons/sloth/sloth.fold.json",
+    "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/very_easy_origami_sloth_instructions/agent_log.jsonl",
+    "license": "CC-BY-SA-4.0",
+    "sha256": "85050c51f90559e2d3ef6efaefea56b0f0d9f515f2a2c08c0fa193dbec2ad4c1",
+    "preview": "/lessons/sloth/preview.svg"
+  }
+]
