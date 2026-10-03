@@ -12,6 +12,8 @@ import { localize } from './localization';
 import { FoldThreeRenderer } from './renderer';
 import type { PlaybackRate, ViewMode } from './types';
 
+const tr = (locale: string | undefined, en: string, es: string) => locale?.startsWith("es") ? es : en;
+
 function Icon({
   name,
 }: {
@@ -133,7 +135,7 @@ export function FoldViewport({
       )}
       {status === 'error' && (
         <div className="fold-status fold-status--error" role="alert">
-          <strong>Unable to open this fold</strong>
+          <strong>{tr(locale, "Unable to open this fold", "No se puede abrir este modelo")}</strong>
           <span>{error?.message}</span>
         </div>
       )}
@@ -141,7 +143,7 @@ export function FoldViewport({
         <div
           className="fold-text-view"
           role="region"
-          aria-label="Text instruction"
+          aria-label={tr(locale,"Text instruction","Instrucción de texto")}
         >
           <span className="fold-eyebrow">Text view</span>
           <h3>
@@ -176,7 +178,7 @@ export function FoldViewport({
           className="fold-view-reset"
           type="button"
           onClick={() => renderer.current?.resetView()}
-          aria-label="Reset 3D view"
+          aria-label={tr(locale,"Reset 3D view","Reiniciar vista 3D")}
         >
           <Icon name="reset" />
         </button>
@@ -228,12 +230,14 @@ export function FoldInstructions({
 function ModeToggle({
   mode,
   setMode,
+  locale,
 }: {
+  locale?: string;
   mode: ViewMode;
   setMode: (mode: ViewMode) => void;
 }) {
   return (
-    <div className="fold-segmented" role="group" aria-label="Viewer mode">
+    <div className="fold-segmented" role="group" aria-label={tr(locale,"Viewer mode","Modo de vista")}>
       {(['animation', 'text'] as const).map((value) => (
         <button
           key={value}
@@ -241,7 +245,7 @@ function ModeToggle({
           aria-pressed={mode === value}
           onClick={() => setMode(value)}
         >
-          {value === 'animation' ? 'Animation' : 'Text'}
+          {value === 'animation' ? tr(locale,'Animation','Animación') : tr(locale,'Text','Texto')}
         </button>
       ))}
     </div>
@@ -252,21 +256,21 @@ export function FoldSettings({
   className = '',
   ...props
 }: DetailsHTMLAttributes<HTMLDetailsElement>) {
-  const { preferences, setPreferences } = useFoldViewer();
+  const { preferences, setPreferences, locale } = useFoldViewer();
   const options: Array<[keyof typeof preferences, string]> = [
-    ['highContrast', 'High contrast paper'],
-    ['plainBackground', 'Plain background'],
-    ['reducedMotion', 'Reduce motion'],
-    ['tactileDetails', 'Show tactile details'],
+    ['highContrast', tr(locale,'High contrast paper','Papel de alto contraste')],
+    ['plainBackground', tr(locale,'Plain background','Fondo liso')],
+    ['reducedMotion', tr(locale,'Reduce motion','Reducir movimiento')],
+    ['tactileDetails', tr(locale,'Show tactile details','Mostrar detalles táctiles')],
   ];
   return (
     <details className={`fold-settings ${className}`} {...props}>
-      <summary aria-label="Viewer settings">
+      <summary aria-label={tr(locale,"Viewer settings","Ajustes del visor")}>
         <Icon name="settings" />
-        <span>Settings</span>
+        <span>{tr(locale,"Settings","Ajustes")}</span>
       </summary>
       <div className="fold-settings-panel">
-        <strong>Viewer settings</strong>
+        <strong>{tr(locale,"Viewer settings","Ajustes del visor")}</strong>
         {options.map(([key, label]) => (
           <label key={key}>
             <span>{label}</span>
@@ -290,6 +294,7 @@ export function FoldControls({
 }: HTMLAttributes<HTMLDivElement>) {
   const {
     document,
+    locale,
     stepIndex,
     progress,
     playing,
@@ -313,7 +318,7 @@ export function FoldControls({
         type="button"
         onClick={previous}
         disabled={stepIndex <= 0}
-        aria-label="Previous step"
+        aria-label={tr(locale,"Previous step","Paso anterior")}
       >
         <Icon name="previous" />
       </button>
@@ -324,26 +329,26 @@ export function FoldControls({
         disabled={!canRenderAnimation}
         aria-label={
           playing
-            ? 'Pause animation'
+            ? tr(locale,'Pause animation','Pausar animación')
             : progress >= 1
-              ? 'Replay animation'
-              : 'Play animation'
+              ? tr(locale,'Replay animation','Repetir animación')
+              : tr(locale,'Play animation','Reproducir animación')
         }
       >
         <Icon name={playing ? 'pause' : 'play'} />
-        <span>{playing ? 'Pause' : progress >= 1 ? 'Replay' : 'Play'}</span>
+        <span>{playing ? tr(locale,'Pause','Pausar') : progress >= 1 ? tr(locale,'Replay','Repetir') : tr(locale,'Play','Reproducir')}</span>
       </button>
       <button
         className="fold-icon-button"
         type="button"
         onClick={next}
         disabled={stepIndex >= last}
-        aria-label="Next step"
+        aria-label={tr(locale,"Next step","Paso siguiente")}
       >
         <Icon name="next" />
       </button>
       <label className="fold-scrubber" htmlFor={rangeId}>
-        <span className="fold-sr-only">Step progress</span>
+        <span className="fold-sr-only">{tr(locale,"Step progress","Progreso del paso")}</span>
         <input
           id={rangeId}
           type="range"
@@ -359,7 +364,7 @@ export function FoldControls({
         />
       </label>
       <label className="fold-speed">
-        <span className="fold-sr-only">Playback speed</span>
+        <span className="fold-sr-only">{tr(locale,"Playback speed","Velocidad")}</span>
         <select
           value={playbackRate}
           onChange={(event) =>
@@ -373,12 +378,12 @@ export function FoldControls({
           ))}
         </select>
       </label>
-      <ModeToggle mode={viewMode} setMode={setViewMode} />
+      <ModeToggle mode={viewMode} setMode={setViewMode} locale={locale} />
       <button
         className="fold-icon-button fold-reset-button"
         type="button"
         onClick={reset}
-        aria-label="Reset step"
+        aria-label={tr(locale,"Reset step","Reiniciar paso")}
       >
         <Icon name="reset" />
       </button>

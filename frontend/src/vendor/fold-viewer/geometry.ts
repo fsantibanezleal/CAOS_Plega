@@ -122,7 +122,11 @@ function layerHintAt(
         closest = key;
     return closest.layerHint;
   }
-  return progress < 0.5 ? operation.startLayerHint : operation.endLayerHint;
+  const start = operation.startLayerHint;
+  const end = operation.endLayerHint;
+  if (!start || !end || start.ranks.length !== end.ranks.length)
+    return progress < 0.5 ? start : end;
+  return {axis: start.axis, ranks: start.ranks.map((rank,index)=>mix(rank,end.ranks[index],eased(progress,operation.easing)))};
 }
 
 function stepRunsAt(

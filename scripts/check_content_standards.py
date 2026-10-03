@@ -33,7 +33,7 @@ PINNED_THIRD_PARTY = {
     "data/guide/foldspec/crane-source.fold.json":
         "a929fd12bac4d89bd050f643d66408cb8421d94842cf13dbc1e4bdde215c9995",
     "frontend/public/lessons/crane/crane.fold.json":
-        "3bf38559fab7965059aae413ac2ba93876e2eb117e2dbe6a5bcff7f6ea2f4bc4",
+        "bb49ec800f1a336f31a5aee4d95206e681dc0ac0d1abbe628d68ab818ef80fad",
 }
 
 BANNED_DASHES = {0x2014, 0x2015}  # em dash, horizontal bar

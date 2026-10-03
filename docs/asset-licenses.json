@@ -3,7 +3,7 @@
   "codeLicense": "Apache-2.0",
   "originalDesignDataLicense": "MIT",
   "fontProvenance": "frontend/src/export/assets/provenance.json",
-  "researchBoundary": "The pinned MIT Fold Spec crane lesson and the individually licensed Commons and Tavin diagram assets inventoried below are redistributed; other third-party plans are not model-library entries.",
+  "researchBoundary": "Only resolved, checked motion sequences are model-library entries. Reconstructed geometry from the FoldingAgent project carries CC BY-SA 4.0 with its attribution and source hashes. External diagrams remain optional companions.",
   "systemFonts": "Self-hosted unmodified OFL UI fonts; system fonts are fallback lookups only. The original Noto Sans print font remains bundled separately.",
   "assets": [
     {
@@ -22,10 +22,10 @@
     },
     {
       "path": "frontend/public/lessons/crane/crane.fold.json",
-      "bytes": 1266910,
-      "sha256": "3bf38559fab7965059aae413ac2ba93876e2eb117e2dbe6a5bcff7f6ea2f4bc4",
+      "bytes": 1273568,
+      "sha256": "bb49ec800f1a336f31a5aee4d95206e681dc0ac0d1abbe628d68ab818ef80fad",
       "license": "MIT",
-      "origin": "PLEGA viewing copy deterministically derived by scripts/import_foldspec_crane.py from the pinned MIT crane source. Only late-step camera targets and span change; geometry and instructions stay identical."
+      "origin": "PLEGA viewing copy of the pinned MIT Fold Spec crane; camera framing and separately authored Spanish translation are added. Geometry and English instructions remain unchanged."
     },
     {
       "path": "frontend/public/lessons/crane/LICENSE",
@@ -587,6 +587,363 @@
       "author": "Traditional model; diagram by Tavin",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
       "changes": "Original unmodified PDF"
+    },
+    {
+      "path": "data/guide/motion-sources/easy_origami_cat_face.json",
+      "bytes": 81005,
+      "sha256": "d95be393ca471d8cad7dca2a2f3667825bf476f1b7dc7d285a1cb725cb0c1a9b",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "data/guide/motion-sources/easy_origami_cat_instructions_for_kids.json",
+      "bytes": 20950,
+      "sha256": "025ec2e0071fad0f2a19e19acbfea1b2382cf2dea31c9dfc7a8731c59e002e40",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "data/guide/motion-sources/easy_origami_gift_card_holder_instructions.json",
+      "bytes": 33898,
+      "sha256": "15b11e7a2ab223dedf5de94a396bfa74857df4f6963671e6640fa12a3611eb00",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "data/guide/motion-sources/easy_origami_rabbit_head_v1.json",
+      "bytes": 48144,
+      "sha256": "69f2f518b8dba3493ea477dd7cac2fdcaa85d1314c8b3df5580bd6256cfbbb97",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "data/guide/motion-sources/easy_origami_yacht_instructions.json",
+      "bytes": 9828,
+      "sha256": "ec1b3ebdd579dc1f2f57b4608643cf17c9829772ff9b71622606d0df6e3166d1",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "data/guide/motion-sources/how-to-make-an-origami-heart.json",
+      "bytes": 68309,
+      "sha256": "11414bed545d510d98a5661833b0294006958b49032c2ebcf31a00d6e9da50f6",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "data/guide/motion-sources/how_to_make_an_easy_origami_car.json",
+      "bytes": 19294,
+      "sha256": "976d3ee0c20428afa56a4d1fa4d0e57364b02acedc109d5283a31a699e958ee7",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "data/guide/motion-sources/how_to_make_an_easy_origami_penguin.json",
+      "bytes": 37675,
+      "sha256": "59a0c597a4f51420afe3163611d1e01a934bc946cb2d7e3c2c704ef20ed8d966",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "data/guide/motion-sources/how_to_make_an_easy_origami_sunflower.json",
+      "bytes": 33803,
+      "sha256": "2a4e72a0498095b9b314cbb850056b0111cb31b74410cd0c0043f946788ebb08",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "data/guide/motion-sources/how_to_make_an_easy_origami_tulip.json",
+      "bytes": 8526,
+      "sha256": "a849877291ede16af946f04b2082511b86bfa7fc7e02a737b4ff6621e476ddb3",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "data/guide/motion-sources/how_to_make_an_easy_origami_tulip_stem.json",
+      "bytes": 11648,
+      "sha256": "9deafecd7336f16fd9a7f72865bfdb9009bd90ee56a7c3889b4fa7f99a1db257",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "data/guide/motion-sources/how_to_make_an_origami_cup.json",
+      "bytes": 21315,
+      "sha256": "4211a23e4a7350e667a144783f0e66ae4caa3650aa60d664d751653d8844542c",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "data/guide/motion-sources/how_to_make_an_origami_horse_head.json",
+      "bytes": 100096,
+      "sha256": "07fd7d408e013fc724b9c070d19c9fb0ec35ebe17a08bbba915fef26167732a1",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "data/guide/motion-sources/how_to_make_a_medieval_origami_shield.json",
+      "bytes": 33767,
+      "sha256": "2c9a41a1ad561f74d6430bb8e0cda4781d57ff229f49b57252b481118c37f05d",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "data/guide/motion-sources/how_to_make_a_very_easy_origami_pig.json",
+      "bytes": 48017,
+      "sha256": "2b1b1638c43b35700ef98faf15751a7d33f39e27c5430a81b01dbbbed704ad8b",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "data/guide/motion-sources/very_easy_origami_sloth_instructions.json",
+      "bytes": 24833,
+      "sha256": "3b6c5464571e70afd7346163e6a2b3c56dd28178331480ca7ace370f91d4e0c3",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/car/car.fold.json",
+      "bytes": 30147,
+      "sha256": "13991c849ea9462819ef0e16c108ecbd075bb53e6182936fd126ee2bdb90bea1",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/car/preview.svg",
+      "bytes": 1823,
+      "sha256": "b64afb0081c698f22dd4be6b3bc31a620d676381009930e2410a69e2e05412a2",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/cat/cat.fold.json",
+      "bytes": 28951,
+      "sha256": "f5d7c00935f19312e61116f6e77a64642c08b1b5d9a95209d208dcd8e50b3870",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/cat/preview.svg",
+      "bytes": 2432,
+      "sha256": "ef917a3b865004386b7aedca6c94551eccab2765d49d6e34fb87b6f246f07401",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/cat-face/cat-face.fold.json",
+      "bytes": 65839,
+      "sha256": "5b6fe9e8eae6097497b7b6d29bb7f3ada2a8af738bcc9311db7dc9a4953f78fe",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/cat-face/preview.svg",
+      "bytes": 6065,
+      "sha256": "9ebc4b80ac6ebd454bc03331ed3f0e684631aee2d3d9c7947a2ddb5392e5a420",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/cup/cup.fold.json",
+      "bytes": 32662,
+      "sha256": "788be8a15c0e62d83b63002390e3ece4b3698d70e8166603daf44e93befc6046",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/cup/preview.svg",
+      "bytes": 1868,
+      "sha256": "66c2548b018d4765a3096e87bfe34b7655a1b12cbaf289796ddc8e79844f488a",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/gift-holder/gift-holder.fold.json",
+      "bytes": 43894,
+      "sha256": "fe3ff6563d8f7e1762661747de187134a5cfe8642079ecc9f4a124628abe8ccf",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/gift-holder/preview.svg",
+      "bytes": 3552,
+      "sha256": "87268a0cc105f924d25d5c1a372c720a8bfe2c11466cef9f98b37d4b885b0c30",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/heart/heart.fold.json",
+      "bytes": 55110,
+      "sha256": "d4046ebea6566e0de0999abd8d0f94f965530255d4333df99a3494e0d044c516",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/heart/preview.svg",
+      "bytes": 5082,
+      "sha256": "2f9bd44cd5b18130f5edc0617375e941eddee3b5c5fa0c24c7534f49c872dc25",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/horse/horse.fold.json",
+      "bytes": 93176,
+      "sha256": "98daffc661ef0543e96908402f5793b5a746d1535de04c6fede51606b59fc79b",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/horse/preview.svg",
+      "bytes": 8384,
+      "sha256": "ef4677247f6195d4e1c4e32af2217c2e110a579b631731e9b9473bea59596e9d",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/penguin/penguin.fold.json",
+      "bytes": 46709,
+      "sha256": "5a2996daacf8b5d0e2b5f9068233750abeacda95abf3e244ad9467a385abca02",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/penguin/preview.svg",
+      "bytes": 3579,
+      "sha256": "f6a015be61d3fdf0f5d833390caf43be4b3db35bb69c2af5eb83124702396418",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/pig/pig.fold.json",
+      "bytes": 42384,
+      "sha256": "7f532348cdec158fd387f5c9ec2f8da74f7ef92277bb045a094f5fbcc6af6a4e",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/pig/preview.svg",
+      "bytes": 4718,
+      "sha256": "d66506314e3ccfb577faa47400e5a26a37632b30551c33b012323278189288fc",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/rabbit/preview.svg",
+      "bytes": 3603,
+      "sha256": "c00d5ae80ef3c1b7f1eed6cd4d5d45e245b7dd356b21528aa3a4b51975ae9510",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/rabbit/rabbit.fold.json",
+      "bytes": 50300,
+      "sha256": "c25e416dfad14fc49448f4c3dc2c76592a2c6f8da8420928bfb797446f08d621",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/shield/preview.svg",
+      "bytes": 4673,
+      "sha256": "9478a99dcd69dfbdb584bbd113818604c9b0f17c47d2cad03324cc8e11abd227",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/shield/shield.fold.json",
+      "bytes": 39786,
+      "sha256": "6e0e8570f42ea386b3344300f10596534d17e12f6dac0517f15bf9b0a292e385",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/sloth/preview.svg",
+      "bytes": 2159,
+      "sha256": "31d6daad87f592df4a15797f22a1e77957558cd899ea147448d0b1d4da01642d",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/sloth/sloth.fold.json",
+      "bytes": 35315,
+      "sha256": "d84db8ac1ccecdcc56728b4fef1b6adef5d58dae2aa85e831195602dd3405570",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/sunflower/preview.svg",
+      "bytes": 2397,
+      "sha256": "580f1c1f0a5147039b797048e7378173e6897ac1e7ef9c5978d61e8918b69bb6",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/sunflower/sunflower.fold.json",
+      "bytes": 33163,
+      "sha256": "9f1006c9c7f39df9ccc690b8286143c5e69a57f7e557f709aaae12f67c3f0539",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/tulip/preview.svg",
+      "bytes": 1569,
+      "sha256": "870dfe9f5ce8b09b11e7c92364a7048614493c80af6b2efb1f7d1a300b50fecc",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/tulip/tulip.fold.json",
+      "bytes": 14101,
+      "sha256": "8c1d02c649be8cf49c03cac6bbbde8756adc34b1dacd0af1b5c628c7bf0e5509",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/tulip-stem/preview.svg",
+      "bytes": 1560,
+      "sha256": "550d039f3736efbb8c763f648689a9fa41b31cf1d55f717153a573bef8595eeb",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/tulip-stem/tulip-stem.fold.json",
+      "bytes": 18259,
+      "sha256": "24be405494383e0c21b0fd4cfc1dc3c229e1470cc68111b557bf92817f87f56e",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/yacht/preview.svg",
+      "bytes": 1285,
+      "sha256": "7a875706a9833760e57e04386d784d694004945d2c74b60bf883a6968daffc02",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/lessons/yacht/yacht.fold.json",
+      "bytes": 20619,
+      "sha256": "304fe46fe8b9717a14bb18e51a7b2ff2522417ff5b12019ab17a647b7fcdcfe9",
+      "license": "CC BY-SA 4.0",
+      "origin": "Geometric action reconstruction adapted by PLEGA from the FoldingAgent project results; attribution and license: frontend/public/licenses/motion-sources.txt. No photographs or upstream inference prose are redistributed."
+    },
+    {
+      "path": "frontend/public/licenses/motion-sources.txt",
+      "bytes": 1543,
+      "sha256": "f9aed23e978d0a344c88791f774744a2bc0a871094a745d4d421adcf6814042c",
+      "license": "CC BY-SA 4.0",
+      "origin": "Attribution, license links and adaptation notice for FoldingAgent geometric data."
+    },
+    {
+      "path": "frontend/public/lessons/crane/preview.svg",
+      "bytes": 29969,
+      "sha256": "5864ed60bb56076045420685483707a12f793f49a65622c9fc8796e8abb67528",
+      "license": "MIT",
+      "origin": "PLEGA preview projected from the pinned Fold Spec crane final geometry."
+    },
+    {
+      "path": "data/guide/foldspec/crane-es.json",
+      "bytes": 8087,
+      "sha256": "a90ffc25fbbe6e9c4b48a2c128983b68ec7bed4e60ce20d5b6c5ffe499e33b2a",
+      "license": "MIT",
+      "origin": "PLEGA Spanish translation of the pinned MIT Fold Spec crane instructions."
     }
   ],
   "uiFontProvenance": "frontend/public/fonts/provenance.json"

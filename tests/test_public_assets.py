@@ -30,8 +30,9 @@ class PublicAssetTests(unittest.TestCase):
     def test_viewer_pins_the_exact_public_lesson(self):
         lesson = (ROOT / "frontend/public/lessons/crane/crane.fold.json").read_bytes()
         viewer = (ROOT / "frontend/src/vendor/fold-viewer/validation.ts").read_text(encoding="utf-8")
-        self.assertIn(hashlib.sha256(lesson).hexdigest(), viewer)
-        self.assertIn("source.url !== LESSON_URL", viewer)
+        manifest = json.loads((ROOT / "frontend/src/guide/lesson-manifest.json").read_bytes())
+        self.assertEqual(next(item['sha256'] for item in manifest if item['id']=='crane'), hashlib.sha256(lesson).hexdigest())
+        self.assertIn("lessons.find", viewer)
         self.assertIn("crypto.subtle.digest('SHA-256'", viewer)
         self.assertNotIn("new Function", viewer)
         self.assertEqual((ROOT / "frontend/src/vendor/fold-viewer/LICENSE").read_bytes(),
