@@ -13,6 +13,13 @@ spec.loader.exec_module(motion)
 
 
 class MotionLessonTests(unittest.TestCase):
+    def test_artifact_precision_rejects_nonfinite_and_normalizes_libm_noise(self):
+        self.assertEqual(motion.encoded({'p': [1.2345678900000001, -1e-15]}),
+                         motion.encoded({'p': [1.23456789, 0.0]}))
+        for value in [float('nan'), float('inf'), -float('inf')]:
+            with self.assertRaisesRegex(ValueError, 'Non-finite'):
+                motion.encoded({'coordinate': value})
+
     def test_all_outputs_are_reproducible_and_source_bound(self):
         for path, expected in motion.outputs().items():
             self.assertEqual(path.read_bytes(),expected,str(path))
