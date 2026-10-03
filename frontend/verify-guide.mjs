@@ -155,6 +155,10 @@ for (const size of [
   const p = await browser.newPage({ viewport: size });
   p.on("pageerror", (e) => errors.push(String(e)));
   await p.goto(base);
+  const header = await p.locator(".plega-header").boundingBox();
+  const navigation = await p.locator(".plega-header nav").boundingBox();
+  assert.ok(header && navigation);
+  assert.ok(navigation.y + navigation.height <= header.y + header.height);
   await p.locator(".plega-model-card").last().scrollIntoViewIfNeeded();
   assert.ok(await p.evaluate(() => scrollY > 0));
   assert.equal(
