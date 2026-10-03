@@ -28,7 +28,7 @@
     "url": "/lessons/cat-face/cat-face.fold.json",
     "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/easy_origami_cat_face/agent_log.jsonl",
     "license": "CC-BY-SA-4.0",
-    "sha256": "67a7cf181f9b5d8e6ab9bdee8a267fed733a6c16cf8d4a51b855a75293ff742b",
+    "sha256": "5b6fe9e8eae6097497b7b6d29bb7f3ada2a8af738bcc9311db7dc9a4953f78fe",
     "preview": "/lessons/cat-face/preview.svg"
   },
   {
@@ -44,7 +44,7 @@
     "url": "/lessons/cat/cat.fold.json",
     "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/easy_origami_cat_instructions_for_kids/agent_log.jsonl",
     "license": "CC-BY-SA-4.0",
-    "sha256": "8686da75b738b3db9fb176f0f5f75896efb5ffed4978b5c7a9e9c68f61adcf3e",
+    "sha256": "f5d7c00935f19312e61116f6e77a64642c08b1b5d9a95209d208dcd8e50b3870",
     "preview": "/lessons/cat/preview.svg"
   },
   {
@@ -60,7 +60,7 @@
     "url": "/lessons/gift-holder/gift-holder.fold.json",
     "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/easy_origami_gift_card_holder_instructions/agent_log.jsonl",
     "license": "CC-BY-SA-4.0",
-    "sha256": "d744c17c6c6abc2933a47f6aa854c3d91795aeb8bf9bfc71b676abb1d8ace15a",
+    "sha256": "fe3ff6563d8f7e1762661747de187134a5cfe8642079ecc9f4a124628abe8ccf",
     "preview": "/lessons/gift-holder/preview.svg"
   },
   {
@@ -76,7 +76,7 @@
     "url": "/lessons/rabbit/rabbit.fold.json",
     "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/easy_origami_rabbit_head_v1/agent_log.jsonl",
     "license": "CC-BY-SA-4.0",
-    "sha256": "bdbe8b023ec5f3a884cc5ec4998eacf969548a9386348f12d3ef807683cd490e",
+    "sha256": "c25e416dfad14fc49448f4c3dc2c76592a2c6f8da8420928bfb797446f08d621",
     "preview": "/lessons/rabbit/preview.svg"
   },
   {
@@ -92,7 +92,7 @@
     "url": "/lessons/yacht/yacht.fold.json",
     "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/easy_origami_yacht_instructions/agent_log.jsonl",
     "license": "CC-BY-SA-4.0",
-    "sha256": "48fa1ec92df31fdac52c8dfb1873b792eb2bba0499a0c70af38ebcaf8f5082e2",
+    "sha256": "304fe46fe8b9717a14bb18e51a7b2ff2522417ff5b12019ab17a647b7fcdcfe9",
     "preview": "/lessons/yacht/preview.svg"
   },
   {
@@ -108,7 +108,7 @@
     "url": "/lessons/heart/heart.fold.json",
     "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how-to-make-an-origami-heart/agent_log.jsonl",
     "license": "CC-BY-SA-4.0",
-    "sha256": "d9eec1a6e0d2e3c13a473d853bc9f7f0e2cffc4f92b01d6f3c8bc818f096ba07",
+    "sha256": "d4046ebea6566e0de0999abd8d0f94f965530255d4333df99a3494e0d044c516",
     "preview": "/lessons/heart/preview.svg"
   },
   {
@@ -124,7 +124,7 @@
     "url": "/lessons/shield/shield.fold.json",
     "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_make_a_medieval_origami_shield/agent_log.jsonl",
     "license": "CC-BY-SA-4.0",
-    "sha256": "4354e50f415c5bd37d75f33b132e840ebacb773a62baf2447515f8d67fb37c12",
+    "sha256": "6e0e8570f42ea386b3344300f10596534d17e12f6dac0517f15bf9b0a292e385",
     "preview": "/lessons/shield/preview.svg"
   },
   {
@@ -140,7 +140,7 @@
     "url": "/lessons/pig/pig.fold.json",
     "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_make_a_very_easy_origami_pig/agent_log.jsonl",
     "license": "CC-BY-SA-4.0",
-    "sha256": "9d396e28c3d2fb0e93c50a15c2c91567c6dfdbc58a7681de9622706f899129af",
+    "sha256": "7f532348cdec158fd387f5c9ec2f8da74f7ef92277bb045a094f5fbcc6af6a4e",
     "preview": "/lessons/pig/preview.svg"
   },
   {
@@ -156,7 +156,7 @@
     "url": "/lessons/car/car.fold.json",
     "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_make_an_easy_origami_car/agent_log.jsonl",
     "license": "CC-BY-SA-4.0",
-    "sha256": "cfa6372ee4549df41dc26b2e07905bf2ee00f92d81abef76b555739e02539780",
+    "sha256": "13991c849ea9462819ef0e16c108ecbd075bb53e6182936fd126ee2bdb90bea1",
     "preview": "/lessons/car/preview.svg"
   },
   {
@@ -172,7 +172,7 @@
     "url": "/lessons/penguin/penguin.fold.json",
     "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_make_an_easy_origami_penguin/agent_log.jsonl",
     "license": "CC-BY-SA-4.0",
-    "sha256": "b47f05693911a2481212b937d75b9e321df6edb57b256757af3a7b9f4259e2c2",
+    "sha256": "5a2996daacf8b5d0e2b5f9068233750abeacda95abf3e244ad9467a385abca02",
     "preview": "/lessons/penguin/preview.svg"
   },
   {
@@ -188,7 +188,7 @@
     "url": "/lessons/sunflower/sunflower.fold.json",
     "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_make_an_easy_origami_sunflower/agent_log.jsonl",
     "license": "CC-BY-SA-4.0",
-    "sha256": "048c213b1499ca1e0b2ff9ee3fe74829691c2829027f88cb092805084f0bdb9f",
+    "sha256": "9f1006c9c7f39df9ccc690b8286143c5e69a57f7e557f709aaae12f67c3f0539",
     "preview": "/lessons/sunflower/preview.svg"
   },
   {
@@ -204,7 +204,7 @@
     "url": "/lessons/tulip/tulip.fold.json",
     "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_make_an_easy_origami_tulip/agent_log.jsonl",
     "license": "CC-BY-SA-4.0",
-    "sha256": "23c64418b5bbac70cbe6eb9ac47715bb702e11293a5ff81dac51ad77d06f6616",
+    "sha256": "8c1d02c649be8cf49c03cac6bbbde8756adc34b1dacd0af1b5c628c7bf0e5509",
     "preview": "/lessons/tulip/preview.svg"
   },
   {
@@ -220,7 +220,7 @@
     "url": "/lessons/tulip-stem/tulip-stem.fold.json",
     "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_make_an_easy_origami_tulip_stem/agent_log.jsonl",
     "license": "CC-BY-SA-4.0",
-    "sha256": "6c6f150ebde99732c9bd242b64bed4894a1bd7c64dddb6227aae22ee39ba1ba6",
+    "sha256": "24be405494383e0c21b0fd4cfc1dc3c229e1470cc68111b557bf92817f87f56e",
     "preview": "/lessons/tulip-stem/preview.svg"
   },
   {
@@ -236,7 +236,7 @@
     "url": "/lessons/cup/cup.fold.json",
     "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_make_an_origami_cup/agent_log.jsonl",
     "license": "CC-BY-SA-4.0",
-    "sha256": "667fe6b2b2a6ea282d99740d523cf7a3b94a287afe6c4f0589e332c31b581d31",
+    "sha256": "788be8a15c0e62d83b63002390e3ece4b3698d70e8166603daf44e93befc6046",
     "preview": "/lessons/cup/preview.svg"
   },
   {
@@ -252,7 +252,7 @@
     "url": "/lessons/horse/horse.fold.json",
     "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/how_to_make_an_origami_horse_head/agent_log.jsonl",
     "license": "CC-BY-SA-4.0",
-    "sha256": "8be0a83a44068f0a1173bafd4690bd42aa51384b1b637d5ee72f87903aead752",
+    "sha256": "98daffc661ef0543e96908402f5793b5a746d1535de04c6fede51606b59fc79b",
     "preview": "/lessons/horse/preview.svg"
   },
   {
@@ -268,7 +268,7 @@
     "url": "/lessons/sloth/sloth.fold.json",
     "source": "https://maya-moriya.github.io/origami-page/FoldingAgentResults/sequences/very_easy_origami_sloth_instructions/agent_log.jsonl",
     "license": "CC-BY-SA-4.0",
-    "sha256": "b8fc07ca45d64b8f6c5b6690e6a6f5c1ca4f7b5f804d9238379c6b7830770c35",
+    "sha256": "d84db8ac1ccecdcc56728b4fef1b6adef5d58dae2aa85e831195602dd3405570",
     "preview": "/lessons/sloth/preview.svg"
   }
 ]

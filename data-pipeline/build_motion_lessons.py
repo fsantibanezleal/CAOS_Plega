@@ -40,8 +40,24 @@ PALETTE = {'animals': '#db855e', 'plants': '#5d9b79', 'useful': '#578da5',
            'transport': '#739fc0', 'decorations': '#ba718a'}
 
 
+def stable_numbers(value):
+    # libm may differ by a final binary ulp across Windows/Linux. Nine decimal
+    # places in millimeters are far below the 0.002mm admission tolerance.
+    # Preserve source trajectories; canonicalize only derived artifact numbers.
+    if isinstance(value, float):
+        if not math.isfinite(value):
+            raise ValueError('Non-finite motion artifact')
+        rounded = round(value, 9)
+        return 0.0 if rounded == 0 else rounded
+    if isinstance(value, list):
+        return [stable_numbers(item) for item in value]
+    if isinstance(value, dict):
+        return {key: stable_numbers(item) for key, item in value.items()}
+    return value
+
+
 def encoded(value):
-    return (json.dumps(value, ensure_ascii=False, separators=(',', ':'), allow_nan=False) + '\n').encode('utf-8')
+    return (json.dumps(stable_numbers(value), ensure_ascii=False, separators=(',', ':'), allow_nan=False) + '\n').encode('utf-8')
 
 
 def point(xy):
@@ -254,7 +270,7 @@ def outputs():
         points=' '.join(f'{projected[v][0]:.4f},{projected[v][1]:.4f}' for v in f['vertices'])
         polygons.append(f'<polygon points="{points}" fill="{color}" stroke="#443a34" stroke-width=".18" stroke-linejoin="round"/>')
     entries[0]['preview']='/lessons/crane/preview.svg'
-    artifacts[PUBLIC/'crane/preview.svg']=(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{xmin-margin} {ymin-margin} {xmax-xmin+2*margin} {ymax-ymin+2*margin}"><title>Paper crane</title>{"".join(polygons)}</svg>\n').encode('utf-8')
+    artifacts[PUBLIC/'crane/preview.svg']=(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{xmin-margin:.6f} {ymin-margin:.6f} {xmax-xmin+2*margin:.6f} {ymax-ymin+2*margin:.6f}"><title>Paper crane</title>{"".join(polygons)}</svg>\n').encode('utf-8')
     for path in sorted(SOURCE.glob('*.json')):
         document, entry = compile_model(json.loads(path.read_bytes()))
         content = encoded(document)
@@ -274,7 +290,7 @@ def outputs():
             color = document['sheets'][0]['front' if signed > 0 else 'back']['color']
             coords = ' '.join(f'{p[0]:.4f},{-p[1]:.4f}' for p in points)
             polygons.append(f'<polygon points="{coords}" fill="{color}" stroke="#443a34" stroke-width=".25" stroke-linejoin="round"/>')
-        svg = f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{xmin-margin} {-ymax-margin} {xmax-xmin+2*margin} {ymax-ymin+2*margin}"><title>{entry["title"]["en"]}</title>{"".join(polygons)}</svg>\n'
+        svg = f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{xmin-margin:.6f} {-ymax-margin:.6f} {xmax-xmin+2*margin:.6f} {ymax-ymin+2*margin:.6f}"><title>{entry["title"]["en"]}</title>{"".join(polygons)}</svg>\n'
         entry['preview'] = f'/lessons/{entry["id"]}/preview.svg'
         artifacts[ROOT / 'frontend/public' / entry['preview'].lstrip('/')] = svg.encode('utf-8')
         entries.append(entry)

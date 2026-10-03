@@ -16,6 +16,9 @@ From the repository root, compile or check exact artifacts offline:
 preview and manifest from source. Admission checks include endpoint errors below
 0.002 mm, total paper area and rigid-face edge lengths at intermediate states.
 Browser tests exercise the actual player rather than just this compiler.
+Derived JSON coordinates are canonicalized to nine decimal places in millimeters
+and SVG view boxes to six. This removes platform-specific final-bit `libm` noise
+without changing retained source trajectories or the admission tolerance.
 
 To independently repeat simulator replay, use an optional authoring environment:
 
